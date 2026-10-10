@@ -1,0 +1,109 @@
+# vllm_ascend/platform.py
+   190	        # and the user can enable quantization using "vllm serve --quantization ascend".
+   191	        if parser is not None:
+   192	            quant_action = parser._option_string_actions.get("--quantization")
+   193	            if quant_action and hasattr(quant_action, "choices") and quant_action.choices:
+   194	                if ASCEND_QUANTIZATION_METHOD not in quant_action.choices:
+   195	                    quant_action.choices.append(ASCEND_QUANTIZATION_METHOD)
+   196	
+   197	        if not is_310p():
+   198	            from vllm_ascend.quantization import AscendCompressedTensorsConfig, AscendFp8Config, AscendModelSlimConfig  # noqa: F401
+   199	        else:
+   200	            from vllm_ascend._310p.quantization import AscendModelSlimConfig310  # noqa: F401
+   201	
+   202	        config_deprecated_logging()
+   203	
+   204	    @classmethod
+   205	    def _get_default_max_cudagraph_capture_size(cls, vllm_config: VllmConfig) -> int | None:
+   206	        """Mirror the default-max branch in vLLM's `_set_cudagraph_sizes()`.
+   207	
+   208	        This helper corresponds to the upstream block under
+   209	        "determine the initial max_cudagraph_capture_size" when
+   210	        `compilation_config.max_cudagraph_capture_size is None`.
+   211	
+   212	        Ascend injects this default earlier via `apply_config_platform_defaults()`
+   213	        so the rest of `_set_cudagraph_sizes()` can keep using upstream logic for
+   214	        size-list generation, token-cap clipping, SP filtering, and later
+   215	        post-processing. The only intentional difference from upstream is removing
+   216	        the CUDA-oriented trailing `* 2`: Ascend wants the default capture upper
+   217	        bound to track `max_num_seqs * decode_query_len`, capped at 512.
+   218	
+   219	        Returning `None` means the platform should not inject a default. This
+   220	        covers the cases where the user has already provided either
+   221	        `max_cudagraph_capture_size` or `cudagraph_capture_sizes`.
+   222	        """
+   223	        compilation_config = vllm_config.compilation_config
+   224	        if compilation_config.max_cudagraph_capture_size is not None:
+   225	            return None
+# vllm/config/vllm.py
+  1640	
+  1641	        if (
+  1642	            self.model_config is not None
+  1643	            and not self.model_config.enforce_eager
+  1644	            and self.compilation_config.cudagraph_mode != CUDAGraphMode.NONE
+  1645	        ):
+  1646	            # determine the initial max_cudagraph_capture_size
+  1647	            max_cudagraph_capture_size = (
+  1648	                self.compilation_config.max_cudagraph_capture_size
+  1649	            )
+  1650	            if max_cudagraph_capture_size is None:
+  1651	                decode_query_len = 1
+  1652	                if (
+  1653	                    self.speculative_config
+  1654	                    and self.speculative_config.num_speculative_tokens
+  1655	                ):
+  1656	                    decode_query_len += self.speculative_config.num_speculative_tokens
+  1657	                max_cudagraph_capture_size = min(
+  1658	                    self.scheduler_config.max_num_seqs * decode_query_len * 2, 512
+  1659	                )
+  1660	            max_num_tokens = self.scheduler_config.max_num_batched_tokens
+  1661	            max_cudagraph_capture_size = min(max_num_tokens, max_cudagraph_capture_size)
+  1662	
+  1663	            assert max_cudagraph_capture_size >= 1, (
+  1664	                "Maximum cudagraph size should be greater than or equal to 1 "
+  1665	                "when using cuda graph."
+  1666	            )
+  1667	
+  1668	            # determine the cudagraph_capture_sizes
+  1669	            if self.compilation_config.cudagraph_capture_sizes is not None:
+  1670	                assert len(self.compilation_config.cudagraph_capture_sizes) > 0, (
+  1671	                    "cudagraph_capture_sizes should contain at least one element "
+  1672	                    "when using cuda graph."
+  1673	                )
+  1674	                # de-duplicate the sizes provided by the config
+  1675	                dedup_sizes = list(set(self.compilation_config.cudagraph_capture_sizes))
+  1676	                cudagraph_capture_sizes = [
+  1677	                    i for i in dedup_sizes if i <= max_num_tokens
+  1678	                ]
+  1679	                # sort to make sure the sizes are in ascending order
+  1680	                cudagraph_capture_sizes.sort()
+  1681	            else:
+  1682	                if self.performance_mode == "interactivity":
+  1683	                    # Fine-grained CUDA graphs at small batch sizes
+  1684	                    # for minimal padding overhead
+  1685	                    interactivity_max = min(max_cudagraph_capture_size, 32)
+  1686	                    cudagraph_capture_sizes = list(range(1, interactivity_max + 1))
+  1687	                else:
+  1688	                    cudagraph_capture_sizes = [
+  1689	                        i for i in [1, 2, 4] if i <= max_cudagraph_capture_size
+  1690	                    ]
+  1691	                if max_cudagraph_capture_size >= 8:
+  1692	                    # Step size 8 for small batch sizes, up to 256(not included)
+  1693	                    cudagraph_capture_sizes += list(
+  1694	                        range(8, min(max_cudagraph_capture_size + 1, 256), 8)
+  1695	                    )
+  1696	                if max_cudagraph_capture_size >= 256:
+  1697	                    # Step size 16 for larger batch sizes
+  1698	                    cudagraph_capture_sizes += list(
+  1699	                        range(256, max_cudagraph_capture_size + 1, 16)
+  1700	                    )
+  1701	                # ensure max_num_tokens is captured if within max capture size
+  1702	                if (
+  1703	                    max_num_tokens <= max_cudagraph_capture_size
+  1704	                    and max_num_tokens not in cudagraph_capture_sizes
+  1705	                ):
+  1706	                    cudagraph_capture_sizes.append(max_num_tokens)
+  1707	                # de-duplicate and sort the sizes
+  1708	                cudagraph_capture_sizes = sorted(set(cudagraph_capture_sizes))
+  1709	
+  1710	            if (

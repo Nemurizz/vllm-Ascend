@@ -1,0 +1,196 @@
+{
+  "config": {
+    "base_url": "http://127.0.0.1:8010",
+    "cases": "/root/vllm_project/workloads/graph_pad5.json",
+    "repeats": 2,
+    "concurrency": 5,
+    "seed": 0,
+    "output": "/root/vllm_project/results/raw/qwen3_8b_graph_pad5_metrics_valid.json"
+  },
+  "wall_time_s": 1.3842651001177728,
+  "request_per_s": 7.224049785802737,
+  "summary": {
+    "pad5_0": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 219.65304506011307,
+        "p95": 258.210858493112,
+        "p99": 261.6382196871564
+      },
+      "e2e_ms": {
+        "p50": 688.9624248724431,
+        "p95": 730.178784369491,
+        "p99": 733.8424607692286
+      }
+    },
+    "pad5_1": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 219.56992498598993,
+        "p95": 258.63340354990214,
+        "p99": 262.1057127555832
+      },
+      "e2e_ms": {
+        "p50": 688.7982150074095,
+        "p95": 730.2593294298276,
+        "p99": 733.9447618229315
+      }
+    },
+    "pad5_2": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 220.96960013732314,
+        "p95": 260.46323818154633,
+        "p99": 263.9737837854773
+      },
+      "e2e_ms": {
+        "p50": 689.8181950673461,
+        "p95": 731.7099056672305,
+        "p99": 735.4336132761091
+      }
+    },
+    "pad5_3": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 252.24132975563407,
+        "p95": 261.30376257933676,
+        "p99": 262.1093121636659
+      },
+      "e2e_ms": {
+        "p50": 732.6394848059863,
+        "p95": 734.5820313086733,
+        "p99": 734.7547021089122
+      }
+    },
+    "pad5_4": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 172.59392491541803,
+        "p95": 176.231558364816,
+        "p99": 176.55490356031805
+      },
+      "e2e_ms": {
+        "p50": 642.6725902128965,
+        "p95": 643.1083701783791,
+        "p99": 643.1471061753109
+      }
+    }
+  },
+  "requests": [
+    {
+      "request_id": 0,
+      "case": "pad5_2",
+      "repeat": 1,
+      "ttft_ms": 264.85142018646,
+      "e2e_ms": 736.3645401783288,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 1,
+      "case": "pad5_3",
+      "repeat": 1,
+      "ttft_ms": 242.17195995151997,
+      "e2e_ms": 730.4810998030007,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 2,
+      "case": "pad5_1",
+      "repeat": 0,
+      "ttft_ms": 262.9737900570035,
+      "e2e_ms": 734.8661199212074,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 3,
+      "case": "pad5_0",
+      "repeat": 1,
+      "ttft_ms": 262.49505998566747,
+      "e2e_ms": 734.758379869163,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 4,
+      "case": "pad5_3",
+      "repeat": 0,
+      "ttft_ms": 262.3106995597482,
+      "e2e_ms": 734.7978698089719,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 5,
+      "case": "pad5_4",
+      "repeat": 0,
+      "ttft_ms": 168.5521099716425,
+      "e2e_ms": 642.1883902512491,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 6,
+      "case": "pad5_2",
+      "repeat": 0,
+      "ttft_ms": 177.08778008818626,
+      "e2e_ms": 643.2718499563634,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 7,
+      "case": "pad5_0",
+      "repeat": 0,
+      "ttft_ms": 176.81103013455868,
+      "e2e_ms": 643.1664698757231,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 8,
+      "case": "pad5_4",
+      "repeat": 1,
+      "ttft_ms": 176.63573985919356,
+      "e2e_ms": 643.1567901745439,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 9,
+      "case": "pad5_1",
+      "repeat": 1,
+      "ttft_ms": 176.16605991497636,
+      "e2e_ms": 642.7303100936115,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    }
+  ]
+}

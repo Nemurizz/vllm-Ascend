@@ -1,0 +1,49 @@
+   204	    @classmethod
+   205	    def _get_default_max_cudagraph_capture_size(cls, vllm_config: VllmConfig) -> int | None:
+   206	        """Mirror the default-max branch in vLLM's `_set_cudagraph_sizes()`.
+   207	
+   208	        This helper corresponds to the upstream block under
+   209	        "determine the initial max_cudagraph_capture_size" when
+   210	        `compilation_config.max_cudagraph_capture_size is None`.
+   211	
+   212	        Ascend injects this default earlier via `apply_config_platform_defaults()`
+   213	        so the rest of `_set_cudagraph_sizes()` can keep using upstream logic for
+   214	        size-list generation, token-cap clipping, SP filtering, and later
+   215	        post-processing. The only intentional difference from upstream is removing
+   216	        the CUDA-oriented trailing `* 2`: Ascend wants the default capture upper
+   217	        bound to track `max_num_seqs * decode_query_len`, capped at 512.
+   218	
+   219	        Returning `None` means the platform should not inject a default. This
+   220	        covers the cases where the user has already provided either
+   221	        `max_cudagraph_capture_size` or `cudagraph_capture_sizes`.
+   222	        """
+   223	        compilation_config = vllm_config.compilation_config
+   224	        if compilation_config.max_cudagraph_capture_size is not None:
+   225	            return None
+   226	        if compilation_config.cudagraph_capture_sizes is not None:
+   227	            return None
+   228	
+   229	        scheduler_config = getattr(vllm_config, "scheduler_config", None)
+   230	        max_num_seqs = getattr(scheduler_config, "max_num_seqs", None)
+   231	        if max_num_seqs is None:
+   232	            return None
+   233	
+   234	        decode_query_len = 1
+   235	        speculative_config = getattr(vllm_config, "speculative_config", None)
+   236	        if speculative_config and speculative_config.num_speculative_tokens:
+   237	            decode_query_len += speculative_config.num_speculative_tokens
+   238	
+   239	        return min(max_num_seqs * decode_query_len, 512)
+   240	
+   241	    @classmethod
+   242	    def get_device_capability(cls, device_id: int = 0):
+   243	        return None
+   244	
+   245	    @classmethod
+   246	    def apply_config_platform_defaults(cls, vllm_config: VllmConfig) -> None:
+   247	        """Apply Ascend-specific defaults."""
+   248	
+   249	        # Set sp_min_token_num=1 when enable_sp and not set.
+   250	        pass_config = vllm_config.compilation_config.pass_config
+   251	        if pass_config.enable_sp and pass_config.sp_min_token_num is None:
+   252	            from vllm_ascend.compilation.passes.sequence_parallelism import get_sp_min_token_num

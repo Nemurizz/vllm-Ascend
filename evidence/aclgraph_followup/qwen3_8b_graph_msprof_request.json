@@ -1,0 +1,91 @@
+{
+  "config": {
+    "base_url": "http://127.0.0.1:8000",
+    "cases": "/root/vllm_project/workloads/qwen3_8b_cases.json",
+    "repeats": 1,
+    "concurrency": 1,
+    "seed": 0,
+    "output": "/root/vllm_project/results/raw/qwen3_8b_graph_msprof_request.json"
+  },
+  "wall_time_s": 5.244763359893113,
+  "request_per_s": 0.5719991149536133,
+  "summary": {
+    "long_in_short_out": {
+      "n": 1,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 313.5632500052452,
+        "p95": 313.5632500052452,
+        "p99": 313.5632500052452
+      },
+      "e2e_ms": {
+        "p50": 782.5303799472749,
+        "p95": 782.5303799472749,
+        "p99": 782.5303799472749
+      }
+    },
+    "short_in_long_out": {
+      "n": 1,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 97.55286993458867,
+        "p95": 97.55286993458867,
+        "p99": 97.55286993458867
+      },
+      "e2e_ms": {
+        "p50": 3826.393019873649,
+        "p95": 3826.393019873649,
+        "p99": 3826.393019873649
+      }
+    },
+    "short_in_short_out": {
+      "n": 1,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 190.23188995197415,
+        "p95": 190.23188995197415,
+        "p99": 190.23188995197415
+      },
+      "e2e_ms": {
+        "p50": 632.4536702595651,
+        "p95": 632.4536702595651,
+        "p99": 632.4536702595651
+      }
+    }
+  },
+  "requests": [
+    {
+      "request_id": 0,
+      "case": "short_in_short_out",
+      "repeat": 0,
+      "ttft_ms": 190.23188995197415,
+      "e2e_ms": 632.4536702595651,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 1,
+      "case": "short_in_long_out",
+      "repeat": 0,
+      "ttft_ms": 97.55286993458867,
+      "e2e_ms": 3826.393019873649,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 456,
+      "error": null
+    },
+    {
+      "request_id": 2,
+      "case": "long_in_short_out",
+      "repeat": 0,
+      "ttft_ms": 313.5632500052452,
+      "e2e_ms": 782.5303799472749,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 57,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "vllm": "0.22.1",
+  "vllm-ascend": "0.22.1rc1",
+  "torch": "2.10.0+cpu",
+  "torch-npu": "2.10.0",
+  "triton-ascend": "3.2.1",
+  "transformers": "5.5.4",
+  "direct_url": {
+    "vllm": null,
+    "vllm-ascend": null
+  },
+  "source_sha256": {
+    "vllm/version.py": "bd7a42776b630b611e2f5fa4698bc97e1f4f2583c35ccb246ec2e7bd43c83313",
+    "vllm_ascend/_version.py": "12286aa85238062a65d1baa4e390ea595ffaf397577c83847e379699d323949f",
+    "vllm_ascend/worker/worker.py": "14cb39bd3c83228321c1a8c6afa7b8c323e6c7b10d025f7d0219c6f36082fde4",
+    "vllm_ascend/worker/encoder_acl_graph.py": "74c44675793435197aa6f451bf83c9abed0753a806aa6627c299c210e47e92b9",
+    "vllm_ascend/core/scheduler_profiling_chunk.py": "ce22c8fc1cc2d33776df15a8491c8e79561bf0f0a54dd78c884405737446d15f",
+    "vllm/v1/core/sched/scheduler.py": "41ff2e524c90d9aa72b72cd77492eb62ee2a729a773bd8233e970f39abbb5983"
+  }
+}

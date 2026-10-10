@@ -1,0 +1,137 @@
+{
+  "model": "Qwen/Qwen3-8B",
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "environment": {
+    "npu": "Ascend 910B2 64GB",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "cann": "9.0.0",
+    "torch_npu": "2.10.0"
+  },
+  "source_results": {
+    "remote_root": "/root/vllm_project/results/raw",
+    "files": [
+      "qwen3_8b_eager_c1.json",
+      "qwen3_8b_eager_c4.json",
+      "qwen3_8b_graph_c1.json",
+      "qwen3_8b_graph_c4.json"
+    ]
+  },
+  "summary": {
+    "eager_c1": {
+      "request_per_s": 0.1042946091,
+      "e2e_p50_ms": {
+        "long_in_short_out": 2453.0223,
+        "short_in_long_out": 19575.1799,
+        "short_in_short_out": 2400.8876
+      }
+    },
+    "graph_c1": {
+      "request_per_s": 0.6106440882,
+      "e2e_p50_ms": {
+        "long_in_short_out": 515.3516,
+        "short_in_long_out": 3750.9162,
+        "short_in_short_out": 532.0283
+      }
+    },
+    "eager_c4": {
+      "request_per_s": 0.3455716989,
+      "e2e_p50_ms": {
+        "long_in_short_out": 2669.8392,
+        "short_in_long_out": 20766.9865,
+        "short_in_short_out": 2726.2911
+      }
+    },
+    "graph_c4": {
+      "request_per_s": 1.7212644153,
+      "e2e_p50_ms": {
+        "long_in_short_out": 694.9817,
+        "short_in_long_out": 4041.8758,
+        "short_in_short_out": 622.292
+      }
+    },
+    "eager_c8": {
+      "request_per_s": 0.4170006834,
+      "e2e_p50_ms": {
+        "long_in_short_out": 3205.5163,
+        "short_in_long_out": 21574.0556,
+        "short_in_short_out": 3204.2841
+      }
+    },
+    "graph_c8": {
+      "request_per_s": 2.0298010199,
+      "e2e_p50_ms": {
+        "long_in_short_out": 1030.0433,
+        "short_in_long_out": 4425.7954,
+        "short_in_short_out": 1028.5774
+      }
+    }
+  },
+  "profiling": {
+    "remote_root": "/root/vllm_project/profiles/qwen3_8b_graph_msprof",
+    "tool": "msprof",
+    "options": [
+      "ascendcl=on",
+      "runtime-api=on",
+      "task-time=on",
+      "ai-core=on",
+      "sys-profiling=on"
+    ]
+  },
+  "offstride_bucket_ab": {
+    "max_num_seqs": 12,
+    "default_capture_sizes": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "fixed_capture_sizes": [
+      1,
+      2,
+      4,
+      8,
+      12
+    ],
+    "default": {
+      "e2e_p50_ms": 2497.4653,
+      "request_per_s": 4.7880741,
+      "aclgraph_replay_log_count": 0
+    },
+    "fixed": {
+      "e2e_p50_ms": 760.4653,
+      "request_per_s": 15.589599,
+      "aclgraph_replay_log_count": 1
+    },
+    "raw_results": [
+      "/root/vllm_project/results/raw/qwen3_8b_offstride_c12.json",
+      "/root/vllm_project/results/raw/qwen3_8b_offstride_fixed_c12.json"
+    ],
+    "profile": "/root/vllm_project/profiles/qwen3_8b_offstride_fixed_msprof/PROF_000001_20261010162913736_00030192RMQEDOPL",
+    "patched_default": {
+      "e2e_p50_ms": 762.9073,
+      "request_per_s": 15.5521308,
+      "capture_sizes": [
+        1,
+        2,
+        4,
+        8,
+        12
+      ],
+      "aclgraph_replay_log_count": 1
+    },
+    "correctness": {
+      "old_text_path": "/root/vllm_project/results/raw/qwen3_8b_offstride_old_text.json",
+      "patched_text_path": "/root/vllm_project/results/raw/qwen3_8b_offstride_patched_text.json",
+      "text_equal": true,
+      "text_chars": 63,
+      "sha256": "9b6a497f6827a289cacc83e90111f5c39c5e3d2ce71c28718adb1628b97a5b26a"
+    },
+    "patch": {
+      "installed_file": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm/config/vllm.py",
+      "backup": "/root/vllm_project/patches/vllm_config_vllm.py.before_offstride_fix",
+      "patch": "/root/vllm_project/patches/offstride_capture_max.patch",
+      "py_compile_exit_code": 0
+    }
+  }
+}

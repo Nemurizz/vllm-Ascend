@@ -1,0 +1,196 @@
+{
+  "config": {
+    "base_url": "http://127.0.0.1:8011",
+    "cases": "/root/vllm_project/workloads/graph_pad5.json",
+    "repeats": 2,
+    "concurrency": 5,
+    "seed": 0,
+    "output": "/root/vllm_project/results/raw/qwen3_8b_graph_pad5_exact5_metrics.json"
+  },
+  "wall_time_s": 1.3757239799015224,
+  "request_per_s": 7.2688999727371355,
+  "summary": {
+    "pad5_0": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 228.91010530292988,
+        "p95": 266.3420097436756,
+        "p99": 269.66929013840854
+      },
+      "e2e_ms": {
+        "p50": 684.7728651482612,
+        "p95": 727.6275485055521,
+        "p99": 731.4368536928669
+      }
+    },
+    "pad5_1": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 228.7459399085492,
+        "p95": 266.42552895937115,
+        "p99": 269.77482576388866
+      },
+      "e2e_ms": {
+        "p50": 684.6104599535465,
+        "p95": 727.5081410072744,
+        "p99": 731.3212682120502
+      }
+    },
+    "pad5_2": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 221.42062499187887,
+        "p95": 251.99061462190002,
+        "p99": 254.70794703345746
+      },
+      "e2e_ms": {
+        "p50": 683.4116198588163,
+        "p95": 725.0780469039455,
+        "p99": 728.781729307957
+      }
+    },
+    "pad5_3": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 270.6620099488646,
+        "p95": 270.9883771603927,
+        "p99": 271.0173875791952
+      },
+      "e2e_ms": {
+        "p50": 732.4793799780309,
+        "p95": 732.5614241417497,
+        "p99": 732.5687169563025
+      }
+    },
+    "pad5_4": {
+      "n": 2,
+      "errors": 0,
+      "ttft_ms": {
+        "p50": 181.31360015831888,
+        "p95": 186.43703910056502,
+        "p99": 186.89245589543134
+      },
+      "e2e_ms": {
+        "p50": 636.0839703120291,
+        "p95": 636.8778513744473,
+        "p99": 636.9484185799956
+      }
+    }
+  },
+  "requests": [
+    {
+      "request_id": 0,
+      "case": "pad5_2",
+      "repeat": 1,
+      "ttft_ms": 255.38728013634682,
+      "e2e_ms": 729.7076499089599,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 1,
+      "case": "pad5_3",
+      "repeat": 1,
+      "ttft_ms": 271.0246401838958,
+      "e2e_ms": 732.5705401599407,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 2,
+      "case": "pad5_1",
+      "repeat": 0,
+      "ttft_ms": 270.61214996501803,
+      "e2e_ms": 732.2745500132442,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 3,
+      "case": "pad5_0",
+      "repeat": 1,
+      "ttft_ms": 270.5011102370918,
+      "e2e_ms": 732.3891799896955,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 4,
+      "case": "pad5_3",
+      "repeat": 0,
+      "ttft_ms": 270.29937971383333,
+      "e2e_ms": 732.3882197961211,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 5,
+      "case": "pad5_4",
+      "repeat": 0,
+      "ttft_ms": 175.62089022248983,
+      "e2e_ms": 635.2018802426755,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 6,
+      "case": "pad5_2",
+      "repeat": 0,
+      "ttft_ms": 187.45396984741092,
+      "e2e_ms": 637.1155898086727,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 7,
+      "case": "pad5_0",
+      "repeat": 0,
+      "ttft_ms": 187.31910036876798,
+      "e2e_ms": 637.1565503068268,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 8,
+      "case": "pad5_4",
+      "repeat": 1,
+      "ttft_ms": 187.00631009414792,
+      "e2e_ms": 636.9660603813827,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    },
+    {
+      "request_id": 9,
+      "case": "pad5_1",
+      "repeat": 1,
+      "ttft_ms": 186.87972985208035,
+      "e2e_ms": 636.9463698938489,
+      "prompt_tokens": null,
+      "completion_tokens": null,
+      "text_chars": 64,
+      "error": null
+    }
+  ]
+}

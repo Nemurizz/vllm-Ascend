@@ -1,0 +1,57 @@
+{
+  "aclrtSynchronizeStream": {
+    "count": 658,
+    "total_us": 16129.81,
+    "avg_us": 24.51338905775076,
+    "p50_us": 8.8,
+    "p95_us": 18.11,
+    "max_us": 10099.51
+  },
+  "aclrtSynchronizeStreamWithTimeout": {
+    "count": 317,
+    "total_us": 544155.06,
+    "avg_us": 1716.577476340694,
+    "p50_us": 1792.21,
+    "p95_us": 2262.96,
+    "max_us": 2560.84
+  },
+  "aclrtSynchronizeDeviceWithTimeout": {
+    "count": 294,
+    "total_us": 14706.69,
+    "avg_us": 50.02275510204082,
+    "p50_us": 35.845,
+    "p95_us": 41.8,
+    "max_us": 3616.2
+  },
+  "aclrtSynchronizeEvent": {
+    "count": 651,
+    "total_us": 15380.74,
+    "avg_us": 23.6263287250384,
+    "p50_us": 6.9,
+    "p95_us": 8.56,
+    "max_us": 4568.99
+  },
+  "runtime_StreamSynchronize": {
+    "count": 975,
+    "total_us": 554821.23,
+    "avg_us": 569.0474153846154,
+    "p50_us": 3.43,
+    "max_us": 10093.47
+  },
+  "runtime_DeviceSynchronize": {
+    "count": 294,
+    "total_us": 13028.92,
+    "avg_us": 44.316054421768705,
+    "p50_us": 30.035,
+    "max_us": 3607.19
+  },
+  "runtime_EventSynchronize": {
+    "count": 651,
+    "total_us": 11776.61,
+    "avg_us": 18.090030721966205,
+    "p50_us": 1.49,
+    "max_us": 4562.33
+  },
+  "profile_span_us": 457265085.97,
+  "observation": "aclrtSynchronizeStreamWithTimeout count is close to the 320 decode-token target in the 10x32-token workload; attribution to ACLGraphWrapper pre-replay sync still needs marker-controlled A/B."
+}

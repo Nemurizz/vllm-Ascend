@@ -1,0 +1,95 @@
+{
+  "audit_date": "2026-10-10",
+  "vllm_ascend": {
+    "tag": "v0.23.0.post1",
+    "commit": "1cdb8c4db6e50f36f1fb3283b3e3dd618f6821e",
+    "url": "https://github.com/vllm-project/vllm-ascend/releases/tag/v0.23.0.post1"
+  },
+  "vllm": {
+    "tag": "v0.23.0",
+    "commit": "0fc695fc6d1d82e9a5ac6835ac8e4e1c83703665",
+    "url": "https://github.com/vllm-project/vllm/releases/tag/v0.23.0"
+  },
+  "validated_stack": {
+    "python": ">=3.10,<3.13 (release image 3.12)",
+    "cann": "9.1.0",
+    "pytorch": "2.10.0",
+    "torch_npu": "2.10.0.post4",
+    "triton_ascend": "3.2.2"
+  },
+  "remote_phase2_stack": {
+    "python": "3.11.15",
+    "hardware": "Ascend 910B2 64GB, NPU ID 7",
+    "driver": "26.1.1",
+    "cann": "9.0.0",
+    "pytorch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "triton_ascend": "3.2.1",
+    "model": "Qwen3-8B",
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+    "model_path": "/data/vllm_project/models/Qwen3-8B",
+    "system_roots": {
+      "cache": "/root/vllm_project/cache",
+      "profiles": "/root/vllm_project/profiles",
+      "results": "/root/vllm_project/results",
+      "logs": "/root/vllm_project/logs",
+      "src": "/root/vllm_project/src"
+    },
+    "profiler_paths": [
+      "/root/vllm_project/profiles/torch_npu_smoke",
+      "/root/vllm_project/profiles/msprof_smoke",
+      "/root/vllm_project/profiles/qwen3_06b_graph_msprof",
+      "/root/vllm_project/profiles/qwen3_8b_graph_msprof"
+    ],
+    "evidence": "remote_env_20261010.txt"
+  },
+  "graph_bucket_profile": {
+    "issue": "https://github.com/vllm-project/vllm-ascend/issues/16049",
+    "source_excerpt": "/root/vllm_project/evidence/aclgraph_bucket_source_excerpt.txt",
+    "default_sizes_max_num_seqs_12": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "explicit_sizes_max_num_seqs_12": [
+      1,
+      2,
+      4,
+      8,
+      12
+    ],
+    "profile": "/root/vllm_project/profiles/qwen3_8b_offstride_fixed_msprof/PROF_000001_20261010162913736_00030192RMQEDOPL",
+    "patched_default": {
+      "capture_sizes": [
+        1,
+        2,
+        4,
+        8,
+        12
+      ],
+      "e2e_p50_ms": 762.9073,
+      "request_per_s": 15.5521308,
+      "replay_count": 1
+    },
+    "patch": {
+      "installed_file": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm/config/vllm.py",
+      "backup": "/root/vllm_project/patches/vllm_config_vllm.py.before_offstride_fix",
+      "patch": "/root/vllm_project/patches/offstride_capture_max.patch",
+      "correctness": "old_vs_patched_stream_text_sha256_equal"
+    },
+    "upstream_fix_pr": "https://github.com/vllm-project/vllm-ascend/pull/16970",
+    "upstream_fix_status": "merged"
+  },
+  "source_entrypoints": [
+    "vllm_ascend/compilation/acl_graph.py:ACLGraphWrapper",
+    "vllm_ascend/worker/model_runner_v1.py:execute_model/_model_forward/capture_model",
+    "vllm_ascend/worker/encoder_acl_graph.py:EncoderAclGraphManager",
+    "vllm/v1/core/sched/scheduler.py:Scheduler.schedule",
+    "vllm/multimodal/processing/processor.py:BaseMultiModalProcessor",
+    "vllm/multimodal/encoder_budget.py:MultiModalBudget",
+    "vllm_ascend/spec_decode/dflash_proposer.py:AscendDflashProposer"
+  ]
+}

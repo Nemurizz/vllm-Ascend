@@ -1,0 +1,75 @@
+{
+  "checked": "2026-10-11",
+  "items": [
+    {
+      "number": 18121,
+      "state": "closed",
+      "closed_at": "2026-10-10T06:22:59Z",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/18121",
+      "decision": "exclude; fixed by merged PR 17379"
+    },
+    {
+      "number": 16799,
+      "state": "closed",
+      "closed_at": "2026-09-23T08:07:49Z",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/16799",
+      "decision": "exclude until regression is demonstrated"
+    },
+    {
+      "number": 17139,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/17139",
+      "decision": "candidate metadata/padding investigation"
+    },
+    {
+      "number": 18223,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/18223",
+      "decision": "candidate configuration/compatibility reproduction"
+    },
+    {
+      "number": 14347,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/14347",
+      "decision": "background; reported not to affect inference"
+    },
+    {
+      "number": 12337,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/12337",
+      "decision": "background; not Qwen3-8B evidence"
+    },
+    {
+      "number": 14300,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/14300",
+      "decision": "reproduced on our 910B2; existing issue, do not claim as new"
+    },
+    {
+      "number": 14302,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/pull/14302",
+      "decision": "existing open fix PR; use only as validation/reference"
+    },
+    {
+      "number": 16049,
+      "state": "closed",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/16049",
+      "decision": "exclude as new topic; upstream fix merged, local 0.22.1rc1 backport validation retained",
+      "closed_by_pr": 16970,
+      "pr_url": "https://github.com/vllm-project/vllm-ascend/pull/16970"
+    },
+    {
+      "number": 16637,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/16637",
+      "decision": "conditional follow-up; speculative decoding draft model required"
+    },
+    {
+      "number": 13058,
+      "state": "open",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/13058",
+      "decision": "background RFC; host-side ACLGraph parameter updates"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+--- /root/vllm_project/patches/vllm_config_vllm.py.before_offstride_fix	2026-10-10 16:45:18.336000000 +0000
++++ /data/vllm-ascend-env/lib/python3.11/site-packages/vllm/config/vllm.py	2026-10-10 16:45:18.340000000 +0000
+@@ -1704,6 +1704,9 @@
+                     and max_num_tokens not in cudagraph_capture_sizes
+                 ):
+                     cudagraph_capture_sizes.append(max_num_tokens)
++                # Keep the Ascend platform maximum reachable when it is off-stride.
++                if max_cudagraph_capture_size not in cudagraph_capture_sizes:
++                    cudagraph_capture_sizes.append(max_cudagraph_capture_size)
+                 # de-duplicate and sort the sizes
+                 cudagraph_capture_sizes = sorted(set(cudagraph_capture_sizes))
+ 

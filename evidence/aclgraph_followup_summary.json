@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-11",
+  "environment": {
+    "device": "Ascend 910B2 64GB single card",
+    "cann": "9.0.0",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1"
+  },
+  "workload": {
+    "model": "Qwen3-8B",
+    "concurrency": 5,
+    "repeats": 2,
+    "output_tokens": 32,
+    "requests": 10,
+    "files": [
+      "outputs/phase1/evidence/aclgraph_followup/qwen3_8b_graph_pad5_metrics_valid.json",
+      "outputs/phase1/evidence/aclgraph_followup/qwen3_8b_graph_pad5_exact5_metrics.json"
+    ]
+  },
+  "ab": {
+    "default": {
+      "capture_sizes": [1, 2, 4, 8],
+      "full_unpadded_tokens": 5,
+      "full_padded_tokens": 8,
+      "num_paddings_per_step": 3,
+      "full_steps": 60,
+      "wall_time_s": 1.3842651001177728,
+      "request_per_s": 7.224049785802737,
+      "e2e_p50_avg_ms": 688.578181958216,
+      "ttft_p50_avg_ms": 217.00556497089583,
+      "errors": 0
+    },
+    "exact5": {
+      "capture_sizes": [1, 2, 4, 5, 8],
+      "full_unpadded_tokens": 5,
+      "full_padded_tokens": 5,
+      "num_paddings_per_step": 0,
+      "full_steps": 60,
+      "wall_time_s": 1.3757239799015224,
+      "request_per_s": 7.2688999727371355,
+      "e2e_p50_avg_ms": 684.2716592501384,
+      "ttft_p50_avg_ms": 226.2104558709082,
+      "errors": 0
+    }
+  },
+  "decision": {
+    "padding_candidate": "stop_below_3_percent_gate",
+    "next_candidate": "profile_FULL_replay_pre_sync",
+    "runtime_atb": "continue_with_existing_98MiB_ATB_accounting_baseline"
+  },
+  "existing_msprof_runtime_screen": {
+    "workload_scope": "previous Qwen3-8B graph service, concurrency 1, three cases; not the pad5 A/B",
+    "aclrtSynchronizeStreamWithTimeout": {
+      "count": 317,
+      "total_ms": 544.15506,
+      "p50_ms": 1.79221,
+      "max_ms": 2.56084
+    },
+    "aclrtSynchronizeStream": {
+      "count": 658,
+      "total_ms": 16.12981,
+      "p50_ms": 0.0088,
+      "max_ms": 10.09951
+    },
+    "interpretation": "strong correlation with per-decode synchronization; attribution to ACLGraphWrapper requires replay marker controlled A/B",
+    "evidence": [
+      "outputs/phase1/evidence/aclgraph_followup/api_statistic_graph_msprof.csv",
+      "outputs/phase1/evidence/aclgraph_followup/api_event_graph_msprof.db",
+      "outputs/phase1/evidence/aclgraph_followup/runtime_sync_profile_summary.json"
+    ]
+  },
+  "upstream": {
+    "issue_16049": "closed_by_pr_16970",
+    "issue_16637": "open_conditional_speculative_decoding_padding",
+    "issue_13058": "open_rfc_host_side_graph_parameter_updates",
+    "issue_14300": "open_existing_atb_memory_accounting",
+    "pr_14302": "open_existing_warmup_accounting_fix"
+  }
+}

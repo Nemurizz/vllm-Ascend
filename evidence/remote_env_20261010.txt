@@ -1,0 +1,82 @@
+# Remote phase-1 environment evidence
+# Host: user-provided SSH endpoint (credentials intentionally omitted)
+# Collected: 2026-10-10 Asia/Shanghai
+
+uname -a
+Linux 0522f0d303aa 5.10.0-136.108.0.188.31.oe2203sp1.bclinux.aarch64 #1 SMP Mon May 26 17:50:37 CST 2025 aarch64 aarch64 aarch64 GNU/Linux
+uname -m
+aarch64
+
+df -h /data
+/dev/loop18 98G 2.5G 91G 3% /data
+
+NPU (npu-smi 26.1.1)
+NPU ID 7; Name 910B2; Health OK; Bus 0000:42:00.0; HBM 3421/65536 MB; no running processes.
+
+/etc/ascend_install.info
+Driver_Install_Type=full
+Driver_Install_Path_Param=/usr/local/Ascend
+Driver_Install_Status=complete
+
+/usr/local/Ascend/cann-9.0.0/opp/version.info
+Version=9.0.0
+
+/usr/local/Ascend/driver/version.info
+Version=26.1.1
+ascendhal_version=7.35.23
+package_version=26.1.1
+
+Python/package smoke test in /data/vllm-ascend-env
+Python 3.11.15
+torch 2.10.0+cpu
+torch-npu 2.10.0
+vllm 0.22.1
+vllm-ascend 0.22.1rc1
+triton-ascend 3.2.1 (triton module reports 3.2.0; Ascend extension import OK)
+torchvision 0.25.0
+torchaudio 2.10.0
+numpy 1.26.4; scipy 1.13.1; transformers 5.5.4; numba 0.65.0
+
+Observed checks
+torch.npu.is_available() -> True
+torch.npu.device_count() -> 1
+torch.ones((2,2), device='npu') + 1 -> tensor([[2., 2.], [2., 2.]])
+vLLM platform -> NPUPlatform; device -> Ascend910B2
+python -m vllm.entrypoints.openai.api_server --help -> exit 0
+Qwen3ForCausalLM Python model class import -> OK (no weights loaded)
+
+Additional model/profiler evidence (user-authorized follow-up)
+Qwen3-0.6B weights -> /data/vllm_project/models/Qwen3-0.6B, approximately 1.51 GB
+Canonical system-disk cache/profile/result roots -> /root/vllm_project/{cache,profiles,logs,results,src}; early smoke copies remain under /data/vllm_project for raw evidence
+Qwen3-0.6B vLLM V1 eager smoke -> load 70.64 s; one short generation 21.38 s; output returned normally
+Qwen3-0.6B vLLM V1 default graph smoke -> exit 0; compile 24.73 s; graph capture FULL/PIECEWISE succeeded; graph pool actual 0.30 GiB vs estimated 0.41 GiB; one short generation 5.83 s
+torch_npu.profiler smoke -> /data/vllm_project/profiles/torch_npu_smoke; profiler_info.json and CANN trace data generated
+msprof smoke -> /data/vllm_project/profiles/msprof_smoke; db/csv/json artifacts generated with --ascendcl=on --runtime-api=on --task-time=on --ai-core=on --sys-profiling=on
+msprof Qwen3 graph -> /root/vllm_project/profiles/qwen3_06b_graph_msprof/PROF_000001_20261010144846822_00017318DPMMOBJR; exit 0; host/device analysis and export completed
+Profiler availability -> torch_npu.profiler import OK; msprof available under /usr/local/Ascend/cann-9.0.0/bin; nsys/ncu/msprof-analyze not installed on this Ascend image, so msprof is the NPU-side system/kernel trace tool
+
+Source/runtime findings
+vllm_ascend/worker/encoder_acl_graph.py:_run_budget_graph copies input_buffer[:n] without clearing input_buffer[n:] (metadata buffers are zeroed first)
+encoder_tail_repro.py -> after an 8-row fill followed by a 3-row fill, five inactive NPU rows retained the old value
+vllm_ascend/worker/worker.py:_warm_up_atb runs after memory_profiling/profile_torch_peak
+measure_atb_warmup.py -> device-used delta after _npu_matmul_add_fp32: 102,760,448 B; torch allocated/reserved remained 1,536/2,097,152 B
+Scheduler source gap -> base/profiling/recompute use break when num_new_tokens > token_budget with chunked prefill disabled; scheduler_dynamic_batch.py skips into step_skipped_waiting and continues
+
+Known package-resolution caveats
+pip check lists CUDA-only upstream vLLM packages (flashinfer, nvidia-*, tilelang, etc.) and optional memcache/memfabric hybrid packages as absent. It also reports generic vLLM metadata expecting torch 2.11/torchvision 0.26/torchaudio 2.11, which conflicts with the official Ascend v0.22.1rc1 matrix. No CUDA package or torch 2.11 was installed.
+The CLI logs a generic vLLM Triton-kernel import warning for triton.language.target_info; the triton-ascend extension itself imports and the Ascend platform plugin registers. Model startup remains unverified until a small Qwen3-8B checkpoint is available.
+
+Qwen3-8B fixed revision -> b968826d9c46dd6066d109eabc6255188de91218; weights downloaded to /data/vllm_project/models/Qwen3-8B (approximately 16 GB)
+Qwen3-8B Eager baseline -> /root/vllm_project/results/raw/qwen3_8b_eager_c1.json, qwen3_8b_eager_c4.json, qwen3_8b_eager_c8.json; all requests successful; request/s 0.1043 (c1), 0.3456 (c4), 0.4170 (c8)
+Qwen3-8B default Graph baseline -> /root/vllm_project/results/raw/qwen3_8b_graph_c1.json, qwen3_8b_graph_c4.json, qwen3_8b_graph_c8.json; all requests successful; request/s 0.6106 (c1), 1.7213 (c4), 2.0298 (c8); logs contain Replaying aclgraph
+Qwen3-8B Graph msprof -> /root/vllm_project/profiles/qwen3_8b_graph_msprof/PROF_000001_20261010153545563__00022976HLCLFLCJ; ACL/runtime/task/AI-core/system collection completed after one representative workload
+Scheduler no-chunk probe -> /root/vllm_project/results/raw/qwen3_8b_no_chunk_hol.json; long request rejected by max-context validation at max_model_len=4096, short request returned; standard SchedulerConfig requires max_num_batched_tokens >= max_model_len, so the base break path was not reproduced
+Off-stride ACLGraph A/B -> max_num_seqs=12 default capture sizes [1,2,4,8] (startup warning truncates max capture to 8), no Replaying aclgraph lines, 12-request E2E P50 2497.465 ms and 4.788 req/s; explicit [1,2,4,8,12] produced one Replaying aclgraph line, E2E P50 760.465 ms and 15.590 req/s. Raw files: /root/vllm_project/results/raw/qwen3_8b_offstride_c12.json and qwen3_8b_offstride_fixed_c12.json
+Off-stride source excerpt -> /root/vllm_project/evidence/aclgraph_bucket_source_excerpt.txt; msprof fixed trace -> /root/vllm_project/profiles/qwen3_8b_offstride_fixed_msprof/PROF_000001_20261010162913736_00030192RMQEDOPL
+Off-stride pure config reproducer -> /root/vllm_project/scripts/cudagraph_offstride_repro.py; output -> /root/vllm_project/results/raw/cudagraph_offstride_repro.json
+
+Upstream status checked 2026-10-11 -> Issue #16049 is closed by merged PR #16970 (https://github.com/vllm-project/vllm-ascend/pull/16970). The remote v0.22.1rc1 stack predates that fix; the installed-package patch above is retained only as a backport/regression validation.
+
+Off-stride minimal patch validation -> installed `/data/vllm-ascend-env/lib/python3.11/site-packages/vllm/config/vllm.py`; backup -> `/root/vllm_project/patches/vllm_config_vllm.py.before_offstride_fix`; patch -> `/root/vllm_project/patches/offstride_capture_max.patch`. `python -m py_compile` returned 0. Patched default startup automatically used `[1,2,4,8,12]`, logged one `Replaying aclgraph`, and produced `/root/vllm_project/results/raw/qwen3_8b_offstride_patched_c12.json` with E2E P50 762.907 ms and 15.552 req/s. The deterministic streaming comparison is `/root/vllm_project/results/raw/qwen3_8b_offstride_old_text.json` vs `/root/vllm_project/results/raw/qwen3_8b_offstride_patched_text.json`: text_equal=true, both 63 characters, SHA256 `9b6a497f6827a289cacc83e90111f5c39c5e3d2ce71c28718adb1628b97a5b26a`. NPU was idle after cleanup.
+
+No driver/CANN upgrade, system package upgrade, or upstream source modification was performed. Remote-only smoke and benchmark scripts are under /root/vllm_project/{src,scripts}.
