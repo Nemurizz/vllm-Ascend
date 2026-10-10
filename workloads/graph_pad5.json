@@ -1,0 +1,7 @@
+[
+  {"name": "pad5_0", "model": "Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32},
+  {"name": "pad5_1", "model": "Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32},
+  {"name": "pad5_2", "model": "Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32},
+  {"name": "pad5_3", "model": "Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32},
+  {"name": "pad5_4", "model": "Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32}
+]

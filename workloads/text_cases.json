@@ -1,0 +1,5 @@
+[
+  {"name": "short_in_short_out", "model": "Qwen/Qwen3-8B", "prompt": "用一句话解释什么是缓存。", "max_tokens": 32},
+  {"name": "long_in_short_out", "model": "Qwen/Qwen3-8B", "prompt": "请分析以下背景并列出三点结论：背景材料。", "repeat": 256, "max_tokens": 32},
+  {"name": "short_in_long_out", "model": "Qwen/Qwen3-8B", "prompt": "写一篇关于推理服务性能测量的短文。", "max_tokens": 256}
+]
