@@ -1,0 +1,22 @@
+{
+  "validated_remote_stack": {
+    "python": "3.11.15",
+    "hardware": "Ascend 910B2 64GB single card",
+    "cann": "9.0.0",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "triton_ascend": "3.2.1",
+    "model_id": "Qwen/Qwen3-8B",
+    "model_revision": "b968826d9c46dd6066d109eabc6255188de91218"
+  },
+  "recommended_release_reference": {
+    "vllm": "v0.23.0",
+    "vllm_ascend": "v0.23.0.post1",
+    "cann": "9.1.0",
+    "torch_npu": "2.10.0.post4",
+    "triton_ascend": "3.2.2"
+  },
+  "note": "Do not mix the validated old stack and the newer release reference without rerunning compatibility and performance baselines."
+}

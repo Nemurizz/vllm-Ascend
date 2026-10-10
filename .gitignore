@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+configs/*.env
+results/
+logs/
+profiles/
+cache/
+models/
+*.sqlite
+*.db-wal
+*.db-shm
+work/
+
+# Host-specific profiler exports can be regenerated from the raw trace.
+evidence/**/msprof_*.json
+
