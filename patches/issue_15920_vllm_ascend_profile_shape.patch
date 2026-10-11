@@ -1,0 +1,45 @@
+diff --git a/vllm_ascend/_310p/model_runner_310p.py b/vllm_ascend/_310p/model_runner_310p.py
+index 456c0ca..4639b3c 100644
+--- a/vllm_ascend/_310p/model_runner_310p.py
++++ b/vllm_ascend/_310p/model_runner_310p.py
+@@ -582,6 +582,7 @@ class NPUModelRunner310(NPUModelRunner):
+         is_graph_capturing: bool = False,
+         num_active_loras: int = 0,
+         profile_seq_lens: int | None = None,
++        profile_max_num_reqs: int | None = None,
+         skip_gdn_state_update: bool = False,
+     ):
+         temporary_context = self.temporary_modify_uniform_decode_query_len() if uniform_decode else nullcontext()
+@@ -609,6 +610,7 @@ class NPUModelRunner310(NPUModelRunner):
+                     is_graph_capturing=is_graph_capturing,
+                     num_active_loras=num_active_loras,
+                     profile_seq_lens=profile_seq_lens,
++                    profile_max_num_reqs=profile_max_num_reqs,
+                     skip_gdn_state_update=skip_gdn_state_update,
+                 )
+             finally:
+diff --git a/vllm_ascend/worker/model_runner_v1.py b/vllm_ascend/worker/model_runner_v1.py
+index 63c2059..acdaae9 100644
+--- a/vllm_ascend/worker/model_runner_v1.py
++++ b/vllm_ascend/worker/model_runner_v1.py
+@@ -3696,6 +3696,7 @@ class NPUModelRunner(GPUModelRunner):
+         is_graph_capturing: bool = False,
+         num_active_loras: int = 0,
+         profile_seq_lens: int | None = None,
++        profile_max_num_reqs: int | None = None,
+         profile_cpp: bool = False,
+         skip_gdn_state_update: bool = False,
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+@@ -3725,7 +3726,11 @@ class NPUModelRunner(GPUModelRunner):
+         # for dummy run with LoRA so that the num_reqs collectively
+         # has num_tokens in total.
+         assert num_tokens <= self.scheduler_config.max_num_batched_tokens
+-        max_num_reqs = self.scheduler_config.max_num_seqs
++        max_num_reqs = (
++            profile_max_num_reqs
++            if profile_max_num_reqs is not None
++            else self.scheduler_config.max_num_seqs
++        )
+         if create_mixed_batch:
+             raise NotImplementedError("create_mixed_batch is used for warmup deepgemm, vllm-ascend does not need it")
+         elif uniform_decode:

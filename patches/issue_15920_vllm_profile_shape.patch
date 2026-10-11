@@ -1,0 +1,97 @@
+diff --git a/tests/v1/worker/test_gpu_model_runner.py b/tests/v1/worker/test_gpu_model_runner.py
+index 99331e7..a979c86 100644
+--- a/tests/v1/worker/test_gpu_model_runner.py
++++ b/tests/v1/worker/test_gpu_model_runner.py
+@@ -69,6 +69,25 @@ NUM_BLOCKS = 10
+ DEVICE_TYPE = current_platform.device_type
+ 
+ 
++@pytest.mark.parametrize(
++    "enable_chunked_prefill, expected_max_num_reqs",
++    [(True, None), (False, 1)],
++)
++def test_profile_shape_matches_chunked_prefill_mode(
++    enable_chunked_prefill: bool, expected_max_num_reqs: int | None
++):
++    """Unchunked profiling must include the single-long-sequence shape."""
++    runner = object.__new__(GPUModelRunner)
++    runner.scheduler_config = SimpleNamespace(
++        enable_chunked_prefill=enable_chunked_prefill
++    )
++
++    profile_max_num_reqs = gpu_model_runner_module._get_profile_max_num_reqs(
++        runner.scheduler_config.enable_chunked_prefill
++    )
++    assert profile_max_num_reqs == expected_max_num_reqs
++
++
+ @pytest.fixture(autouse=True)
+ def _restore_default_dtype():
+     """Several tests here set the process-wide default dtype to float16 and
+diff --git a/vllm/v1/worker/gpu_model_runner.py b/vllm/v1/worker/gpu_model_runner.py
+index 7298112..a6957f1 100644
+--- a/vllm/v1/worker/gpu_model_runner.py
++++ b/vllm/v1/worker/gpu_model_runner.py
+@@ -259,6 +259,11 @@ if TYPE_CHECKING:
+ logger = init_logger(__name__)
+ 
+ 
++def _get_profile_max_num_reqs(enable_chunked_prefill: bool) -> int | None:
++    """Return the request count needed to cover the profiling shape."""
++    return None if enable_chunked_prefill else 1
++
++
+ def _get_parameter_for_reload(model: nn.Module, name: str) -> nn.Parameter:
+     """Resolve checkpoint names without changing the model's module tree."""
+     module_name, _, parameter_name = name.rpartition(".")
+@@ -5932,6 +5937,7 @@ class GPUModelRunner(
+         is_graph_capturing: bool = False,
+         num_active_loras: int = 0,
+         profile_seq_lens: int | None = None,
++        profile_max_num_reqs: int | None = None,
+         randomize_inputs: bool = False,
+     ) -> tuple[torch.Tensor, torch.Tensor]:
+         """
+@@ -5960,6 +5966,9 @@ class GPUModelRunner(
+             profile_seq_lens: If provided, use this value for seq_lens instead
+                 of max_query_len. Used to profile attention workspace that
+                 scales with context length.
++            profile_max_num_reqs: Override the number of dummy requests used
++                for profiling. A value of 1 profiles the longest sequence
++                shape, which is the worst case for quadratic attention masks.
+         """
+         mm_config = self.vllm_config.model_config.multimodal_config
+         if mm_config and mm_config.mm_encoder_only:
+@@ -5991,7 +6000,11 @@ class GPUModelRunner(
+         # for dummy run with LoRA so that the num_reqs collectively
+         # has num_tokens in total.
+         assert num_tokens <= self.max_num_tokens
+-        max_num_reqs = self.scheduler_config.max_num_seqs
++        max_num_reqs = (
++            profile_max_num_reqs
++            if profile_max_num_reqs is not None
++            else self.scheduler_config.max_num_seqs
++        )
+         if create_mixed_batch:
+             assert not uniform_decode
+             # Create mixed batch:
+@@ -6595,9 +6608,18 @@ class GPUModelRunner(
+                         for i, output in enumerate(dummy_encoder_outputs):
+                             self.encoder_cache[f"tmp_{i}"] = output
+ 
++        # When chunked prefill is disabled, a request can consume the whole
++        # token budget in one step. Profile that single-sequence shape so
++        # quadratic attention work is included in the memory budget.
++        profile_max_num_reqs = _get_profile_max_num_reqs(
++            self.scheduler_config.enable_chunked_prefill
++        )
++
+         # Add `is_profile` here to pre-allocate communication buffers
+         hidden_states, last_hidden_states = self._dummy_run(
+-            self.max_num_tokens, is_profile=True
++            self.max_num_tokens,
++            is_profile=True,
++            profile_max_num_reqs=profile_max_num_reqs,
+         )
+         if get_pp_group().is_last_rank:
+             if self.is_pooling_model:

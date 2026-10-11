@@ -1,0 +1,45 @@
+{
+  "issue": "https://github.com/vllm-project/vllm-ascend/issues/15920",
+  "status_at_2026-10-12": "open",
+  "upstream_pr_found": false,
+  "related_issue": {
+    "url": "https://github.com/vllm-project/vllm/issues/21652",
+    "status": "closed_not_planned",
+    "direct_fix_for_15920": false
+  },
+  "source_pins": {
+    "vllm": {
+      "path": "C:/Users/Administrator/Documents/Codex/2026-10-10/sources/vllm-main",
+      "base": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+      "fix_commit": "b9f0001",
+      "branch": "codex/issue-15920-profile-shape"
+    },
+    "vllm_ascend": {
+      "path": "C:/Users/Administrator/Documents/Codex/2026-10-10/sources/vllm-ascend-main",
+      "base": "c8addbb24fe8fa820bb79685c116e43ba89b77e9",
+      "fix_commit": "dad2ab9",
+      "branch": "codex/issue-15920-profile-shape"
+    }
+  },
+  "remote_runtime": {
+    "hardware": "Ascend 910B2 64GB x1",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "long_context_model_available": false,
+    "npu_performance_ab_test": "not_run_version_and_model_mismatch"
+  },
+  "regression": {
+    "profile_policy_chunked_true": "passed_expected_none",
+    "profile_policy_chunked_false": "passed_expected_one",
+    "compileall": "passed",
+    "git_diff_check": "passed",
+    "npu_oom_reproduction": "not_run_version_and_model_mismatch"
+  },
+  "artifacts": [
+    "patches/issue_15920_vllm_profile_shape.patch",
+    "patches/issue_15920_vllm_ascend_profile_shape.patch",
+    "reports/07_issue_15920_profile_shape.md"
+  ]
+}
