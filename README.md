@@ -9,6 +9,7 @@
 - ACLGraph off-stride 现象在旧栈上已复现，但对应上游 Issue #16049 已由 PR #16970 合并修复；仓库中的 patch 仅用于旧版本回归验证。
 - 5 请求 graph bucket A/B 观察到 `5 -> 8` padding，但增加精确 bucket 后 E2E P50 只改善约 0.63%，低于项目门槛。
 - 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
+- PA workspace cache 已确认不是社区空白：对应上游 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已合并；本仓库的 0.22.1rc1 patch 只保留为 910B2 回移和独立复现实验证据。
 
 ## 目录
 

@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-10-11",
+  "scope": "Runtime/ATB PA workspace cache and graph-owned update path",
+  "pa_workspace_cache": {
+    "novelty": "false",
+    "exact_issue": {
+      "number": 15575,
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/15575",
+      "title": "[Performance]: _npu_paged_attention_get_workspace called once per layer in every graph-param update"
+    },
+    "exact_pr": {
+      "number": 15579,
+      "url": "https://github.com/vllm-project/vllm-ascend/pull/15579",
+      "title": "[Performance] Reuse PA workspace across layers in graph param update",
+      "status": "merged",
+      "merged_at": "2026-09-04"
+    },
+    "equivalence_basis": [
+      "hoist workspace query out of the per-layer loop",
+      "reuse only within one graph-param update pass",
+      "re-query when size-relevant metadata changes",
+      "avoid cross-step reuse because seq_lens values grow"
+    ],
+    "local_result": "The 0.22.1rc1 backport reproduced the effect on Ascend 910B2: +19.77% output tok/s for 5x128 and +18.57% for 4x256 concurrency=2, with text and usage equality."
+  },
+  "graph_owned_update": {
+    "novelty": "false_as_a_direction",
+    "rfc_issue": {
+      "number": 13058,
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/13058"
+    },
+    "current_main_implementation": {
+      "url": "https://raw.githubusercontent.com/vllm-project/vllm-ascend/main/vllm_ascend/compilation/updatable_graph.py",
+      "evidence": "UpdatableGraph.update builds ws_buffer and reuses PA workspaces by _get_ws_key before applying graph tasks."
+    }
+  },
+  "decision": "Do not present PA workspace cache or graph-owned UpdatableGraph as a new community-absent optimization. Keep the local patch as version-backport evidence and search for a different unresolved Runtime/ATB issue before proposing an upstream change."
+}

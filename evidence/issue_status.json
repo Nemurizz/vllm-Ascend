@@ -70,6 +70,20 @@
       "state": "open",
       "url": "https://github.com/vllm-project/vllm-ascend/issues/13058",
       "decision": "background RFC; host-side ACLGraph parameter updates"
+    },
+    {
+      "number": 15575,
+      "state": "closed",
+      "url": "https://github.com/vllm-project/vllm-ascend/issues/15575",
+      "decision": "exclude as new topic; exact PA workspace redundancy fixed by merged PR 15579",
+      "closed_by_pr": 15579,
+      "pr_url": "https://github.com/vllm-project/vllm-ascend/pull/15579"
+    },
+    {
+      "number": 15579,
+      "state": "merged",
+      "url": "https://github.com/vllm-project/vllm-ascend/pull/15579",
+      "decision": "community implementation matches the PA workspace-hoist objective; local patch is a 0.22.1rc1 backport/reproduction"
     }
   ]
 }

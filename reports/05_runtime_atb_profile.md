@@ -12,9 +12,9 @@
 
 同一 workload 下，图模式输出吞吐为 56.52 token/s，eager 为 11.08 token/s；图模式有效，但剩余成本集中在 attention 参数更新。切换到现有 `FULL_DECODE_ONLY` + paged-attention 配置没有绕开问题：吞吐 56.61 token/s（+0.17%，处于单次 screening 噪声范围），`attention_params_update` 反而升至 7867.5 ms，其中 paged-attention workspace 查询标记累计 2982.5 ms。该配置不作为优化方案。
 
-不过，PA 路径暴露了一个可以单独验证的 Runtime/ATB 冗余：旧版 `attention_v1.py:update_graph_params()` 在每个 attention layer 都调用 `_npu_paged_attention_get_workspace(...)`。在同一 decode step，workspace 的大小由 shape、dtype 和 metadata layout 决定，不随 layer 的 tensor 地址改变。按当前上游 `UpdatableGraph` 中的 workspace 缓存思路，我做了一个仅覆盖 PA 更新循环、每个 update 调用内按签名缓存 workspace 的最小 patch（`patches/runtime_pa_workspace_cache.patch`）。
+不过，PA 路径暴露的这个 Runtime/ATB 冗余已经被社区明确提出并解决：上游 Issue [#15575](https://github.com/vllm-project/vllm-ascend/issues/15575) 描述的就是旧版 `attention_v1.py:update_graph_params()` 在每个 attention layer 调用 `_npu_paged_attention_get_workspace(...)`；对应的 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已于 2026-09-04 合并。该 PR 的改法与本实验相同，都是在一次 update pass 内按 workspace 相关签名复用结果，而不是跨 decode step 盲目复用。仓库中的 `patches/runtime_pa_workspace_cache.patch` 因此只能被视为针对 v0.22.1rc1 的回移/复现补丁，不是社区未覆盖的新优化。
 
-这个 patch 在相同的 5×128 固定负载上通过了 5/5 请求和 deterministic 文本/usage 对齐：输出吞吐从 56.61 增到 67.80 token/s（+19.77%），E2E P50 从 2264.47 ms 降到 1887.95 ms，TPOT P50 从 17.14 ms 降到 14.24 ms；`attention_params_update` 从 7867.5 ms 降到 4395.7 ms（−44.13%），workspace 查询从 22860 次降到 635 次（−97.22%）。这是一个配置级 PA 结果，不能外推成默认 FIA 的收益；它已在远端恢复原文件，仓库只保存 patch 和证据，等待更完整的负载回归后再决定是否保留。
+这个回移 patch 在相同的 5×128 固定负载上通过了 5/5 请求和 deterministic 文本/usage 对齐：输出吞吐从 56.61 增到 67.80 token/s（+19.77%），E2E P50 从 2264.47 ms 降到 1887.95 ms，TPOT P50 从 17.14 ms 降到 14.24 ms；`attention_params_update` 从 7867.5 ms 降到 4395.7 ms（−44.13%），workspace 查询从 22860 次降到 635 次（−97.22%）。这组数据是对社区 PR 在旧版本、910B2 和本项目 workload 上的独立复现，不应作为原创收益或默认 FIA 的收益声明；远端已恢复原文件，仓库只保存补丁和证据。
 
 补充的 4×256、并发 2 对照也保持方向一致：未修改 PA 为 109.14 token/s、E2E P50 4689.16 ms；workspace cache 为 129.40 token/s（+18.57%）、E2E P50 3953.65 ms（−15.69%）、TPOT P50 14.95 ms（−16.01%）。两组均为 4/4 成功，按 request index 比较生成文本和 usage 完全一致；更新区间从 6515.1 ms 降到 3533.4 ms，workspace 查询从 18360 次降到 510 次。
 
@@ -73,6 +73,6 @@ host 标记比这些 API 累计更大，说明 Python 参数重建、弱引用�
 
 上游 [ACL Graph 设计文档](https://github.com/vllm-project/vllm-ascend/blob/main/docs/source/developer_guide/Design_Documents/ACL_Graph.md) 把 host-side attention update、`graph_task_update_*` 和 replay ordering 列为 Ascend full graph 的核心机制。[Issue #13058](https://github.com/vllm-project/vllm-ascend/issues/13058) 正在讨论把任务所有权从“按 layer 顺序的平行列表”移到 graph-owned registry；其描述的主要问题正好对应本 checkout 的 `attn_params/handles/events` 重建路径。当前主分支已经出现 `UpdatableGraph` 原型，但该设计经历过多次合并/回滚，不能直接当成 0.22.1rc1 的小补丁，也不能跳过本机正确性验证。
 
-因此下一步有两个层次：PA workspace cache 可以作为已验证的窄 patch，继续补充长输出、混合 batch 和不同 capture size 回归；默认 FIA 则仍需要一个**可开关、只覆盖 Qwen3-8B FIA FULL graph 的局部原型**：在 capture 时记录每层 operation、静态 kwargs、handle/event 和 provider；decode 时只解析本轮 metadata，复用已注册 task，保持相同的 `graph_task_update_begin/end` 和 event 顺序。第一版只做观测与等价性检查，不修改 PA、MLA、speculative 或 ENPU 路径。若该原型不能在 5×128 workload 上把 host update 区间降低至少 3%，或出现任何输出/挂起问题，就停止回移并保留现有基线。
+因此下一步不应再把 PA workspace cache 当作新的上游选题。默认 FIA 的 graph-owned task registry 也已有上游 RFC [#13058](https://github.com/vllm-project/vllm-ascend/issues/13058) 和当前主线的 `UpdatableGraph` 实现；它可以作为旧版本兼容性研究，但不能声称社区没有类似方案。若继续做旧版本回移，范围应限定为：在 v0.22.1rc1 上复现 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 的行为，补齐长输出、混合 batch、异构 attention shape 和多 capture size 回归，并记录与主线的差异。若目标是形成新的上游贡献，则必须另找尚未有等价 PR/主线实现的 Runtime/ATB 问题。删除 replay 同步的实验仍只是本项目的负向安全证据：首个请求 30 s 超时，不能作为优化建议。
 
 这条路线的收益上限来自 6.05 s/11.32 s 的局部区间，理论上比删除 100 ms 的 replay sync 更有空间；但 graph-owned registry 仍属于中等偏难的 Runtime 改动，必须先做最小 FIA-only patch、短请求正确性、长 decode、长短混合和多进程回归，不能承诺收益。
