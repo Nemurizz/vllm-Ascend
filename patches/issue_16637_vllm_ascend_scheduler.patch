@@ -1,0 +1,109 @@
+diff --git a/vllm_ascend/core/dyntra_lb_scheduler.py b/vllm_ascend/core/dyntra_lb_scheduler.py
+index f2504b6..645643a 100644
+--- a/vllm_ascend/core/dyntra_lb_scheduler.py
++++ b/vllm_ascend/core/dyntra_lb_scheduler.py
+@@ -459,6 +459,19 @@ class DyntraLBScheduler(DyntraLBPolicyMixin, Scheduler):
+         encoder_compute_budget = self.max_num_encoder_input_tokens
+         # Spec decode-related.
+         scheduled_spec_decode_tokens: dict[str, list[int]] = {}
++        # Dynamic speculative decoding changes K with the decode batch size.
++        # Padding is decided before this step's final batch is known, so use
++        # the currently running decode requests as the stable lookup key.
++        effective_spec_k = self.num_spec_tokens
++        if self.dynamic_sd_lookup is not None:
++            num_decode_reqs = sum(
++                request.num_computed_tokens >= request.num_tokens
++                for request in self.running
++            )
++            lookup_idx = max(
++                1, min(num_decode_reqs, len(self.dynamic_sd_lookup) - 1)
++            )
++            effective_spec_k = self.dynamic_sd_lookup[lookup_idx]
+         # Whether the running batch contains any prefill requests.
+         prefill_scheduled = False
+ 
+@@ -858,12 +871,13 @@ class DyntraLBScheduler(DyntraLBPolicyMixin, Scheduler):
+                     # preserve full cudagraph for this step.
+                     # Not for diffusion where draft tokens can't be padded.
+                     if (
+-                        (self.num_spec_tokens > 0 and self.dynamic_sd_lookup is None)
++                        self.num_spec_tokens > 0
++                        and effective_spec_k > 0
+                         and self.num_sampled_tokens_per_step > 0
+                         and num_new_tokens == 1
+                         and not prefill_scheduled
+                     ):
+-                        num_new_tokens = 1 + self.num_spec_tokens
++                        num_new_tokens = 1 + effective_spec_k
+                         if num_new_tokens > token_budget or num_computed_tokens + num_new_tokens > self.max_model_len:
+                             # Prefer to not schedule than schedule un-padded here.
+                             break
+@@ -1029,7 +1043,7 @@ class DyntraLBScheduler(DyntraLBPolicyMixin, Scheduler):
+                 request.status = RequestStatus.RUNNING
+                 request.num_computed_tokens = num_computed_tokens
+                 if pad_spec_decode:
+-                    scheduled_spec_decode_tokens[request_id] = [-1] * self.num_spec_tokens
++                    scheduled_spec_decode_tokens[request_id] = [-1] * effective_spec_k
+                 # Only track requests that will still be prefilling after this chunk.
+                 if num_computed_tokens + num_new_tokens < request.num_tokens:
+                     self._inflight_prefills.add(request)
+diff --git a/vllm_ascend/core/recompute_scheduler.py b/vllm_ascend/core/recompute_scheduler.py
+index da34f53..1ef83be 100644
+--- a/vllm_ascend/core/recompute_scheduler.py
++++ b/vllm_ascend/core/recompute_scheduler.py
+@@ -206,6 +206,19 @@ class RecomputeScheduler(Scheduler):
+         encoder_compute_budget = self.max_num_encoder_input_tokens
+         # Spec decode-related.
+         scheduled_spec_decode_tokens: dict[str, list[int]] = {}
++        # Dynamic speculative decoding changes K with the decode batch size.
++        # Padding is decided before this step's final batch is known, so use
++        # the currently running decode requests as the stable lookup key.
++        effective_spec_k = self.num_spec_tokens
++        if self.dynamic_sd_lookup is not None:
++            num_decode_reqs = sum(
++                request.num_computed_tokens >= request.num_tokens
++                for request in self.running
++            )
++            lookup_idx = max(
++                1, min(num_decode_reqs, len(self.dynamic_sd_lookup) - 1)
++            )
++            effective_spec_k = self.dynamic_sd_lookup[lookup_idx]
+         # Whether the running batch contains any prefill requests.
+         prefill_scheduled = False
+         # Whether any scheduled request has a synchronous connector KV load.
+@@ -614,12 +627,13 @@ class RecomputeScheduler(Scheduler):
+                     # No scheduled_running_reqs check: disaggregated D nodes never mix long prefills, so padding
+                     # always pays off; that check only helps colocated P/D, where prefill_scheduled still guards us.
+                     if (
+-                        (self.num_spec_tokens > 0 and self.dynamic_sd_lookup is None)
++                        self.num_spec_tokens > 0
++                        and effective_spec_k > 0
+                         and self.num_sampled_tokens_per_step > 0
+                         and num_new_tokens == 1
+                         and not prefill_scheduled
+                     ):
+-                        padded_num_tokens = 1 + self.num_spec_tokens
++                        padded_num_tokens = 1 + effective_spec_k
+                         # Pad only when there is room for the sampled token(s).
+                         if (
+                             num_computed_tokens + padded_num_tokens + self.num_sampled_tokens_per_step
+@@ -655,7 +669,7 @@ class RecomputeScheduler(Scheduler):
+                         )
+                         if num_new_tokens == 0:
+                             break
+-                        if pad_spec_decode and num_new_tokens != 1 + self.num_spec_tokens:
++                        if pad_spec_decode and num_new_tokens != 1 + effective_spec_k:
+                             # Alignment clipped the placeholder rows. The split
+                             # aligns prefill chunks, but the padded tail rows are
+                             # speculative positions, not prefill tokens. A padded
+@@ -806,8 +820,8 @@ class RecomputeScheduler(Scheduler):
+                 request.status = RequestStatus.RUNNING
+                 request.num_computed_tokens = num_computed_tokens
+                 if pad_spec_decode:
+-                    assert num_new_tokens == 1 + self.num_spec_tokens
+-                    scheduled_spec_decode_tokens[request_id] = [-1] * self.num_spec_tokens
++                    assert num_new_tokens == 1 + effective_spec_k
++                    scheduled_spec_decode_tokens[request_id] = [-1] * effective_spec_k
+                 # Only track requests that will still be prefilling after this chunk.
+                 if num_computed_tokens + num_new_tokens < request.num_tokens:
+                     self._inflight_prefills.add(request)

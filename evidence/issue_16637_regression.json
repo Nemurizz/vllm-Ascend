@@ -1,0 +1,41 @@
+{
+  "issue": "https://github.com/vllm-project/vllm-ascend/issues/16637",
+  "status_at_2026_10_11": "open",
+  "upstream_pr_found": false,
+  "source_pins": {
+    "vllm": {
+      "path": "C:/Users/Administrator/Documents/Codex/2026-10-10/sources/vllm-main",
+      "base": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+      "fix_commit": "f9de447",
+      "branch": "codex/issue-16637-dynamic-padding"
+    },
+    "vllm_ascend": {
+      "path": "C:/Users/Administrator/Documents/Codex/2026-10-10/sources/vllm-ascend-main",
+      "base": "c8addbb24fe8fa820bb79685c116e43ba89b77e9",
+      "fix_commit": "b7a7f5e",
+      "branch": "codex/issue-16637-dynamic-padding"
+    }
+  },
+  "remote_runtime": {
+    "hardware": "Ascend 910B2 64GB x1",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "npu_idle": true,
+    "performance_ab_test": "not_run_version_and_model_mismatch"
+  },
+  "regression": {
+    "original_scheduler_dynamic_padding_test": "failed_expected_assertion",
+    "patched_dynamic_padding_test": "passed",
+    "patched_static_padding_test": "passed",
+    "patched_resumed_padding_test": "passed",
+    "compileall": "passed",
+    "git_diff_check": "passed"
+  },
+  "artifacts": [
+    "patches/issue_16637_vllm_scheduler.patch",
+    "patches/issue_16637_vllm_ascend_scheduler.patch",
+    "reports/06_issue_16637_dynamic_sd_padding.md"
+  ]
+}
