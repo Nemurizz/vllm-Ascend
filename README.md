@@ -10,6 +10,8 @@
 - 5 请求 graph bucket A/B 观察到 `5 -> 8` padding，但增加精确 bucket 后 E2E P50 只改善约 0.63%，低于项目门槛。
 - 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
 - PA workspace cache 已确认不是社区空白：对应上游 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已合并；本仓库的 0.22.1rc1 patch 只保留为 910B2 回移和独立复现实验证据。
+- Issue #16637 的动态 speculative padding 修复已分别提交在 vLLM `f9de447` 和 vLLM-Ascend `b7a7f5e`；当前研究分支只保存可迁移 patch、源码固定点和 CPU 回归证据，未把不匹配版本的 NPU 吞吐当作结论。
+- Issue #15920 的长上下文 profile shape 修复已分别提交在 vLLM `b9f0001` 和 vLLM-Ascend `dad2ab9`；补丁只在关闭 chunked prefill 时覆盖单请求长序列，远端旧栈没有做 NPU OOM 复现。
 
 ## 目录
 
@@ -28,7 +30,8 @@
    ```bash
    git clone https://github.com/Nemurizz/vllm-Ascend.git
    cd vllm-Ascend
-   git checkout main
+   git fetch --all --tags
+   git checkout research/runtime-atb
    ```
 
 2. 复制配置模板：
@@ -49,6 +52,8 @@
 4. 运行基线或 Graph 实验前，先检查 `MODEL_DIR`、`PROJECT_ROOT`、`RESULTS_ROOT` 和 `VLLM_ENV_ROOT`。模型权重、pip 缓存、Profiler 大文件都放在配置指定的数据盘/系统盘目录，不写入 Git。
 
 完整恢复步骤见 [`docs/recovery.md`](docs/recovery.md)。
+
+研究分支中的提交顺序保留了可审计的独立变更：`f65b351` 对应 #16637 报告，`21e2283` 对应 #15920 报告。两个源码 checkout 的实现分支和固定提交记录在 `evidence/issue_16637_regression.json`、`evidence/issue_15920_regression.json` 以及 `evidence/source_pins.json`；vLLM 主仓库的改动通过 `patches/` 迁移，不把两个上游仓库混成一个 Git 历史。
 
 ## 安全边界
 

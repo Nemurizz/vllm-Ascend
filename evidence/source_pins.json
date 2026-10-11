@@ -91,5 +91,39 @@
     "vllm/multimodal/processing/processor.py:BaseMultiModalProcessor",
     "vllm/multimodal/encoder_budget.py:MultiModalBudget",
     "vllm_ascend/spec_decode/dflash_proposer.py:AscendDflashProposer"
-  ]
+  ],
+  "research_fix_checkouts": {
+    "issue_16637_dynamic_padding": {
+      "issue": "https://github.com/vllm-project/vllm-ascend/issues/16637",
+      "vllm": {
+        "base": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+        "branch": "codex/issue-16637-dynamic-padding",
+        "fix_commit": "f9de447",
+        "patch": "patches/issue_16637_vllm_scheduler.patch"
+      },
+      "vllm_ascend": {
+        "base": "c8addbb24fe8fa820bb79685c116e43ba89b77e9",
+        "branch": "codex/issue-16637-dynamic-padding",
+        "fix_commit": "b7a7f5e",
+        "patch": "patches/issue_16637_vllm_ascend_scheduler.patch"
+      },
+      "npu_ab_status": "not_run_version_and_model_mismatch"
+    },
+    "issue_15920_profile_shape": {
+      "issue": "https://github.com/vllm-project/vllm-ascend/issues/15920",
+      "vllm": {
+        "base": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+        "branch": "codex/issue-15920-profile-shape",
+        "fix_commit": "b9f0001",
+        "patch": "patches/issue_15920_vllm_profile_shape.patch"
+      },
+      "vllm_ascend": {
+        "base": "c8addbb24fe8fa820bb79685c116e43ba89b77e9",
+        "branch": "codex/issue-15920-profile-shape",
+        "fix_commit": "dad2ab9",
+        "patch": "patches/issue_15920_vllm_ascend_profile_shape.patch"
+      },
+      "npu_ab_status": "not_run_version_and_model_mismatch"
+    }
+  }
 }

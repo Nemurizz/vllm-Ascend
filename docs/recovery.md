@@ -7,11 +7,13 @@
 ```bash
 git clone https://github.com/Nemurizz/vllm-Ascend.git
 cd vllm-Ascend
-git log --oneline --decorate -5
-git checkout main
+git fetch --all --tags
+git log --oneline --decorate --all -12
+git checkout research/runtime-atb
+git status --short
 ```
 
-仓库当前用独立提交保存三类内容：运行脚本与 workload、阶段报告与证据、可迁移配置与文档。后续实验在新分支开发，保留这些提交作为基线。
+仓库当前用独立提交保存三类内容：运行脚本与 workload、阶段报告与证据、可迁移配置与文档。`research/runtime-atb` 保留 #16637 和 #15920 的 patch、固定提交、回归证据及限制说明；后续实验从该分支再创建新分支，保留这些提交作为基线。当前研究提交为 `f65b351`（#16637）和 `21e2283`（#15920）。
 
 ## 2. 检查新实例
 
@@ -29,6 +31,8 @@ bash scripts/check_stack.sh
 CANN 和 torch-npu 通常由镜像或宿主机提供，先确认其版本，再按对应的 [vLLM-Ascend 兼容矩阵](https://docs.vllm.ai/projects/ascend/en/latest/community/versioning_policy.html) 安装 vLLM/vLLM-Ascend。`scripts/install_stack.sh` 只使用配置中的版本和国内 pip 源，不升级驱动或 CANN。
 
 旧实验栈的版本记录在 `evidence/source_pins.json`。如果新镜像使用更新版本，先重新生成环境证据并重新跑基线，不要直接把旧延迟数字与新版本比较。
+
+源码修复的独立 checkout 需要分别恢复：vLLM checkout 使用 `codex/issue-16637-dynamic-padding` / `f9de447` 或 `codex/issue-15920-profile-shape` / `b9f0001`；vLLM-Ascend checkout 使用对应的 `b7a7f5e` 或 `dad2ab9`。若只恢复本仓库，直接应用 `patches/issue_16637_*.patch` 或 `patches/issue_15920_*.patch`，不要把 vLLM patch 应用到 vLLM-Ascend checkout。
 
 ## 4. 下载模型
 
