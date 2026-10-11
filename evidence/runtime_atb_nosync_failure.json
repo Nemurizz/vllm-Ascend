@@ -1,0 +1,9 @@
+{
+  "server": "graph mode, Qwen3-8B, pinned 0.22.1rc1",
+  "modified_condition": "RUNTIME_SKIP_FULL_SYNC=1",
+  "health_check": {"status": 200},
+  "request": {"endpoint": "/v1/completions", "max_tokens": 8, "stream": false},
+  "observed": {"client_result": "TimeoutError", "elapsed_s": 30.0197274684906},
+  "interpretation": "Removing the full-graph replay barrier is unsafe on this stack; no performance claim is made.",
+  "rollback": "installed acl_graph.py restored from /root/vllm_project/runtime_atb/acl_graph.baseline.py"
+}

@@ -1,0 +1,62 @@
+diff --git a/vllm_ascend/attention/attention_v1.py b/vllm_ascend/attention/attention_v1.py
+index 53ad9be..160427f 100644
+--- a/vllm_ascend/attention/attention_v1.py
++++ b/vllm_ascend/attention/attention_v1.py
+@@ -417,6 +417,14 @@ class AscendAttentionBackendImpl(AttentionImpl):
+             else:
+                 graph_params = get_graph_params()
+             with torch.npu.stream(update_stream):
++                # The workspace size depends on shapes and metadata layout, not
++                # on per-layer tensor addresses. Cache it within this update.
++                def _workspace_signature(tensor):
++                    if tensor is None:
++                        return (None, None)
++                    return (tuple(tensor.shape), tensor.dtype)
++
++                workspace_cache = {}
+                 for key, param, handle, event in zip(
+                     forward_context.attn_metadata,
+                     graph_params.attn_params[num_tokens],
+@@ -436,17 +444,32 @@ class AscendAttentionBackendImpl(AttentionImpl):
+                     ) = param
+                     seq_lens = forward_context.attn_metadata[key].seq_lens
+ 
+-                    workspace = torch_npu._npu_paged_attention_get_workspace(
+-                        query=query,
+-                        key_cache=key_cache,
+-                        value_cache=value_cache,
+-                        num_kv_heads=num_kv_heads,
+-                        num_heads=num_heads,
+-                        scale_value=scale,
+-                        block_table=block_table,
+-                        context_lens=seq_lens,
+-                        out=output,
++                    workspace_key = (
++                        seq_lens.data_ptr(),
++                        tuple(seq_lens.shape),
++                        _workspace_signature(query),
++                        _workspace_signature(key_cache),
++                        _workspace_signature(value_cache),
++                        _workspace_signature(block_table),
++                        _workspace_signature(output),
++                        num_kv_heads,
++                        num_heads,
++                        scale,
+                     )
++                    workspace = workspace_cache.get(workspace_key)
++                    if workspace is None:
++                        workspace = torch_npu._npu_paged_attention_get_workspace(
++                            query=query,
++                            key_cache=key_cache,
++                            value_cache=value_cache,
++                            num_kv_heads=num_kv_heads,
++                            num_heads=num_heads,
++                            scale_value=scale,
++                            block_table=block_table,
++                            context_lens=seq_lens,
++                            out=output,
++                        )
++                        workspace_cache[workspace_key] = workspace
+                     torch.npu.graph_task_update_begin(update_stream, handle)
+                     torch_npu._npu_paged_attention(
+                         query=query,

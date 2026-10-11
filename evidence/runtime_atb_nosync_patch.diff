@@ -1,0 +1,9 @@
+--- vllm_ascend/compilation/acl_graph.py (experimental, not retained)
++++ vllm_ascend/compilation/acl_graph.py (experimental, not retained)
+@@
+-        if not self.enable_enpu and need_sync:
++        if not self.enable_enpu and need_sync and os.getenv("RUNTIME_SKIP_FULL_SYNC") != "1":
+             torch.npu.current_stream().synchronize()
+
+# The experiment also added `import os`; both changes were reverted after the
+# request timeout recorded in runtime_atb_nosync_failure.json.

@@ -1,0 +1,214 @@
+{
+  "environment": {
+    "hardware": "Ascend 910B2 64GB single NPU",
+    "cann": "9.0.0",
+    "torch": "2.10.0+cpu",
+    "torch_npu": "2.10.0",
+    "vllm": "0.22.1",
+    "vllm_ascend": "0.22.1rc1",
+    "model": "Qwen3-8B",
+    "profile_tool": "torch_npu.profiler (torch profiler backend) + msprof-exported CSV"
+  },
+  "graph_fia_probe": {
+    "requests": 5,
+    "completion_tokens_per_request": 128,
+    "concurrency": 1,
+    "wall_time_s": 11.323775049764663,
+    "output_tokens_per_s": 56.51825448557465,
+    "errors": 0,
+    "ttft_p50_ms": 133.1707900390029,
+    "e2e_p50_ms": 2189.6853102371097,
+    "tpot_p50_ms": 16.32201354437339,
+    "ranges": {
+      "replay_pre_sync": {
+        "count": 635,
+        "total_ms": 100.046,
+        "p50_ms": 0.1516,
+        "p99_ms": 0.2215,
+        "max_ms": 0.9779
+      },
+      "graph_replay_submit": {
+        "count": 635,
+        "total_ms": 59.355,
+        "p50_ms": 0.0882,
+        "p99_ms": 0.1417,
+        "max_ms": 0.2368
+      },
+      "attention_params_update": {
+        "count": 635,
+        "total_ms": 6050.718,
+        "p50_ms": 9.0214,
+        "p99_ms": 12.9199,
+        "max_ms": 13.9634
+      },
+      "reshape_and_cache": {
+        "count": 180,
+        "total_ms": 24.7104,
+        "p50_ms": 0.1255,
+        "p99_ms": 0.3192,
+        "max_ms": 0.3247
+      }
+    },
+    "msprof_operator_facts": {
+      "aclnnInnerFusedInferAttentionScore_host_total_us": 1117746.62,
+      "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize_host_total_us": 456363.61,
+      "FusedInferAttentionScore_device_total_us": 526946.012,
+      "aclmdlRICaptureTaskUpdateBegin_host_total_us": 60373.82,
+      "aclmdlRICaptureTaskUpdateEnd_host_total_us": 64871.82,
+      "aclrtSynchronizeStreamWithTimeout_count": 635,
+      "aclrtSynchronizeStreamWithTimeout_total_us": 13260.89
+    }
+  },
+  "eager_probe": {
+    "requests": 5,
+    "completion_tokens_per_request": 128,
+    "wall_time_s": 57.781236439943314,
+    "output_tokens_per_s": 11.07626003581982,
+    "errors": 0,
+    "tpot_p50_ms": 88.81886818952214
+  },
+  "full_decode_only_paged_attention_probe": {
+    "requests": 5,
+    "completion_tokens_per_request": 128,
+    "wall_time_s": 11.304827129933983,
+    "output_tokens_per_s": 56.612984227361416,
+    "errors": 0,
+    "ttft_p50_ms": 87.14326983317733,
+    "e2e_p50_ms": 2264.4703001715243,
+    "tpot_p50_ms": 17.144307325498794,
+    "ranges": {
+      "attention_params_update": {
+        "count": 635,
+        "total_ms": 7867.53087,
+        "p50_ms": 12.41002,
+        "p99_ms": 13.60877,
+        "max_ms": 16.13652
+      },
+      "paged_attention_get_workspace": {
+        "count": 22860,
+        "total_ms": 2982.52159,
+        "p50_ms": 0.12858,
+        "p99_ms": 0.20489,
+        "max_ms": 2.08142
+      },
+      "paged_attention": {
+        "count": 22860,
+        "total_ms": 1707.65668,
+        "p50_ms": 0.07439,
+        "p99_ms": 0.09256,
+        "max_ms": 1.38133
+      }
+    }
+  },
+  "no_sync_probe": {
+    "patch": "RUNTIME_SKIP_FULL_SYNC=1 around ACLGraphWrapper replay pre-sync",
+    "server_health": "200 OK",
+    "request": "one non-streaming completion, max_tokens=8",
+    "result": "client timeout after 30.0197 s; no response",
+    "action": "restored installed acl_graph.py from baseline immediately"
+  },
+  "full_decode_only_paged_attention_workspace_cache_patch": {
+    "patch": "patches/runtime_pa_workspace_cache.patch",
+    "requests": 5,
+    "completion_tokens_per_request": 128,
+    "concurrency": 1,
+    "wall_time_s": 9.439032929949462,
+    "output_tokens_per_s": 67.80355622760038,
+    "errors": 0,
+    "ttft_p50_ms": 79.00770986452699,
+    "e2e_p50_ms": 1887.9492999985814,
+    "tpot_p50_ms": 14.243144171649782,
+    "ranges": {
+      "attention_params_update": {
+        "count": 635,
+        "total_ms": 4395.71197,
+        "p50_ms": 6.90936,
+        "p99_ms": 7.95718,
+        "max_ms": 11.12201
+      },
+      "paged_attention_get_workspace": {
+        "count": 635,
+        "total_ms": 124.44079,
+        "p50_ms": 0.19609,
+        "p99_ms": 0.2265,
+        "max_ms": 0.26436
+      },
+      "paged_attention": {
+        "count": 22860,
+        "total_ms": 1557.95057,
+        "p50_ms": 0.06692,
+        "p99_ms": 0.08648,
+        "max_ms": 0.9649
+      }
+    },
+    "correctness_vs_unpatched_pa": {
+      "text_equal": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "usage_equal": [
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    "relative_to_unpatched_pa": {
+      "output_token_per_s_percent": 19.77,
+      "attention_update_total_percent": -44.13,
+      "workspace_query_count_percent": -97.22
+    }
+  },
+  "full_decode_only_paged_attention_workspace_cache_mixed_concurrency": {
+    "requests": 4,
+    "completion_tokens_per_request": 256,
+    "concurrency": 2,
+    "errors": 0,
+    "unpatched": {
+      "wall_time_s": 9.382662879768759,
+      "output_tokens_per_s": 109.13746056122152,
+      "ttft_p50_ms": 148.15580495633185,
+      "e2e_p50_ms": 4689.156699925661,
+      "tpot_p50_ms": 17.80523680351382,
+      "attention_update": {
+        "count": 510,
+        "total_ms": 6515.12441,
+        "p50_ms": 12.682085
+      },
+      "workspace_query": {
+        "count": 18360,
+        "total_ms": 2413.7527
+      }
+    },
+    "workspace_cache": {
+      "wall_time_s": 7.913417180068791,
+      "output_tokens_per_s": 129.4004823326019,
+      "ttft_p50_ms": 137.48029991984367,
+      "e2e_p50_ms": 3953.6474549677223,
+      "tpot_p50_ms": 14.954532353280513,
+      "attention_update": {
+        "count": 510,
+        "total_ms": 3533.37459,
+        "p50_ms": 6.82068
+      },
+      "workspace_query": {
+        "count": 510,
+        "total_ms": 114.75675
+      }
+    },
+    "relative": {
+      "output_tokens_per_s_percent": 18.57,
+      "e2e_p50_percent": -15.69,
+      "tpot_p50_percent": -16.01,
+      "attention_update_total_percent": -45.77,
+      "workspace_query_count_percent": -97.22
+    },
+    "correctness_vs_unpatched": {
+      "text_and_usage_equal_by_index": true
+    }
+  }
+}

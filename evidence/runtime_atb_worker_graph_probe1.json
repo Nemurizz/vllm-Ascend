@@ -1,0 +1,37 @@
+{
+  "timer_only": false,
+  "ranges": {
+    "runtime_probe::_npu_reshape_and_cache": {
+      "count": 180,
+      "total_ms": 24.710400000000003,
+      "p50_ms": 0.12534499999999998,
+      "p99_ms": 0.31918,
+      "min_ms": 0.10073,
+      "max_ms": 0.32469
+    },
+    "runtime_probe::replay_pre_sync": {
+      "count": 635,
+      "total_ms": 100.0457899999999,
+      "p50_ms": 0.15164,
+      "p99_ms": 0.22151,
+      "min_ms": 0.13086,
+      "max_ms": 0.97789
+    },
+    "runtime_probe::graph_replay_submit": {
+      "count": 635,
+      "total_ms": 59.35516000000002,
+      "p50_ms": 0.08825,
+      "p99_ms": 0.14173,
+      "min_ms": 0.07571,
+      "max_ms": 0.23682
+    },
+    "runtime_probe::attention_params_update": {
+      "count": 635,
+      "total_ms": 6050.717909999996,
+      "p50_ms": 9.02144,
+      "p99_ms": 12.91985,
+      "min_ms": 8.11922,
+      "max_ms": 13.96344
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "timer_only": true,
+  "ranges": {
+    "runtime_probe::_npu_reshape_and_cache": {
+      "count": 180,
+      "total_ms": 11.10821,
+      "p50_ms": 0.060969999999999996,
+      "p99_ms": 0.07695,
+      "min_ms": 0.05625,
+      "max_ms": 0.08933
+    },
+    "runtime_probe::replay_pre_sync": {
+      "count": 635,
+      "total_ms": 1762.9785499999996,
+      "p50_ms": 2.86916,
+      "p99_ms": 3.41181,
+      "min_ms": 0.09738,
+      "max_ms": 3.52475
+    },
+    "runtime_probe::graph_replay_submit": {
+      "count": 635,
+      "total_ms": 26.694820000000014,
+      "p50_ms": 0.04191,
+      "p99_ms": 0.04912,
+      "min_ms": 0.03706,
+      "max_ms": 0.06346
+    },
+    "runtime_probe::_npu_paged_attention_get_workspace": {
+      "count": 635,
+      "total_ms": 124.44078999999996,
+      "p50_ms": 0.19609,
+      "p99_ms": 0.2265,
+      "min_ms": 0.17417,
+      "max_ms": 0.26436
+    },
+    "runtime_probe::_npu_paged_attention": {
+      "count": 22860,
+      "total_ms": 1557.95057000004,
+      "p50_ms": 0.06692,
+      "p99_ms": 0.08648,
+      "min_ms": 0.05827,
+      "max_ms": 0.9649
+    },
+    "runtime_probe::attention_params_update": {
+      "count": 635,
+      "total_ms": 4395.711969999998,
+      "p50_ms": 6.90936,
+      "p99_ms": 7.95718,
+      "min_ms": 6.33698,
+      "max_ms": 11.12201
+    }
+  }
+}

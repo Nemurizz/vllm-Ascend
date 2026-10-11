@@ -1,0 +1,114 @@
+{
+  "config": {
+    "base_url": "http://127.0.0.1:8025",
+    "concurrency": 1,
+    "requests": 5,
+    "tokens": 128,
+    "prompt_repeat": 1,
+    "profile": true,
+    "timeout": 60,
+    "warmup_tokens": 32,
+    "output": "/root/vllm_project/results/raw/runtime_pa_probe_cache.json"
+  },
+  "warmup": {
+    "index": -1,
+    "ttft_ms": 219.59803998470306,
+    "e2e_ms": 650.8540096692741,
+    "tpot_ms": 13.911482893050678,
+    "usage": {
+      "prompt_tokens": 16,
+      "total_tokens": 48,
+      "completion_tokens": 32
+    },
+    "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What",
+    "error": null
+  },
+  "wall_time_s": 9.439032929949462,
+  "errors": 0,
+  "output_token_per_s": 67.80355622760038,
+  "summary": {
+    "ttft_ms": {
+      "p50": 79.00770986452699,
+      "p95": 80.12014990672469,
+      "p99": 80.33018184825778
+    },
+    "e2e_ms": {
+      "p50": 1887.9492999985814,
+      "p95": 1890.1894842274487,
+      "p99": 1890.1966330595315
+    },
+    "tpot_ms": {
+      "p50": 14.243144171649782,
+      "p95": 14.260300363993316,
+      "p99": 14.262327286818131
+    }
+  },
+  "requests": [
+    {
+      "index": 0,
+      "ttft_ms": 75.29064966365695,
+      "e2e_ms": 1880.7571697980165,
+      "tpot_ms": 14.21627181208157,
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 144,
+        "completion_tokens": 128
+      },
+      "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What are the key considerations when implementing a cache in an inference server? 5. What are the best practices for managing a cache in an inference server? 6. How can the cache be optimized for different types of workloads? 7. What are the potential issues that can arise when using a cache in an inference server? 8. How can the cache be monitored and maintained? 9. What are the trade-offs between cache size and performance? 10.",
+      "error": null
+    },
+    {
+      "index": 1,
+      "ttft_ms": 78.81850004196167,
+      "e2e_ms": 1890.1984202675521,
+      "tpot_ms": 14.262834017524334,
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 144,
+        "completion_tokens": 128
+      },
+      "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What are the key considerations when implementing a cache in an inference server? 5. What are the best practices for managing a cache in an inference server? 6. How can the cache be optimized for different types of workloads? 7. What are the potential issues that can arise when using a cache in an inference server? 8. How can the cache be monitored and maintained? 9. What are the trade-offs between cache size and performance? 10.",
+      "error": null
+    },
+    {
+      "index": 2,
+      "ttft_ms": 79.00770986452699,
+      "e2e_ms": 1885.7827996835113,
+      "tpot_ms": 14.226575510385702,
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 144,
+        "completion_tokens": 128
+      },
+      "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What are the key considerations when implementing a cache in an inference server? 5. What are the best practices for managing a cache in an inference server? 6. How can the cache be optimized for different types of workloads? 7. What are the potential issues that can arise when using a cache in an inference server? 8. How can the cache be monitored and maintained? 9. What are the trade-offs between cache size and performance? 10.",
+      "error": null
+    },
+    {
+      "index": 3,
+      "ttft_ms": 79.06999019905925,
+      "e2e_ms": 1887.9492999985814,
+      "tpot_ms": 14.243144171649782,
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 144,
+        "completion_tokens": 128
+      },
+      "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What are the key considerations when implementing a cache in an inference server? 5. What are the best practices for managing a cache in an inference server? 6. How can the cache be optimized for different types of workloads? 7. What are the potential issues that can arise when using a cache in an inference server? 8. How can the cache be monitored and maintained? 9. What are the trade-offs between cache size and performance? 10.",
+      "error": null
+    },
+    {
+      "index": 4,
+      "ttft_ms": 80.38268983364105,
+      "e2e_ms": 1890.153740067035,
+      "tpot_ms": 14.250165749869243,
+      "usage": {
+        "prompt_tokens": 16,
+        "total_tokens": 144,
+        "completion_tokens": 128
+      },
+      "text": "2. Describe the different types of cache and their use cases. 3. How does the cache affect the performance of the inference server? 4. What are the key considerations when implementing a cache in an inference server? 5. What are the best practices for managing a cache in an inference server? 6. How can the cache be optimized for different types of workloads? 7. What are the potential issues that can arise when using a cache in an inference server? 8. How can the cache be monitored and maintained? 9. What are the trade-offs between cache size and performance? 10.",
+      "error": null
+    }
+  ],
+  "profile_stop": "ok"
+}
