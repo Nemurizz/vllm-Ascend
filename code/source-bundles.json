@@ -1,0 +1,41 @@
+{
+  "format_version": 1,
+  "archive_date": "2026-10-14",
+  "repositories": {
+    "vllm": {
+      "upstream": "https://github.com/vllm-project/vllm.git",
+      "mirror": "https://gitee.com/mirrors/vllm.git",
+      "base": "1ff5edb02327583cd9c88f6bda3c485dbd504938",
+      "bundle": "code/vllm-issue-fixes.bundle",
+      "bundle_sha256": "41e0a12736d27aea56e1879bdbeb1ea1d51c78f69a13d4c7e6498f96aebc0fde",
+      "issues": {
+        "16637": {
+          "branch": "codex/issue-16637-dynamic-padding",
+          "commit": "f9de4474420dc58e8759f0d81bb8c87dd33e163d"
+        },
+        "15920": {
+          "branch": "codex/issue-15920-profile-shape",
+          "commit": "b9f0001ee9a75c32e9446afbc58ca8f15c7f2cdb"
+        }
+      }
+    },
+    "vllm-ascend": {
+      "upstream": "https://github.com/vllm-project/vllm-ascend.git",
+      "mirror": "https://gitee.com/mirrors/vllm-ascend.git",
+      "base": "c8addbb24fe8fa820bb79685c116e43ba89b77e9",
+      "bundle": "code/vllm-ascend-issue-fixes.bundle",
+      "bundle_sha256": "8905c2a6fad0b5466c110ba76f1633f09c157f11d197ac9890351ada57860398",
+      "issues": {
+        "16637": {
+          "branch": "codex/issue-16637-dynamic-padding",
+          "commit": "b7a7f5e5eaaad41e2b44dab8f5c36630a15a370e"
+        },
+        "15920": {
+          "branch": "codex/issue-15920-profile-shape",
+          "commit": "dad2ab974854a6466a85e08f2fc11024ca2b021e"
+        }
+      }
+    }
+  },
+  "branch_note": "Issue 15920 branches contain the previous issue 16637 commit; use consecutive-branch diff to isolate issue 15920."
+}

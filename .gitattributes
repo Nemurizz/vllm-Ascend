@@ -1,0 +1,5 @@
+code/*.bundle binary
+scripts/*.sh text eol=lf
+scripts/*.py text eol=lf
+patches/*.patch text eol=lf
+evidence/migration_20261014/*.gz* binary
