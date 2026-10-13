@@ -1,0 +1,331 @@
+{
+  "format_version": 1,
+  "archive_kind": "selected_exports",
+  "archives": [
+    {
+      "file": "benchmark-records.tar.gz",
+      "bytes": 469078,
+      "sha256": "5c7d4c9ab35443790e1562fa6ad25daabd601939d9b864d8b27b612b8d050eff",
+      "members": [
+        {
+          "path": "results/qwen3_06b_graph_smoke.log",
+          "bytes": 14829
+        },
+        {
+          "path": "results/raw/cudagraph_offstride_repro.json",
+          "bytes": 1199
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c1.json",
+          "bytes": 3771
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c4.json",
+          "bytes": 3765
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c8.json",
+          "bytes": 3747
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c1.json",
+          "bytes": 3750
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c4.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c8.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_msprof_request.json",
+          "bytes": 2155
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_exact5_metrics.json",
+          "bytes": 4517
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics.json",
+          "bytes": 4539
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics_valid.json",
+          "bytes": 4507
+        },
+        {
+          "path": "results/raw/qwen3_8b_no_chunk_hol.json",
+          "bytes": 1455
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_c12.json",
+          "bytes": 3854
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_c12.json",
+          "bytes": 3848
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_msprof_c12.json",
+          "bytes": 3858
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_old_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_c12.json",
+          "bytes": 3856
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/runtime_eager_probe.json",
+          "bytes": 5043
+        },
+        {
+          "path": "results/raw/runtime_eager_probe_eager/worker_6406.json",
+          "bytes": 343131
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1/worker_2658.json",
+          "bytes": 32108
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1.json",
+          "bytes": 5048
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_base.json",
+          "bytes": 6980
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_cache.json",
+          "bytes": 6984
+        },
+        {
+          "path": "results/raw/runtime_pa_probe.json",
+          "bytes": 5526
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_cache.json",
+          "bytes": 5535
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa/worker_13596.json",
+          "bytes": 809397
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_cache/worker_16898.json",
+          "bytes": 433509
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_22154.json",
+          "bytes": 650470
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_compact.json",
+          "bytes": 1305
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_23764.json",
+          "bytes": 348449
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_compact.json",
+          "bytes": 1318
+        },
+        {
+          "path": "logs/download_qwen3_8b.log",
+          "bytes": 1415
+        },
+        {
+          "path": "logs/msprof_analyze_offstride.log",
+          "bytes": 458
+        },
+        {
+          "path": "logs/qwen3_06b_graph_msprof.log",
+          "bytes": 19115
+        },
+        {
+          "path": "logs/qwen3_8b_eager_c8_server.log",
+          "bytes": 20818
+        },
+        {
+          "path": "logs/qwen3_8b_eager_server.log",
+          "bytes": 23814
+        },
+        {
+          "path": "logs/qwen3_8b_graph_c8_server.log",
+          "bytes": 31789
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_exact5.log",
+          "bytes": 34779
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_valid.log",
+          "bytes": 33351
+        },
+        {
+          "path": "logs/qwen3_8b_graph_msprof.log",
+          "bytes": 31763
+        },
+        {
+          "path": "logs/qwen3_8b_graph_server.log",
+          "bytes": 33369
+        },
+        {
+          "path": "logs/qwen3_8b_metrics.log",
+          "bytes": 30601
+        },
+        {
+          "path": "logs/qwen3_8b_metrics_pad5.log",
+          "bytes": 31533
+        },
+        {
+          "path": "logs/qwen3_8b_no_chunk_server.log",
+          "bytes": 62265
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_msprof.log",
+          "bytes": 33957
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_server.log",
+          "bytes": 33751
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_old_server.log",
+          "bytes": 31569
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_patched_server.log",
+          "bytes": 33282
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_server.log",
+          "bytes": 32524
+        },
+        {
+          "path": "logs/runtime_eager_probe.log",
+          "bytes": 24347
+        },
+        {
+          "path": "logs/runtime_graph_enpu.log",
+          "bytes": 32532
+        },
+        {
+          "path": "logs/runtime_graph_probe1.log",
+          "bytes": 34429
+        },
+        {
+          "path": "logs/runtime_nosync_probe.log",
+          "bytes": 32057
+        }
+      ],
+      "parts": [
+        {
+          "file": "benchmark-records.tar.gz",
+          "bytes": 469078,
+          "sha256": "5c7d4c9ab35443790e1562fa6ad25daabd601939d9b864d8b27b612b8d050eff"
+        }
+      ]
+    },
+    {
+      "file": "runtime_graph_probe1.tar.gz",
+      "bytes": 33581104,
+      "sha256": "a0df640fb2ba702e93e84e8c0a1ae6314405d42f0408c06f17abcb0898b03d3e",
+      "members": [
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 3076
+        },
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 60580478
+        },
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1467
+        },
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 11639310
+        },
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 229
+        },
+        {
+          "path": "profiles/runtime_graph_probe1/rank0_2658_20261011091259241_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 474356007
+        }
+      ],
+      "parts": [
+        {
+          "file": "runtime_graph_probe1.tar.gz",
+          "bytes": 33581104,
+          "sha256": "a0df640fb2ba702e93e84e8c0a1ae6314405d42f0408c06f17abcb0898b03d3e"
+        }
+      ]
+    },
+    {
+      "file": "runtime_eager_probe_eager.tar.gz",
+      "bytes": 131114780,
+      "sha256": "861bc2f1bdcb7fa27584d14a528b1eba93e12f7f2b6f9bb744ee680a9d975155",
+      "members": [
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 2992
+        },
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 75960064
+        },
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1292
+        },
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 112780031
+        },
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 226
+        },
+        {
+          "path": "profiles/runtime_eager_probe_eager/rank0_6406_20261011093050262_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 1618311670
+        }
+      ],
+      "parts": [
+        {
+          "file": "runtime_eager_probe_eager.tar.gz.part000",
+          "bytes": 41943040,
+          "sha256": "ecedc66cf7a82bf658ed2b58b7e779bedd35117338e93a45a0e5552e14f6ac03"
+        },
+        {
+          "file": "runtime_eager_probe_eager.tar.gz.part001",
+          "bytes": 41943040,
+          "sha256": "9bf909cb6e409ea78cf7a0badbc7b389b78902b061b78fd7488221df932fc842"
+        },
+        {
+          "file": "runtime_eager_probe_eager.tar.gz.part002",
+          "bytes": 41943040,
+          "sha256": "25ee58baf1120bd32a943363fce51b1b4254d37876470b19c5ee573221a2a209"
+        },
+        {
+          "file": "runtime_eager_probe_eager.tar.gz.part003",
+          "bytes": 5285660,
+          "sha256": "84b339b0bb22af05a0c58650a9c0e7a0e43521f58b86de86f3565f4afdbeba51"
+        }
+      ]
+    }
+  ]
+}

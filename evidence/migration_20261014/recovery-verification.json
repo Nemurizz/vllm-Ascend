@@ -1,0 +1,36 @@
+{
+  "checked_date": "2026-10-14",
+  "scope": "archive preservation, not an NPU performance experiment",
+  "source_restore": {
+    "fresh_checkout_issue_16637": "passed_exact_head_and_clean",
+    "switch_to_issue_15920": "passed_exact_head_and_clean",
+    "upstream_base_provider_for_smoke_test": "local_source_checkout"
+  },
+  "benchmark_restore": {
+    "regular_files_restored": 55,
+    "result": "passed"
+  },
+  "archives": [
+    {
+      "archive": "benchmark-records.tar.gz",
+      "members_verified": 55,
+      "uncompressed_bytes": 3369903,
+      "sha256_parts": "passed",
+      "sensitive_data_scan": "passed"
+    },
+    {
+      "archive": "runtime_graph_probe1.tar.gz",
+      "members_verified": 6,
+      "uncompressed_bytes": 546580567,
+      "sha256_parts": "passed",
+      "sensitive_data_scan": "passed"
+    },
+    {
+      "archive": "runtime_eager_probe_eager.tar.gz",
+      "members_verified": 6,
+      "uncompressed_bytes": 1807056275,
+      "sha256_parts": "passed",
+      "sensitive_data_scan": "passed"
+    }
+  ]
+}
