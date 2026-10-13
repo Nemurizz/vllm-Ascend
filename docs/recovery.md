@@ -32,7 +32,17 @@ CANN 和 torch-npu 通常由镜像或宿主机提供，先确认其版本，再�
 
 旧实验栈的版本记录在 `evidence/source_pins.json`。如果新镜像使用更新版本，先重新生成环境证据并重新跑基线，不要直接把旧延迟数字与新版本比较。
 
-源码修复的独立 checkout 需要分别恢复：vLLM checkout 使用 `codex/issue-16637-dynamic-padding` / `f9de447` 或 `codex/issue-15920-profile-shape` / `b9f0001`；vLLM-Ascend checkout 使用对应的 `b7a7f5e` 或 `dad2ab9`。若只恢复本仓库，直接应用 `patches/issue_16637_*.patch` 或 `patches/issue_15920_*.patch`，不要把 vLLM patch 应用到 vLLM-Ascend checkout。
+源码修复的独立 checkout 可直接从本仓库中的 Git bundle 恢复：
+
+```bash
+python scripts/restore_sources.py --destination "$SYSTEM_ROOT/src/issue_checkouts" --issue 16637
+# 后续切换到第二个问题：
+python scripts/restore_sources.py --destination "$SYSTEM_ROOT/src/issue_checkouts" --issue 15920
+```
+
+脚本下载 `code/source-bundles.json` 中固定的 upstream base（官方 GitHub 优先，失败后用 Gitee 镜像），验证 bundle SHA256 并导入原始 Git 对象。vLLM 的恢复 HEAD 分别是 `f9de447`、`b9f0001`；vLLM-Ascend 分别是 `b7a7f5e`、`dad2ab9`。#15920 的原始源码分支包含前一个 #16637 commit；它自己的独立 diff 仍在 `patches/issue_15920_*.patch`。已有 checkout 不 clean 或分支偏离时脚本会停止，不会覆盖本地工作。详细说明见 [`code/README.md`](../code/README.md)。
+
+这只恢复源码，不能将它直接当作当前 0.22.1 NPU 环境已通过验收的安装栈。仍须依据兼容矩阵建立独立环境；#16637/#15920 的 NPU 复现和性能验收尚未完成。
 
 ## 4. 下载模型
 
@@ -56,6 +66,19 @@ bash scripts/run_graph_metrics.sh
 ## 6. 结果归档
 
 每次实验至少保存：命令、配置、环境检查、模型 revision、原始 JSON、服务日志、Profiler 输出目录、正确性摘要和 Git commit。报告中同时写清观察到的事实、推测和尚未在新实例复现的结论。
+
+旧实例在 2026-10-14 又导出了 55 个原始结果/日志和 Runtime Graph/Eager 两套时间线及 CSV。它们在 `evidence/migration_20261014/`，不依赖旧容器继续存在：
+
+```bash
+# 校验全部分片（无需解压 2.2 GiB）：
+python scripts/restore_evidence.py --verify-only --include-profiler
+# 默认只恢复小型结果和日志，不覆盖已有文件：
+python scripts/restore_evidence.py --destination "$SYSTEM_ROOT/recovered_20261014"
+# 要复核详细 Profiler 时间线时，使用另一个新目录：
+python scripts/restore_evidence.py --destination "$SYSTEM_ROOT/profiler_recovered_20261014" --include-profiler
+```
+
+分片按 manifest 顺序自动拼接，分别验证分片和完整压缩包 SHA256；解压路径、文件数和大小也会核对。压缩文件约 158 MiB，全部解压约 2.2 GiB，临时拼接另需约 126 MiB；建议系统盘至少留出 3 GiB。可用解压后的 `trace_view.json` 做时间线分析，CSV 保留 kernel、operator 和 API 统计。本次保留的是完整的已导出时间线和 CSV，没有将全部厂商原始二进制采集目录归档。旧包列表在 `dependencies-lock.json` 中用于版本核对，不能直接当作新镜像通用的 pip 安装清单。
 
 ## 7. 旧 patch 的使用边界
 

@@ -92,6 +92,12 @@
     "vllm/multimodal/encoder_budget.py:MultiModalBudget",
     "vllm_ascend/spec_decode/dflash_proposer.py:AscendDflashProposer"
   ],
+  "portable_source_archive": {
+    "manifest": "code/source-bundles.json",
+    "restore_script": "scripts/restore_sources.py",
+    "preserves_original_commit_sha": true,
+    "requires_upstream_base_download": true
+  },
   "research_fix_checkouts": {
     "issue_16637_dynamic_padding": {
       "issue": "https://github.com/vllm-project/vllm-ascend/issues/16637",

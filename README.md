@@ -22,6 +22,7 @@
 - `evidence/`：小型原始结果、Profiler API 摘要、关键数据库和源码快照。
 - `patches/`：旧 v0.22.1 配置回移 patch 和源码摘录。
 - `docs/`：迁移、恢复和实验运行说明。
+- `code/`：两个 upstream checkout 的增量 Git bundle、完整 commit SHA 和校验值。
 
 ## 新实例恢复
 
@@ -53,9 +54,11 @@
 
 完整恢复步骤见 [`docs/recovery.md`](docs/recovery.md)。
 
+源码提交可以用 `python scripts/restore_sources.py --destination "$HOME/vllm_project/src/issue_checkouts" --issue 16637` 恢复。2026-10-14 又归档了 55 个原始 benchmark/日志文件，以及 Runtime Graph/Eager 两套完整的 `trace_view.json` 和 CSV 导出，见 `evidence/migration_20261014/`。用 `python scripts/restore_evidence.py --destination "$HOME/vllm_project/recovered_20261014"` 恢复小型记录；加 `--include-profiler` 恢复时间线。压缩归档约 158 MiB，全部解压约 2.2 GiB。
+
 研究分支中的提交顺序保留了可审计的独立变更：`f65b351` 对应 #16637 报告，`21e2283` 对应 #15920 报告。两个源码 checkout 的实现分支和固定提交记录在 `evidence/issue_16637_regression.json`、`evidence/issue_15920_regression.json` 以及 `evidence/source_pins.json`；vLLM 主仓库的改动通过 `patches/` 迁移，不把两个上游仓库混成一个 Git 历史。
 
 ## 安全边界
 
-仓库不保存 GitHub token、SSH 密码、私钥、远端 IP/端口或带凭据的 manifest。远端实验结果中的绝对路径是历史证据；新实例使用 `configs/remote.env` 覆盖这些路径。Profiler 数据库只用于本阶段复核，后续大文件应放在外部对象存储或按需重新采集。
+仓库不保存 GitHub token、SSH 密码、私钥、远端登录地址或带凭据的 manifest。远端实验结果中的绝对路径是历史证据；新实例使用 `configs/remote.env` 覆盖这些路径。本次关键 Profiler 时间线已经压缩归档并完成凭据扫描；后续大文件可放在外部对象存储或按需重新采集。
 
