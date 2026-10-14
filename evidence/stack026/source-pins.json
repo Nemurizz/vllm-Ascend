@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-15 Asia/Shanghai",
+  "hardware": "Ascend 910B2 64GB x1, aarch64, driver 26.1.1",
+  "packages": {
+    "vllm": "0.26.0+empty",
+    "vllm-ascend": "0.26.0rc1",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4",
+    "triton-ascend": "3.2.2",
+    "transformers": "5.14.1",
+    "numpy": "1.26.4",
+    "fastapi": "0.136.3"
+  },
+  "sources": {
+    "vllm": {
+      "base": "568afb3a13806beb53bb2e6bd518269357b237c0"
+    },
+    "vllm-ascend": {
+      "base": "f2f74a16c3c50a76f4349d807918e83edec1e35c"
+    }
+  },
+  "files": [
+    {
+      "path": "/root/vllm_project/src/stack026/vllm/vllm/config/vllm.py",
+      "sha256": "d4c31282c664c91bee81267a2134a9609d16c33e88cc40e0f020256346510a87"
+    },
+    {
+      "path": "/root/vllm_project/src/stack026/vllm/vllm/v1/core/sched/scheduler.py",
+      "sha256": "2ed2a550b6558b2495eda845a97ae38bcf0225027b9e25fbf00fc3880c1d3941"
+    },
+    {
+      "path": "/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/worker/model_runner_v1.py",
+      "sha256": "4699af75ac8b4b55283d55190365e93d13820a05888bfa65aea8746deabc4d3a"
+    },
+    {
+      "path": "/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/compilation/acl_graph.py",
+      "sha256": "6396ca409d633ee61c4433a762982cf901b893f252c864c0ff05ac17bdbdb3f6"
+    },
+    {
+      "path": "/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/attention/attention_mask.py",
+      "sha256": "fb5eb64d559d6002c2bc474c1dc6b1e069596d595fb74fbf12e97fdd78477355"
+    }
+  ],
+  "wheels": [
+    {
+      "package": "vllm-ascend",
+      "file": "vllm_ascend-0.26.0rc1-cp311-cp311-manylinux_2_34_aarch64.whl",
+      "sha256": "7fad76eb86851b88c6a388c4146cfa070ee6f298e24d8b8360adc58d6244ef13",
+      "url": "https://files.pythonhosted.org/packages/29/cf/e7c370d19b1846c1ce608e363ef6cb435ba1ac870f8d0f38304ecfd9fd34/vllm_ascend-0.26.0rc1-cp311-cp311-manylinux_2_34_aarch64.whl"
+    },
+    {
+      "package": "torch-npu",
+      "file": "torch_npu-2.10.0.post4-cp311-cp311-manylinux_2_28_aarch64.whl",
+      "sha256": "624ba08fb0259fcb8315a4b5bb5d7edd2d2ca927ba368c800b7f18771564e153",
+      "url": "https://files.pythonhosted.org/packages/f0/0f/f43a0847950643357a181097c9c2a06af5ac56eb694bd0e4415c3013e3ec/torch_npu-2.10.0.post4-cp311-cp311-manylinux_2_28_aarch64.whl"
+    },
+    {
+      "package": "triton-ascend",
+      "lookup_error": "HTTPError('404 Client Error: Not Found for url: https://pypi.org/pypi/triton-ascend/3.2.2/json')"
+    }
+  ],
+  "sdk": "CANN/910B ops/ATB 9.1.0",
+  "frontend_metadata_conflict": "vLLM fastapi >=0.133,<0.137 vs Ascend fastapi <0.124; offline engine only",
+  "candidate_commit": "ad7a83ffd05d70401384c33d6d46eb6978d5c1fa"
+}

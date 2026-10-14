@@ -1,0 +1,4 @@
+Verified benchmark-records.tar.gz: 813953 bytes
+Verified stack026.tar.gz: 81464972 bytes
+Restored 114 files from benchmark-records.tar.gz
+Restored 180 files from stack026.tar.gz

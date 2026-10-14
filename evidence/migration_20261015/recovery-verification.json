@@ -1,0 +1,11 @@
+{
+  "archives_sha256": "verified by restore_evidence --verify-only --include-profiler",
+  "members_scanned": 294,
+  "textual_token_and_pem_scan": "passed",
+  "local_records_extracted": 114,
+  "remote_full_export_extraction": 294,
+  "source_bundle_restore_head": "ad7a83ffd05d70401384c33d6d46eb6978d5c1fa",
+  "source_bundle_restore_clean": true,
+  "baseline_source_identities_preserved": true,
+  "npu_experiment_processes_remaining": 0
+}

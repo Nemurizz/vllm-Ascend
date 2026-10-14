@@ -1,0 +1,1215 @@
+{
+  "format_version": 1,
+  "archive_kind": "selected_exports",
+  "archives": [
+    {
+      "file": "benchmark-records.tar.gz",
+      "bytes": 813953,
+      "sha256": "7d86c0930fa9556d70d3507b9ef8b48107a8e796e17ab8b3b4309b6818284ce6",
+      "parts": [
+        {
+          "file": "benchmark-records.tar.gz",
+          "bytes": 813953,
+          "sha256": "7d86c0930fa9556d70d3507b9ef8b48107a8e796e17ab8b3b4309b6818284ce6"
+        }
+      ],
+      "members": [
+        {
+          "path": "results/qwen3_06b_graph_smoke.log",
+          "bytes": 14829
+        },
+        {
+          "path": "results/raw/15920-L32768-seqs1.json",
+          "bytes": 2737
+        },
+        {
+          "path": "results/raw/15920-L32768-seqs256.json",
+          "bytes": 2860
+        },
+        {
+          "path": "results/raw/15920-L98304-seqs1.json",
+          "bytes": 2832
+        },
+        {
+          "path": "results/raw/15920-L98304-seqs256.json",
+          "bytes": 2849
+        },
+        {
+          "path": "results/raw/cudagraph_offstride_repro.json",
+          "bytes": 1199
+        },
+        {
+          "path": "results/raw/current_issues_20261015.json",
+          "bytes": 2325
+        },
+        {
+          "path": "results/raw/issue16637-dynamic-pilot.json",
+          "bytes": 494169
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_graph-profile.json",
+          "bytes": 212794
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_graph.json",
+          "bytes": 2854512
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_patched.json",
+          "bytes": 2854510
+        },
+        {
+          "path": "results/raw/issue16637-eager_dynamic.json",
+          "bytes": 2850976
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba-instrumentation-failed.json",
+          "bytes": 1270
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba-wrapper-retry-failed.json",
+          "bytes": 1270
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba.json",
+          "bytes": 2806969
+        },
+        {
+          "path": "results/raw/issue16637-static-graph.json",
+          "bytes": 2856722
+        },
+        {
+          "path": "results/raw/issue16637-static_graph-profile.json",
+          "bytes": 212549
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c1.json",
+          "bytes": 3771
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c4.json",
+          "bytes": 3765
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c8.json",
+          "bytes": 3747
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c1.json",
+          "bytes": 3750
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c4.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c8.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_msprof_request.json",
+          "bytes": 2155
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_exact5_metrics.json",
+          "bytes": 4517
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics.json",
+          "bytes": 4539
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics_valid.json",
+          "bytes": 4507
+        },
+        {
+          "path": "results/raw/qwen3_8b_no_chunk_hol.json",
+          "bytes": 1455
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_c12.json",
+          "bytes": 3854
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_c12.json",
+          "bytes": 3848
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_msprof_c12.json",
+          "bytes": 3858
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_old_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_c12.json",
+          "bytes": 3856
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/runtime_eager_probe.json",
+          "bytes": 5043
+        },
+        {
+          "path": "results/raw/runtime_eager_probe_eager/worker_6406.json",
+          "bytes": 343131
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1/worker_2658.json",
+          "bytes": 32108
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1.json",
+          "bytes": 5048
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_base.json",
+          "bytes": 6980
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_cache.json",
+          "bytes": 6984
+        },
+        {
+          "path": "results/raw/runtime_pa_probe.json",
+          "bytes": 5526
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_cache.json",
+          "bytes": 5535
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa/worker_13596.json",
+          "bytes": 809397
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_cache/worker_16898.json",
+          "bytes": 433509
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_22154.json",
+          "bytes": 650470
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_compact.json",
+          "bytes": 1305
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_23764.json",
+          "bytes": 348449
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_compact.json",
+          "bytes": 1318
+        },
+        {
+          "path": "results/raw/stack026-smoke-eager.json",
+          "bytes": 1800
+        },
+        {
+          "path": "results/raw/stack026-smoke-qwen35-mtp-graph.json",
+          "bytes": 1764
+        },
+        {
+          "path": "logs/download_qwen3_8b.log",
+          "bytes": 1415
+        },
+        {
+          "path": "logs/msprof_analyze_offstride.log",
+          "bytes": 458
+        },
+        {
+          "path": "logs/qwen3_06b_graph_msprof.log",
+          "bytes": 19115
+        },
+        {
+          "path": "logs/qwen3_8b_eager_c8_server.log",
+          "bytes": 20818
+        },
+        {
+          "path": "logs/qwen3_8b_eager_server.log",
+          "bytes": 23814
+        },
+        {
+          "path": "logs/qwen3_8b_graph_c8_server.log",
+          "bytes": 31789
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_exact5.log",
+          "bytes": 34779
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_valid.log",
+          "bytes": 33351
+        },
+        {
+          "path": "logs/qwen3_8b_graph_msprof.log",
+          "bytes": 31763
+        },
+        {
+          "path": "logs/qwen3_8b_graph_server.log",
+          "bytes": 33369
+        },
+        {
+          "path": "logs/qwen3_8b_metrics.log",
+          "bytes": 30601
+        },
+        {
+          "path": "logs/qwen3_8b_metrics_pad5.log",
+          "bytes": 31533
+        },
+        {
+          "path": "logs/qwen3_8b_no_chunk_server.log",
+          "bytes": 62265
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_msprof.log",
+          "bytes": 33957
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_server.log",
+          "bytes": 33751
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_old_server.log",
+          "bytes": 31569
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_patched_server.log",
+          "bytes": 33282
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_server.log",
+          "bytes": 32524
+        },
+        {
+          "path": "logs/runtime_eager_probe.log",
+          "bytes": 24347
+        },
+        {
+          "path": "logs/runtime_graph_enpu.log",
+          "bytes": 32532
+        },
+        {
+          "path": "logs/runtime_graph_probe1.log",
+          "bytes": 34429
+        },
+        {
+          "path": "logs/runtime_nosync_probe.log",
+          "bytes": 32057
+        },
+        {
+          "path": "logs/stack026/15920-L32768-seqs1.log",
+          "bytes": 17681
+        },
+        {
+          "path": "logs/stack026/15920-L32768-seqs256.log",
+          "bytes": 17454
+        },
+        {
+          "path": "logs/stack026/15920-L98304-seqs1.log",
+          "bytes": 17453
+        },
+        {
+          "path": "logs/stack026/15920-L98304-seqs256.log",
+          "bytes": 17459
+        },
+        {
+          "path": "logs/stack026/ab-controller-retry.log",
+          "bytes": 126
+        },
+        {
+          "path": "logs/stack026/ab-controller.log",
+          "bytes": 159
+        },
+        {
+          "path": "logs/stack026/archive.log",
+          "bytes": 39
+        },
+        {
+          "path": "logs/stack026/ascend-cann-install-9.1.info",
+          "bytes": 88
+        },
+        {
+          "path": "logs/stack026/download-cann.log",
+          "bytes": 18422
+        },
+        {
+          "path": "logs/stack026/download-qwen35.log",
+          "bytes": 694
+        },
+        {
+          "path": "logs/stack026/dynamic-pilot.log",
+          "bytes": 24286
+        },
+        {
+          "path": "logs/stack026/dynamic_graph-profile.log",
+          "bytes": 29214
+        },
+        {
+          "path": "logs/stack026/dynamic_graph.log",
+          "bytes": 29012
+        },
+        {
+          "path": "logs/stack026/dynamic_patched.log",
+          "bytes": 29020
+        },
+        {
+          "path": "logs/stack026/eager_dynamic.log",
+          "bytes": 21227
+        },
+        {
+          "path": "logs/stack026/graph-capture-stack.txt",
+          "bytes": 185
+        },
+        {
+          "path": "logs/stack026/install-build-deps.log",
+          "bytes": 1281
+        },
+        {
+          "path": "logs/stack026/install-native-remaining.log",
+          "bytes": 6759
+        },
+        {
+          "path": "logs/stack026/install-numpy.log",
+          "bytes": 3617
+        },
+        {
+          "path": "logs/stack026/install-pyspy.log",
+          "bytes": 641
+        },
+        {
+          "path": "logs/stack026/install-python-retry.log",
+          "bytes": 2548
+        },
+        {
+          "path": "logs/stack026/install-python-third.log",
+          "bytes": 44009
+        },
+        {
+          "path": "logs/stack026/install-python.log",
+          "bytes": 2538
+        },
+        {
+          "path": "logs/stack026/install-toolkit-opt.log",
+          "bytes": 13417
+        },
+        {
+          "path": "logs/stack026/install-toolkit.log",
+          "bytes": 1098
+        },
+        {
+          "path": "logs/stack026/install-transformers.log",
+          "bytes": 5470
+        },
+        {
+          "path": "logs/stack026/long-controller-base-method.log",
+          "bytes": 722
+        },
+        {
+          "path": "logs/stack026/long-controller-retry.log",
+          "bytes": 1032
+        },
+        {
+          "path": "logs/stack026/long-controller.log",
+          "bytes": 1032
+        },
+        {
+          "path": "logs/stack026/msprof-export-all.log",
+          "bytes": 1602
+        },
+        {
+          "path": "logs/stack026/paired-abba-base-method.log",
+          "bytes": 28664
+        },
+        {
+          "path": "logs/stack026/paired-abba-instrumentation-failed.log",
+          "bytes": 29946
+        },
+        {
+          "path": "logs/stack026/paired-abba-retry.log",
+          "bytes": 29945
+        },
+        {
+          "path": "logs/stack026/paired-abba.log",
+          "bytes": 29946
+        },
+        {
+          "path": "logs/stack026/pip-check.txt",
+          "bytes": 1380
+        },
+        {
+          "path": "logs/stack026/profile-controller.log",
+          "bytes": 262
+        },
+        {
+          "path": "logs/stack026/profile-summary.log",
+          "bytes": 23
+        },
+        {
+          "path": "logs/stack026/smoke-eager.log",
+          "bytes": 14829
+        },
+        {
+          "path": "logs/stack026/smoke-qwen35-mtp-graph.log",
+          "bytes": 26932
+        },
+        {
+          "path": "logs/stack026/static-graph.log",
+          "bytes": 26169
+        },
+        {
+          "path": "logs/stack026/static_graph-profile.log",
+          "bytes": 30559
+        },
+        {
+          "path": "logs/stack026/summary-16637.log",
+          "bytes": 6593
+        }
+      ]
+    },
+    {
+      "file": "stack026.tar.gz",
+      "bytes": 81464972,
+      "sha256": "f83b6750cdc87ef09724820600267b38256b959e973eeb7ed60e4907bbd2c589",
+      "parts": [
+        {
+          "file": "stack026.tar.gz.part000",
+          "bytes": 41943040,
+          "sha256": "9ef6534d58d7808a2eb735a627d1c367c9a97c5138a05de5aa5cd72f4383c3fc"
+        },
+        {
+          "file": "stack026.tar.gz.part001",
+          "bytes": 39521932,
+          "sha256": "5313cff996f00db69d1319624d341f6c56bdce6f8ae0be3e0d59ee42a0d20676"
+        }
+      ],
+      "members": [
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 4203
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 179304
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 437603
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 706222
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1252
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 218136
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 178518
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 227
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 68834
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 10063204
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/api_statistic_20261014192041.csv",
+          "bytes": 4142
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/hbm_20261014192042.csv",
+          "bytes": 161
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/llc_read_write_20261014192042.csv",
+          "bytes": 128
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/npu_mem_20261014192041.csv",
+          "bytes": 21972
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/npu_module_mem_20261014192041.csv",
+          "bytes": 654479
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/op_statistic_20261014192041.csv",
+          "bytes": 1234
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/op_summary_20261014192041.csv",
+          "bytes": 178798
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/PROF_000001_20261014190805064_00149292OBHIQHKB/mindstudio_profiler_output/task_time_20261014192041.csv",
+          "bytes": 68311
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 7347
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 3915399
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 8196312
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 2084468
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3020
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 4117099
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 3374831
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 229
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 1483818
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 90994225
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/api_statistic_20261014192050.csv",
+          "bytes": 7241
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/hbm_20261014192050.csv",
+          "bytes": 160
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/llc_read_write_20261014192050.csv",
+          "bytes": 126
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/npu_mem_20261014192050.csv",
+          "bytes": 65547
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/npu_module_mem_20261014192050.csv",
+          "bytes": 1931502
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/op_statistic_20261014192050.csv",
+          "bytes": 2978
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/op_summary_20261014192050.csv",
+          "bytes": 3904125
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/PROF_000002_20261014190826882_00149292RIKLJNEC/mindstudio_profiler_output/task_time_20261014192050.csv",
+          "bytes": 1471594
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 4193
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 179361
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 437549
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 681008
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1249
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 217327
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 178509
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 229
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 68839
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 9834468
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/api_statistic_20261014192054.csv",
+          "bytes": 4132
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/hbm_20261014192054.csv",
+          "bytes": 158
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/llc_read_write_20261014192054.csv",
+          "bytes": 127
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/npu_mem_20261014192054.csv",
+          "bytes": 21190
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/npu_module_mem_20261014192054.csv",
+          "bytes": 631113
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/op_statistic_20261014192054.csv",
+          "bytes": 1231
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/op_summary_20261014192054.csv",
+          "bytes": 178855
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/PROF_000001_20261014191008288_00151491PIMGRNQI/mindstudio_profiler_output/task_time_20261014192054.csv",
+          "bytes": 68316
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 7378
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 3919746
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 8138553
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 681022
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3019
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 4112904
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 3363526
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 227
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 1486249
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 78347911
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/api_statistic_20261014192102.csv",
+          "bytes": 7272
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/hbm_20261014192102.csv",
+          "bytes": 165
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/llc_read_write_20261014192102.csv",
+          "bytes": 127
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/npu_mem_20261014192102.csv",
+          "bytes": 21492
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/npu_module_mem_20261014192102.csv",
+          "bytes": 631212
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/op_statistic_20261014192102.csv",
+          "bytes": 2977
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/op_summary_20261014192102.csv",
+          "bytes": 3908455
+        },
+        {
+          "path": "profiles/stack026/15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/PROF_000002_20261014191022082_00151491BHKKQMJD/mindstudio_profiler_output/task_time_20261014192102.csv",
+          "bytes": 1474008
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 4201
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 180806
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 451070
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 1207568
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1278
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 220425
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 180478
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 228
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 69089
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 14894127
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/api_statistic_20261014192106.csv",
+          "bytes": 4140
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/hbm_20261014192106.csv",
+          "bytes": 166
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/llc_read_write_20261014192106.csv",
+          "bytes": 127
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/npu_mem_20261014192106.csv",
+          "bytes": 37682
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/npu_module_mem_20261014192106.csv",
+          "bytes": 1119097
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/op_statistic_20261014192106.csv",
+          "bytes": 1260
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/op_summary_20261014192106.csv",
+          "bytes": 180300
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/PROF_000001_20261014191153836_00152868PNQNFRPD/mindstudio_profiler_output/task_time_20261014192106.csv",
+          "bytes": 68566
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 7827
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 3918836
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 8228259
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 5429328
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3070
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 4139614
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 3375035
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 230
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 1484641
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 124068522
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/api_statistic_20261014192115.csv",
+          "bytes": 7716
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/hbm_20261014192116.csv",
+          "bytes": 161
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/llc_read_write_20261014192116.csv",
+          "bytes": 126
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/npu_mem_20261014192115.csv",
+          "bytes": 170586
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/npu_module_mem_20261014192115.csv",
+          "bytes": 5034666
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/op_statistic_20261014192115.csv",
+          "bytes": 3028
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/op_summary_20261014192115.csv",
+          "bytes": 3907560
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/PROF_000002_20261014191210914_00152868OGGBHHKF/mindstudio_profiler_output/task_time_20261014192115.csv",
+          "bytes": 1472416
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 4217
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 180811
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 449683
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 1053097
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 1277
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 219315
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 180714
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 227
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 69094
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 13543732
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/api_statistic_20261014192119.csv",
+          "bytes": 4156
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/hbm_20261014192119.csv",
+          "bytes": 164
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/llc_read_write_20261014192119.csv",
+          "bytes": 126
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/npu_mem_20261014192119.csv",
+          "bytes": 33030
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/npu_module_mem_20261014192119.csv",
+          "bytes": 975945
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/op_statistic_20261014192119.csv",
+          "bytes": 1259
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/op_summary_20261014192119.csv",
+          "bytes": 180305
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/PROF_000001_20261014191417780_00155959IIMMPGKH/mindstudio_profiler_output/task_time_20261014192119.csv",
+          "bytes": 68571
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 7778
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 3923581
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 8200020
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 4594437
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3068
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 4126212
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 3369615
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 227
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 1486887
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 116626172
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/api_statistic_20261014192127.csv",
+          "bytes": 7667
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/hbm_20261014192128.csv",
+          "bytes": 159
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/llc_read_write_20261014192128.csv",
+          "bytes": 127
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/npu_mem_20261014192127.csv",
+          "bytes": 144159
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/npu_module_mem_20261014192127.csv",
+          "bytes": 4260336
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/op_statistic_20261014192127.csv",
+          "bytes": 3026
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/op_summary_20261014192127.csv",
+          "bytes": 3912289
+        },
+        {
+          "path": "profiles/stack026/15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/PROF_000002_20261014191434190_00155959BCDKQLGE/mindstudio_profiler_output/task_time_20261014192127.csv",
+          "bytes": 1474646
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 11920
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 13912785
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 12763984
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 668778
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 4589
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 7552426
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 5319032
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 228
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 6193096
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 160819465
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/api_statistic_20261014192037.csv",
+          "bytes": 11746
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/hbm_20261014192038.csv",
+          "bytes": 165
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/llc_read_write_20261014192038.csv",
+          "bytes": 128
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/npu_mem_20261014192037.csv",
+          "bytes": 21096
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/npu_module_mem_20261014192037.csv",
+          "bytes": 619736
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/op_statistic_20261014192037.csv",
+          "bytes": 4522
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/op_summary_20261014192037.csv",
+          "bytes": 13871080
+        },
+        {
+          "path": "profiles/stack026/16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/PROF_000001_20261014184056470_00142023IFLJNDQO/mindstudio_profiler_output/task_time_20261014192037.csv",
+          "bytes": 6141491
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 12520
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 13769333
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 7079939
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 413953
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 4711
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 4573874
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 2934458
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 226
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 6269208
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 109871127
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/api_statistic_20261014192022.csv",
+          "bytes": 12337
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/hbm_20261014192023.csv",
+          "bytes": 166
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/llc_read_write_20261014192023.csv",
+          "bytes": 128
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/npu_mem_20261014192022.csv",
+          "bytes": 13077
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/npu_module_mem_20261014192022.csv",
+          "bytes": 382973
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/op_statistic_20261014192022.csv",
+          "bytes": 4642
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/op_summary_20261014192022.csv",
+          "bytes": 13727278
+        },
+        {
+          "path": "profiles/stack026/16637-static_graph/rank0_141080_20261014183832554_ascend_pt/PROF_000001_20261014183832594_00141080OJFFGOHE/mindstudio_profiler_output/task_time_20261014192022.csv",
+          "bytes": 6215886
+        }
+      ]
+    }
+  ]
+}

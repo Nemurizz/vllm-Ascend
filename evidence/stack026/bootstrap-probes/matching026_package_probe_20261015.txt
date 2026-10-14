@@ -1,0 +1,30 @@
+HTTP/1.1 200 OK
+Server: OBS
+Date: Wed, 14 Oct 2026 17:21:46 GMT
+Content-Type: application/octet-stream
+Content-Length: 1273956884
+Connection: keep-alive
+x-obs-request-id: 000001A13B6F359A5A097EB2C6CA405E
+Accept-Ranges: bytes
+HTTP/1.1 200 OK
+Server: OBS
+Date: Wed, 14 Oct 2026 17:21:46 GMT
+Content-Type: application/octet-stream
+Content-Length: 2381223012
+Connection: keep-alive
+x-obs-request-id: 000001A13B6F366E550AD6F7D4C7C2FA
+Accept-Ranges: bytes
+HTTP/1.1 200 OK
+Server: OBS
+Date: Wed, 14 Oct 2026 17:21:46 GMT
+Content-Type: application/octet-stream
+Content-Length: 574078856
+Connection: keep-alive
+x-obs-request-id: 000001A13B6F3743540B680A444F3C8B
+Accept-Ranges: bytes
+vllm <3.15,>=3.10
+requirements ['regex', 'cachetools', 'psutil', 'sentencepiece', 'numpy', 'requests>=2.26.0', 'tqdm', 'blake3', 'py-cpuinfo', 'transformers>=5.5.3', 'tokenizers>=0.21.1', 'safetensors>=0.6.2', 'protobuf!=6.30.*,!=6.31.*,!=6.32.*,!=6.33.0.*,!=6.33.1.*,!=6.33.2.*,!=6.33.3.*,!=6.33.4.*,>=5.29.6', 'fastapi[standard]<0.137.0,>=0.133.0', 'starlette>=1.0.1', 'aiohttp>=3.13.3', 'openai>=2.0.0', 'pydantic>=2.12.0', 'prometheus_client>=0.18.0', 'pillow', 'prometheus-fastapi-instrumentator>=8.0.0', 'tiktoken>=0.6.0', 'lm-format-enforcer==0.11.3', 'llguidance<1.8.0,>=1.7.0; platform_machine == "x86_64" or platform_machine == "arm64" or platform_machine == "aarch64" or platform_machine == "ppc64le" or platform_machine == "s390x"', 'outlines_core==0.2.14', 'lark==1.2.2', 'xgrammar<1.0.0,>=0.2.1; platform_machine == "x86_64" or platform_machine == "aarch64" or platform_machine == "arm64" or platform_machine == "s390x" or platform_machine == "ppc64le"', 'typing_extensions>=4.10', 'filelock>=3.16.1', 'partial-json-parser', 'jsonschema>=4.23.0', 'pyzmq>=25.0.0', 'msgspec', 'mistral_common[image]>=1.11.5', 'opencv-python-headless>=4.13.0', 'pyyaml', 'six>=1.16.0; python_version > "3.11"', 'setuptools<81.0.0,>=77.0.3; python_version > "3.11"', 'einops', 'compressed-tensors==0.17.0', 'depyf==0.20.0', 'cloudpickle', 'watchfiles', 'python-json-logger', 'ninja', 'pybase64', 'cbor2', 'ijson', 'setproctitle', 'openai-harmony>=0.0.3', 'anthropic>=0.71.0', 'model-hosting-container-standards<1.0.0,>=0.1.14', 'mcp', 'opentelemetry-sdk>=1.27.0', 'opentelemetry-api>=1.27.0', 'opentelemetry-exporter-otlp>=1.27.0', 'opentelemetry-semantic-conventions-ai>=0.4.1', 'numba==0.65.0', 'torch==2.11.0', 'torchaudio==2.11.0', 'torchvision==0.26.0', 'torchcodec>=0.14', 'PyNvVideoCodec==2.0.4', 'flashinfer-python==0.6.14', 'apache-tvm-ffi==0.1.10', 'tilelang==0.1.9', 'nvidia-cudnn-frontend>=1.19.1', 'nvtx==0.2.15', 'fastsafetensors>=0.3.2', 'nvidia-cutlass-dsl[cu13]==4.6.0', 'quack-kernels>=0.4.0', 'tokenspeed-mla==0.1.8; platform_system == "Linux"', 'humming-kernels[cu13]==0.1.10', 'zentorch==2.11.0.0; extra == "zen"', 'pandas; extra == "bench"', 'matplotlib; extra == "bench"', 'seaborn; extra == "bench"', 'datasets; extra == "bench"', 'scipy; extra == "bench"', 'plotly; extra == "bench"', 'tensorizer==2.10.1; extra == "tensorizer"', 'fastsafetensors>=0.3.2; extra == "fastsafetensors"', 'instanttensor>=0.1.9; extra == "instanttensor"', 'runai-model-streamer[azure,gcs,s3]>=0.15.7; extra == "runai"', 'av; extra == "audio"', 'scipy; extra == "audio"', 'soundfile; extra == "audio"', 'soxr; extra == "audio"', 'mistral_common[audio]; extra == "audio"', 'nvidia-deepstream-videodecode-cu13>=9.0.2; extra == "deepstream"', 'helion==1.1.0; extra == "helion"', 'smg-grpc-servicer[vllm]>=0.5.2; extra == "grpc"', 'opentelemetry-sdk>=1.26.0; extra == "otel"', 'opentelemetry-api>=1.26.0; extra == "otel"', 'opentelemetry-exporter-otlp>=1.26.0; extra == "otel"', 'opentelemetry-semantic-conventions-ai>=0.4.1; extra == "otel"', 'vllm-gguf-plugin>=0.0.2; extra == "extra-quant"']
+wheels [('vllm-0.26.0-cp38-abi3-manylinux_2_28_aarch64.whl', 298269785)]
+vllm-ascend >=3.10
+requirements ['cmake>=3.26', 'decorator', 'einops', 'numpy', 'packaging', 'pip', 'pybind11', 'pyyaml', 'regex', 'scipy', 'pandas', 'psutil', 'setuptools>=64', 'setuptools-scm>=8', 'torch==2.10.0', 'torch-npu==2.10.0.post4', 'torchvision==0.25.0', 'torchaudio==2.10.0', 'triton-ascend==3.2.2', 'wheel', 'xgrammar>=0.1.30', 'pandas-stubs', 'compressed_tensors>=0.11.0', 'msgpack', 'quart', 'numba', 'memfabric_hybrid==1.2.0', 'memcache_hybrid==1.2.0', 'arctic-inference==0.1.1', 'transformers==5.14.1', 'fastapi<0.124.0']
+wheels [('vllm_ascend-0.26.0rc1-cp310-cp310-manylinux_2_34_aarch64.whl', 24809972), ('vllm_ascend-0.26.0rc1-cp311-cp311-manylinux_2_34_aarch64.whl', 24809975), ('vllm_ascend-0.26.0rc1-cp312-cp312-manylinux_2_34_aarch64.whl', 24809884)]

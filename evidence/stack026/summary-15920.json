@@ -1,0 +1,135 @@
+{
+  "scope": "torch allocator memory; each case one real request; profiling overhead and cold compilation excluded from speedup claims",
+  "rows": [
+    {
+      "case": "15920-L32768-seqs1",
+      "input_tokens": 32768,
+      "max_num_seqs": 1,
+      "status": "completed",
+      "effective_scheduler": {
+        "enable_chunked_prefill": false,
+        "max_num_batched_tokens": 32896,
+        "max_num_seqs": 1,
+        "max_model_len": 32896,
+        "cudagraph_mode": "NONE"
+      },
+      "init_peak_allocated_bytes": 11398742528,
+      "init_peak_reserved_bytes": 11821645824,
+      "before_profile_allocated_bytes": null,
+      "available_kv_cache_bytes": 41086992896,
+      "post_cache_allocated_bytes": 49793678848,
+      "real_peak_allocated_bytes": 56267846144,
+      "real_peak_reserved_bytes": 56660852736,
+      "real_additional_peak_bytes": 6474167296,
+      "mask_probe_calls": [],
+      "dummy_runs": [
+        {
+          "num_tokens": 32896,
+          "is_profile": true,
+          "force_attention": false,
+          "max_num_reqs": 1
+        }
+      ],
+      "output_tokens": 16
+    },
+    {
+      "case": "15920-L32768-seqs256",
+      "input_tokens": 32768,
+      "max_num_seqs": 256,
+      "status": "completed",
+      "effective_scheduler": {
+        "enable_chunked_prefill": false,
+        "max_num_batched_tokens": 32896,
+        "max_num_seqs": 256,
+        "max_model_len": 32896,
+        "cudagraph_mode": "NONE"
+      },
+      "init_peak_allocated_bytes": 11398798848,
+      "init_peak_reserved_bytes": 11819548672,
+      "before_profile_allocated_bytes": 8716666368,
+      "available_kv_cache_bytes": 41086172672,
+      "post_cache_allocated_bytes": 49793991168,
+      "real_peak_allocated_bytes": 56268158464,
+      "real_peak_reserved_bytes": 56658755584,
+      "real_additional_peak_bytes": 6474167296,
+      "mask_probe_calls": [],
+      "dummy_runs": [
+        {
+          "num_tokens": 32896,
+          "is_profile": true,
+          "force_attention": false,
+          "max_num_reqs": 256
+        }
+      ],
+      "output_tokens": 16
+    },
+    {
+      "case": "15920-L98304-seqs1",
+      "input_tokens": 98304,
+      "max_num_seqs": 1,
+      "status": "completed",
+      "effective_scheduler": {
+        "enable_chunked_prefill": false,
+        "max_num_batched_tokens": 98432,
+        "max_num_seqs": 1,
+        "max_model_len": 98432,
+        "cudagraph_mode": "NONE"
+      },
+      "init_peak_allocated_bytes": 17040409088,
+      "init_peak_reserved_bytes": 18345885696,
+      "before_profile_allocated_bytes": 9056677376,
+      "available_kv_cache_bytes": 35786048000,
+      "post_cache_allocated_bytes": 44838700544,
+      "real_peak_allocated_bytes": 64244355072,
+      "real_peak_reserved_bytes": 64818774016,
+      "real_additional_peak_bytes": 19405654528,
+      "mask_probe_calls": [],
+      "dummy_runs": [
+        {
+          "num_tokens": 98432,
+          "is_profile": true,
+          "force_attention": false,
+          "max_num_reqs": 1
+        }
+      ],
+      "output_tokens": 16
+    },
+    {
+      "case": "15920-L98304-seqs256",
+      "input_tokens": 98304,
+      "max_num_seqs": 256,
+      "status": "completed",
+      "effective_scheduler": {
+        "enable_chunked_prefill": false,
+        "max_num_batched_tokens": 98432,
+        "max_num_seqs": 256,
+        "max_model_len": 98432,
+        "cudagraph_mode": "NONE"
+      },
+      "init_peak_allocated_bytes": 17040530944,
+      "init_peak_reserved_bytes": 18345885696,
+      "before_profile_allocated_bytes": 9056798208,
+      "available_kv_cache_bytes": 35784773120,
+      "post_cache_allocated_bytes": 44839535104,
+      "real_peak_allocated_bytes": 64245189632,
+      "real_peak_reserved_bytes": 64820871168,
+      "real_additional_peak_bytes": 19405654528,
+      "mask_probe_calls": [],
+      "dummy_runs": [
+        {
+          "num_tokens": 98432,
+          "is_profile": true,
+          "force_attention": false,
+          "max_num_reqs": 256
+        }
+      ],
+      "output_tokens": 16
+    }
+  ],
+  "limitations": [
+    "not the original V0/Qwen2.5 environment",
+    "gpu_memory_utilization=0.8 only",
+    "mask hooks returned no observations for this backend; not proof that all masks are absent",
+    "first 32K seqs1 run predates the before-profile allocation observer; value unavailable"
+  ]
+}

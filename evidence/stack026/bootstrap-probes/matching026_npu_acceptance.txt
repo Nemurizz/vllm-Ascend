@@ -1,0 +1,90 @@
+{
+  "packages": {
+    "vllm": "0.22.1",
+    "vllm-ascend": "0.22.1rc1",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0",
+    "triton-ascend": "3.2.1"
+  },
+  "issue_16637": {
+    "dynamic_schedule_field_present": false,
+    "config_rejection": {
+      "type": "ValidationError",
+      "message": "1 validation error for SpeculativeConfig\nnum_speculative_tokens_per_batch_size\n  Unexpected keyword argument [type=unexpected_keyword_argument, input_value=[[1, 8, 3], [9, 32, 0]], input_type=list]\n    For further information visit https://errors.pydantic.dev/2.14/v/unexpected_keyword_argument"
+    }
+  },
+  "issue_15920": {
+    "scope": "actual NPU generation-mask helper; not full engine or all attention backends",
+    "rows": [
+      {
+        "configured_length": 2048,
+        "shape": [
+          2048,
+          2048
+        ],
+        "dtype": "torch.int8",
+        "tensor_bytes": 4194304,
+        "data_ptr": 20616935636992,
+        "allocation_delta_bytes": 4194816
+      },
+      {
+        "configured_length": 32768,
+        "shape": [
+          2048,
+          2048
+        ],
+        "dtype": "torch.int8",
+        "tensor_bytes": 4194304,
+        "data_ptr": 20616935636992,
+        "allocation_delta_bytes": 0
+      },
+      {
+        "configured_length": 98304,
+        "shape": [
+          2048,
+          2048
+        ],
+        "dtype": "torch.int8",
+        "tensor_bytes": 4194304,
+        "data_ptr": 20616935636992,
+        "allocation_delta_bytes": 0
+      }
+    ]
+  },
+  "installed_sources": [
+    {
+      "path": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm/config/speculative.py",
+      "sha256": "536d9ed7ef910207259efdb8cf370fbfa3e6b81794c271d575fa6b9bb13d41fd"
+    },
+    {
+      "path": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm/v1/core/sched/scheduler.py",
+      "sha256": "41ff2e524c90d9aa72b72cd77492eb62ee2a729a773bd8233e970f39abbb5983"
+    },
+    {
+      "path": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm_ascend/attention/attention_mask.py",
+      "sha256": "fb138c36ce381fb6ad65a620f30c6d85bd4d771ae2dfff5da947a67b2c2ba2a5"
+    },
+    {
+      "path": "/data/vllm-ascend-env/lib/python3.11/site-packages/vllm_ascend/worker/model_runner_v1.py",
+      "sha256": "27cbd078817cf746ed0dca27ace2e188e5a13612ee0fe1764da4e55bf3ecbdd5"
+    }
+  ]
+}
+INFO 10-14 17:46:23 [__init__.py:52] Available plugins for group vllm.platform_plugins:
+INFO 10-14 17:46:23 [__init__.py:54] - ascend -> vllm_ascend:register
+INFO 10-14 17:46:23 [__init__.py:57] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 10-14 17:46:23 [__init__.py:237] Platform plugin ascend is activated
+INFO 10-14 17:46:29 [platform.py:61] Breakable cudagraph is force disabled on Ascend because DeepSeek V4 PIECEWISE cudagraph is not supported yet.
+sources /root/vllm_project/src/stack026/vllm/vllm/__init__.py /root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/__init__.py /root/vllm_project/envs/vllm026/lib/python3.11/site-packages/torch_npu/__init__.py
+versions [('vllm', '0.26.0+empty'), ('vllm-ascend', '0.26.0rc1'), ('torch', '2.10.0+cpu'), ('torch-npu', '2.10.0.post4'), ('numpy', '1.26.4'), ('transformers', '5.14.1')]
+npu 1
+matmul 16.0
+[33m Warning!!! If the environment variables of atb and asdsip are set at the same time, unexpected consequences will occur. [0m
+Import the corresponding environment variables based on the usage scenarios: atb for large model scenarios, asdsip for embedded scenarios.
+Please make sure that the environment variables have been configured.
+If you want to use atb module:
+-  To take effect for all users, you can add "source /opt/vllm-project-sdk/nnal/atb/set_env.sh" to /etc/profile.
+-  To take effect for current user, you can exec command below: source /opt/vllm-project-sdk/nnal/atb/set_env.sh or add "source /opt/vllm-project-sdk/nnal/atb/set_env.sh" to ~/.bashrc.
+
+NATIVE_COMPLETE_BASELINE_REGISTRY_RESTORED
+-rw-r--r-- 1 root root 4.2G Oct 14 17:46 /data/vllm_project/models/Qwen3.5-4B/model.safetensors-00001-of-00002.safetensors.part

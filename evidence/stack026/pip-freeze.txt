@@ -1,0 +1,290 @@
+absl-py==2.4.0
+affinity-sched @ file:///root/selfgz3840516385/affinity_sched-26.1.0-py3-none-any.whl#sha256=2655f3f2191210efbc1cb064c88796837171b488039b61e01bc0af172e18791a
+agent-detector==2.0.0
+aiofiles==25.1.0
+aiohappyeyeballs==2.7.1
+aiohttp==3.14.4
+aiosignal==1.4.0
+annotated-doc==0.0.5
+annotated-types==0.8.0
+anthropic==1.13.0
+anyio==4.15.1
+apache-tvm-ffi==0.1.14.post1
+arctic_inference==0.1.1
+argon2-cffi==25.1.0
+argon2-cffi-bindings==26.1.0
+arrow==1.4.0
+asc_op_compile_base @ file:///root/selfgz1024313176/lib/asc_op_compile_base-0.1.0-py3-none-any.whl#sha256=585d518614fadd46ec44bc1669bd5931b620126a52728a8b821cd88df351f096
+asc_opc_tool @ file:///root/selfgz1024313176/lib/asc_opc_tool-0.1.0-py3-none-any.whl#sha256=b3791ea7b0f144fd010ee65b7db2cd5f51bf2d5aebb1560960dc2870187704b8
+astor==0.8.1
+asttokens==3.0.2
+async-lru==2.3.0
+attrs==24.2.0
+auto_tune @ file:///root/selfgz2583731671/share/info/tbe-tik/python/auto_tune-0.1.0-py3-none-any.whl#sha256=25a2aa42da74ea0bdca516daace9bcbe633dbbcbb49f96a0ae46d552c6e5c417
+babel==2.18.0
+beautifulsoup4==4.15.0
+blake3==1.0.11
+bleach==6.4.0
+blinker==1.9.0
+cachetools==7.2.1
+cann_ops_transformer @ file:///root/selfgz1057873616/ops_transformer/es_packages/whl/cann_ops_transformer-1.0.0-py3-none-any.whl#sha256=ba162b9e1b3a89963f563930a266902fae4f84159ad9a663b187950227bb4c9d
+cannsim @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/simulator/bin/cannsim-0.1.0-py3-none-any.whl#sha256=34661b2a729c1f301aef00e3765ee439fda13be2fe65cfd2e6ef662e97a10926
+cbor2==6.1.5
+certifi==2026.4.22
+cffi==2.0.0
+charset-normalizer==3.4.7
+click==8.5.0
+cloudpickle==3.1.2
+cmake==4.4.4
+comm==0.2.3
+compressed-tensors==0.17.0
+cryptography==50.0.2
+Cython==3.2.4
+dataflow @ file:///root/selfgz616123771/aarch64-linux/lib64/dataflow-0.0.1-py3-none-any.whl#sha256=bb284bd429663951adbc97f3c0ea451e487529a6e4ef9e556422e0335bfe54ae
+debugpy==1.8.22
+decorator==5.1.1
+defusedxml==0.7.1
+depyf==0.20.0
+detect-installer==0.2.1
+dill==0.4.1
+diskcache==5.6.3
+dnspython==2.9.0
+docstring_parser==0.18.0
+einops==0.8.2
+email-validator==2.3.0
+es_cv @ file:///root/selfgz10201220885/ops_cv/es_packages/whl/es_cv-1.0.0-py3-none-any.whl#sha256=001536b6866b783df76d7c19fe9e34005a56f8a49125731cd64d6a0ced5bf4d1
+es_hccl @ file:///opt/vllm-project-sdk/cann/ops_hccl/es_packages/whl/es_hccl-1.0.0-py3-none-any.whl#sha256=e2390631aa5aee92b844a817bbefac7072de79ad52f564616d838a09291bb6af
+es_math @ file:///root/selfgz7844227153/ops_math/es_packages/whl/es_math-1.0.0-py3-none-any.whl#sha256=da053498d5f2441804aa045b9dca87860553908391cd64736835e368ec294b72
+es_nn @ file:///root/selfgz9111817587/ops_nn/es_packages/whl/es_nn-1.0.0-py3-none-any.whl#sha256=d21f3fbd4265ec30f6a2df51125bf4031d3acabf8ed16127f48ab1aaa5ffefe9
+es_transformer @ file:///root/selfgz1057873616/ops_transformer/es_packages/whl/es_transformer-1.0.0-py3-none-any.whl#sha256=4ac77a6dbbc4a987167e76af3ad32d9558b61262e86c9c0931a6e8c756cc0f33
+execnet==2.1.2
+executing==2.2.1
+fastapi==0.136.3
+fastapi-cli==0.0.32
+fastapi-cloud-cli==0.26.0
+fastar==0.12.0
+fastjsonschema==2.22.2
+fastsafetensors==0.4.0
+filelock==3.29.0
+Flask==3.1.3
+fqdn==1.5.1
+frozenlist==1.8.0
+fsspec==2026.4.0
+ge-py @ file:///root/selfgz616123771/aarch64-linux/lib64/ge_py-0.0.1-py3-none-any.whl#sha256=10c16acd73eebf9161ba6487f43de1a51462f49c0261e2cf39a63ae9037284b2
+ge-py-pass-bridge @ file:///root/selfgz616123771/aarch64-linux/lib64/ge_py_pass_bridge-0.0.1-cp311-cp311-linux_aarch64.whl#sha256=0a2f5dc18dafc541586071a6ffed662479835bdd60f8c1d4716ed4ba9f52f029
+gguf==0.19.0
+googleapis-common-protos==1.75.5
+grpcio==1.84.0
+h11==0.16.0
+h2==4.4.1
+hccl @ file:///root/selfgz447338303/aarch64-linux/lib64/hccl-0.1.0-py3-none-any.whl#sha256=30d0eec4933c50d3bdddca6f3a0279fbf5757b25e97828f1c702d002f519152d
+hf-xet==1.7.0
+hpack==4.2.0
+httpcore==1.0.9
+httpcore2==2.13.1
+httptools==0.9.0
+httpx==0.28.1
+httpx2==2.13.1
+huggingface_hub==1.33.0
+Hypercorn==0.18.0
+hyperframe==6.1.0
+idna==3.20
+ijson==3.5.1
+iniconfig==2.3.1
+interegular==0.3.3
+ipykernel==7.3.0
+ipython==9.17.1
+ipython_pygments_lexers==1.1.1
+ipywidgets==8.1.9
+isoduration==20.11.0
+itsdangerous==2.2.0
+jedi==0.20.0
+Jinja2==3.1.6
+jiter==0.17.0
+jmespath==1.1.0
+json5==0.15.0
+jsonpointer==3.1.1
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
+jupyter==1.1.1
+jupyter-console==6.6.3
+jupyter-events==0.12.1
+jupyter-lsp==2.3.1
+jupyter_builder==1.2.3
+jupyter_client==8.10.0
+jupyter_core==5.9.1
+jupyter_server==2.21.1
+jupyter_server_terminals==0.5.4
+jupyterlab==4.6.3
+jupyterlab-language-pack-zh-CN==4.5.post3
+jupyterlab_pygments==0.3.0
+jupyterlab_server==2.28.1
+jupyterlab_widgets==3.0.17
+lark==1.2.2
+llguidance==1.7.0
+llm_datadist @ file:///root/selfgz703772535/hixl/lib/llm_datadist-0.0.1-py3-none-any.whl#sha256=b4441575465eefa5f36ee256ba051aa0e7f7e4086cbdf53227e7b6020c245ec6
+llm_datadist_v1 @ file:///root/selfgz616123771/aarch64-linux/lib64/llm_datadist_v1-0.0.1-py3-none-any.whl#sha256=5ec9048e16dd244fe3b47ebbaa62183ea9e37c537dded1cb5cd8441702afc5b7
+llvmlite==0.47.0
+lm-format-enforcer==0.11.3
+loguru==0.7.3
+markdown-it-py==4.2.0
+MarkupSafe==3.0.3
+matplotlib-inline==0.2.2
+mcp==2.3.0
+mcp-types==2.3.0
+mdurl==0.1.2
+mindstudio-kl @ file:///opt/vllm-project-sdk/cann-9.1.0/mindstudio-operator-tools/mindstudio_kl-26.1.0-py3-none-any.whl#sha256=a068295c9db8f6aa32c9c6304cd31f82aae194dfcf01497b9f07e6621112ef9e
+mindstudio-kpp @ file:///opt/vllm-project-sdk/cann-9.1.0/mindstudio-operator-tools/mindstudio_kpp-26.1.0-py3-none-manylinux_2_17_aarch64.whl#sha256=a2bfc864ee19f67d50e24fb9ade5bca91f1a99fa47de79d06670be59c587be1a
+mindstudio-opgen @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/mindstudio_opgen-26.0.0-py3-none-any.whl#sha256=2cf90eb09ab53c7368e579f8086b8ba9bf027c823d65f6863b73dca4b3f65062
+mindstudio-opst @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/mindstudio_opst-26.0.0-py3-none-any.whl#sha256=6bda89d784b741915c6a6ad7dde131ceba54a5a6ddfc01c027c7610e87176a45
+mistral_common==1.12.0
+mistune==3.3.4
+model-hosting-container-standards==0.1.16
+mpmath==1.3.0
+ms_service_profiler @ file:///root/selfgz392459455/ms_service_profiler-26.0.0-py3-none-linux_aarch64.whl#sha256=ff5eef520445fb768a4c0ab3ec9f2ebce8e85a4cefcf63890c4ef247083f0cab
+msgpack==1.2.3
+msgspec==0.22.0
+msobjdump @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/msobjdump-0.1.0-py3-none-any.whl#sha256=311983f1ddaac6dfa81538516bd3295e7e1bc10f02fa344efad6b554eb282513
+mspti @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/mspti/python/mspti-26.1.0-py3-none-any.whl#sha256=f0b4021eca1dd91c54b370d979fa57ee53355954aad5129d3f13dd00277876a5
+multidict==6.9.1
+nbclient==0.11.0
+nbconvert==7.17.1
+nbformat==5.11.1
+nest-asyncio2==1.7.2
+networkx==3.6.1
+ninja==1.13.2
+notebook==7.6.2
+notebook_shim==0.2.4
+numba==0.65.0
+numpy==1.26.4
+op_compile_tool @ file:///root/selfgz2583731671/share/info/tbe-tik/python/op_compile_tool-0.1.0-py3-none-any.whl#sha256=f2defcdc68d5525afc12c5109418a3dda5dae8788c2683b67605fd50464d9f5d
+opc_tool @ file:///root/selfgz2583731671/share/info/tbe-tik/python/opc_tool-0.1.0-py3-none-any.whl#sha256=309b48279bb5d18eaa252ea351c86a760f5b9d193637943ce4eeaa8906235a86
+openai==3.28.0
+openai-harmony==0.0.8
+opencv-python-headless==5.0.0.93
+opentelemetry-api==1.45.1
+opentelemetry-exporter-http-transport==0.66b1
+opentelemetry-exporter-otlp==1.45.1
+opentelemetry-exporter-otlp-common==0.66b1
+opentelemetry-exporter-otlp-proto-common==1.45.1
+opentelemetry-exporter-otlp-proto-grpc==1.45.1
+opentelemetry-exporter-otlp-proto-http==1.45.1
+opentelemetry-proto==1.45.1
+opentelemetry-sdk==1.45.1
+opentelemetry-semantic-conventions==0.66b1
+opentelemetry-semantic-conventions-ai==0.5.1
+optype_collector @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/optype_collector-0.1.0-py3-none-any.whl#sha256=73f6ead4dd52c59d29fdb7e9d895344a8dae97b4a63034ef6e29fbcb49d90d65
+outlines_core==0.2.14
+overrides==7.7.0
+packaging==26.3
+pandas==2.2.3
+pandas-stubs==3.0.5.260914
+pandocfilters==1.5.1
+parso==0.8.7
+partial-json-parser==0.2.1.1.post7
+pathlib2==2.3.7.post1
+pexpect==4.9.0
+pillow==12.3.0
+platformdirs==4.11.9
+pluggy==1.6.0
+priority==2.0.0
+prometheus-fastapi-instrumentator==8.1.0
+prometheus_client==0.26.0
+prompt_toolkit==3.0.53
+propcache==0.5.4
+protobuf==7.36.2
+psutil==6.0.0
+ptyprocess==0.7.0
+pure_eval==0.2.4
+py-cpuinfo==9.0.0
+py-spy==0.4.2
+pybase64==1.5.1
+pybind11==3.1.0
+pycountry==26.2.16
+pycparser==3.0
+pydantic==2.14.0
+pydantic-extra-types==2.11.1
+pydantic-settings==2.16.0
+pydantic_core==2.50.0
+Pygments==2.21.0
+PyJWT==2.15.1
+pypto @ file:///opt/vllm-project-sdk/cann/aarch64-linux/lib64/pypto-0.2.1-cp37-abi3-manylinux2014_aarch64.whl#sha256=4965fb137b4f76e5619284acdf56aa8be7baea87ebdb58e1a521f0ea21503ef4
+pytest==8.3.2
+pytest-xdist==3.6.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.2.4
+python-json-logger==4.2.0
+python-multipart==0.0.32
+pytz==2026.5
+PyYAML==6.0.3
+pyzmq==27.2.0
+Quart==0.22.0
+referencing==0.37.0
+regex==2026.9.29
+requests==2.34.0
+rfc3339-validator==0.1.4
+rfc3986-validator==0.1.1
+rfc3987-syntax==1.1.0
+rich==15.0.0
+rich-toolkit==0.20.6
+rignore==0.8.1
+rpds-py==2026.6.3
+safetensors==0.8.0
+schedule_search @ file:///root/selfgz2583731671/share/info/tbe-tik/python/schedule_search-0.1.0-py3-none-any.whl#sha256=f2308a9d2a74728d607d4b70580084f89415878753769847a2b961c4c779792b
+scipy==1.13.1
+semantic-version==2.10.0
+Send2Trash==2.1.0
+sentencepiece==0.2.2
+sentry-sdk==2.72.0
+setproctitle==1.3.8
+setuptools-rust==1.13.0
+setuptools-scm==10.3.4
+shellingham==1.5.4
+show_kernel_debug_data @ file:///opt/vllm-project-sdk/cann-9.1.0/tools/show_kernel_debug_data-0.1.0-py3-none-any.whl#sha256=89ebb146a313d10c99bac970df95e9a6ab1aaabde6c74b3ce61429bb8f17f05d
+six==1.17.0
+sniffio==1.3.1
+soupsieve==2.9.2
+sse-starlette==3.5.0
+stack-data==0.6.3
+starlette==1.8.0
+superkernel @ file:///root/selfgz2336225702/graph_autofusion/lib/superkernel-0.1.0-py3-none-any.whl#sha256=9dd7b87b06576a2ce16c70f4d0149e017ba8709498f6c0cc847844c03878dd6d
+supervisor==4.3.0
+sympy==1.14.0
+tblib==3.2.2
+te @ file:///root/selfgz2583731671/share/info/tbe-tik/python/te-0.4.0-py3-none-any.whl#sha256=4402436328db2f418fcba4ec2a237afd8cb6334663796f1170062036832b1eb2
+terminado==0.18.1
+tiktoken==0.14.0
+tinycss2==1.5.1
+tokenizers==0.22.2
+torch @ file:///torch-2.10.0%2Bcpu-cp311-cp311-manylinux_2_28_aarch64.whl#sha256=1cfcb9b1558c6e52dffd0d4effce83b13c5ae5d97338164c372048c21f9cfccb
+torch_npu==2.10.0.post4
+torchaudio==2.10.0
+torchvision==0.25.0
+tornado==6.5.10
+tqdm==4.70.1
+traitlets==5.16.1
+transformers==5.14.1
+triton_ascend==3.2.2
+truststore==0.10.4
+typer==0.27.3
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+tzdata==2026.4
+uri-template==1.3.0
+urllib3==2.7.0
+uvicorn==0.54.0
+uvloop==0.23.0
+vcs-versioning==2.6.0
+-e git+https://gitee.com/mirrors/vllm.git@568afb3a13806beb53bb2e6bd518269357b237c0#egg=vllm
+vllm_ascend==0.26.0rc1
+watchfiles==1.3.0
+wcwidth==0.8.3
+webcolors==25.10.0
+webencodings==0.6.1
+websocket-client==1.9.2
+websockets==17.2
+Werkzeug==3.1.9
+widgetsnbextension==4.0.16
+wsproto==1.3.2
+xgrammar==0.2.8
+yarl==1.25.1

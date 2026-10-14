@@ -17,3 +17,5 @@ python scripts/restore_sources.py --destination "$HOME/vllm_project/src/issue_ch
 2026-10-15 更正：#15920 提交是历史 shape 策略实验。V1 profile 绕过 attention，helper 策略单元测试不构成原始 OOM 修复证据；恢复历史代码不等于应部署该补丁。见 [`reports/07_issue_15920_profile_shape.md`](../reports/07_issue_15920_profile_shape.md)。
 
 这两个源码 base 是之前调查时从镜像取得的固定快照，均不是已经在 910B2 上验收的软件组合。恢复成功只说明代码和提交可恢复；NPU 兼容性、原始 Issue 的实际 OOM、吞吐收益需要另外验证。不要覆盖已经可运行的 0.22.1 环境来冒充验证。
+
+另有 `vllm-16637-026.bundle`，保存官方 0.26 base 上的独立候选 `ad7a83f`，SHA 和 prerequisite 在 `stack026-bundle.json`。它已经做 NPU A/B 并被否定为可宣称的性能修复；保存用于复现负结果，不能默认部署。独立新目录导入后 HEAD 精确匹配，clean，见 `evidence/stack026/source-recovery-proof.txt`。

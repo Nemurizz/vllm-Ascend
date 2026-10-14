@@ -1,6 +1,13 @@
 {
   "issue": "https://github.com/vllm-project/vllm-ascend/issues/16637",
   "status_at_2026_10_11": "open",
+  "assessment_2026_10_15": {
+    "patch_status": "candidate_scheduler_policy_change_not_validated_end_to_end_fix",
+    "missed_configuration_gates": ["V1 dynamic SD forces PIECEWISE", "DP>1 disables dynamic SD table"],
+    "cpu_test_scope": "desired padding behavior, not proof of violating official dynamic SD semantics",
+    "prior_art": "Issue 16637 proposed padding patch; merged vLLM PR 45953 implements V2 multi-K Full Graph support",
+    "current_runtime_evidence": "evidence/current_issues_20261015.json"
+  },
   "upstream_pr_found": false,
   "source_pins": {
     "vllm": {

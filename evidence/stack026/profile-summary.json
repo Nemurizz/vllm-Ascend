@@ -1,0 +1,1835 @@
+{
+  "profiles": [
+    {
+      "path": "15920-L32768-seqs1/init/6b34af0cfc4f_149292_20261014190805036_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 519,
+      "summed_kernel_duration_us": 949098.2220000003,
+      "kernel_interval_union_us": 949098.222,
+      "first_to_last_kernel_span_us": 2874521.773,
+      "kernel_union_fraction_within_span": 0.33017604212107665,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 746707.5430000003
+        },
+        {
+          "type": "SwiGlu",
+          "count": 32,
+          "duration_us": 51747.174000000006
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 64,
+          "duration_us": 50928.235
+        },
+        {
+          "type": "Index",
+          "count": 9,
+          "duration_us": 29143.621
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 24,
+          "duration_us": 21168.701999999994
+        },
+        {
+          "type": "split_qkv_rmsnorm_mrope_kernel",
+          "count": 8,
+          "duration_us": 13850.078000000001
+        },
+        {
+          "type": "Slice",
+          "count": 88,
+          "duration_us": 12879.675999999996
+        },
+        {
+          "type": "MatMulV2",
+          "count": 25,
+          "duration_us": 7058.581
+        },
+        {
+          "type": "Mul",
+          "count": 8,
+          "duration_us": 5766.276000000001
+        },
+        {
+          "type": "Sigmoid",
+          "count": 8,
+          "duration_us": 4288.325
+        },
+        {
+          "type": "ZerosLike",
+          "count": 25,
+          "duration_us": 2401.4679999999994
+        },
+        {
+          "type": "GatherV2",
+          "count": 1,
+          "duration_us": 1462.009
+        },
+        {
+          "type": "Fill",
+          "count": 8,
+          "duration_us": 981.779
+        },
+        {
+          "type": "GemmaRmsNorm",
+          "count": 1,
+          "duration_us": 381.928
+        },
+        {
+          "type": "Add",
+          "count": 80,
+          "duration_us": 160.40200000000002
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclnnMatmulGetWorkspaceSize",
+          "level": "acl",
+          "count": 8,
+          "total_us": 1126254.46
+        },
+        {
+          "name": "MatMulV2_Tiling",
+          "level": "acl",
+          "count": 4,
+          "total_us": 982233.66
+        },
+        {
+          "name": "aclrtSynchronizeStream",
+          "level": "acl",
+          "count": 1,
+          "total_us": 805648.09
+        },
+        {
+          "name": "aclnnGemmaRmsNormGetWorkspaceSize",
+          "level": "acl",
+          "count": 1,
+          "total_us": 333970.79
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 148,
+          "total_us": 144825.61
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 519,
+          "total_us": 128065.3
+        },
+        {
+          "name": "MatMulV3_Tiling",
+          "level": "acl",
+          "count": 12,
+          "total_us": 121671.34
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 153,
+          "total_us": 63854.44
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 9,
+          "total_us": 61643.59
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 73,
+          "total_us": 49422.03
+        },
+        {
+          "name": "aclnnIndexGetWorkspaceSize",
+          "level": "acl",
+          "count": 5,
+          "total_us": 41290.58
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 4,
+          "total_us": 29990.64
+        },
+        {
+          "name": "aclnnAdds",
+          "level": "acl",
+          "count": 80,
+          "total_us": 27183.98
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 148,
+          "total_us": 21199.08
+        },
+        {
+          "name": "aclrtFreePhysical",
+          "level": "acl",
+          "count": 148,
+          "total_us": 20297.81
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L32768-seqs1/runtime/rank0_149292_20261014190826860_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 11287,
+      "summed_kernel_duration_us": 2099268.6810000003,
+      "kernel_interval_union_us": 2099268.681,
+      "first_to_last_kernel_span_us": 13093879.776,
+      "kernel_union_fraction_within_span": 0.16032442002772823,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 743575.4599999997
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 360300.8450000002
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 136790.23599999998
+        },
+        {
+          "type": "MatMulV2",
+          "count": 2320,
+          "duration_us": 120949.02600000004
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 114076.177
+        },
+        {
+          "type": "Transpose",
+          "count": 720,
+          "duration_us": 90098.19299999987
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 67777.89199999999
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 58835.07399999999
+        },
+        {
+          "type": "SwiGlu",
+          "count": 512,
+          "duration_us": 55156.83099999999
+        },
+        {
+          "type": "Slice",
+          "count": 424,
+          "duration_us": 54320.66300000002
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 1024,
+          "duration_us": 53231.47700000008
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 384,
+          "duration_us": 42468.929999999986
+        },
+        {
+          "type": "ConcatD",
+          "count": 384,
+          "duration_us": 26795.718999999997
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 24,
+          "duration_us": 25926.299000000003
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 384,
+          "duration_us": 22386.56099999995
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 360300.8450000002
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 327,
+          "total_us": 256434.93
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 11287,
+          "total_us": 184466.88
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 128,
+          "total_us": 68797.57
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 9463,
+          "total_us": 61872.8
+        },
+        {
+          "name": "aclnnIndexPutImplGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 55802.8
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdH",
+          "level": "acl",
+          "count": 24,
+          "total_us": 50762.36
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 128,
+          "total_us": 41218.66
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 51327,
+          "total_us": 32746.38
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 2448,
+          "total_us": 31290.21
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 384,
+          "total_us": 29278.72
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 384,
+          "total_us": 28787.37
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 1351,
+          "total_us": 23796.16
+        },
+        {
+          "name": "aclrtBinaryLoadFromData",
+          "level": "acl",
+          "count": 23,
+          "total_us": 20452.12
+        },
+        {
+          "name": "aclnnAddRmsNormBias",
+          "level": "acl",
+          "count": 1024,
+          "total_us": 20380.35
+        },
+        {
+          "name": "aclnnContiguous",
+          "level": "acl",
+          "count": 384,
+          "total_us": 17769.89
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L32768-seqs256/init/6b34af0cfc4f_151491_20261014191008265_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 519,
+      "summed_kernel_duration_us": 951031.1219999999,
+      "kernel_interval_union_us": 951031.122,
+      "first_to_last_kernel_span_us": 2628436.816,
+      "kernel_union_fraction_within_span": 0.36182384762335484,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 748022.2840000001
+        },
+        {
+          "type": "SwiGlu",
+          "count": 32,
+          "duration_us": 51412.985
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 64,
+          "duration_us": 50981.73800000002
+        },
+        {
+          "type": "Index",
+          "count": 9,
+          "duration_us": 29136.88
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 24,
+          "duration_us": 21156.324999999997
+        },
+        {
+          "type": "split_qkv_rmsnorm_mrope_kernel",
+          "count": 8,
+          "duration_us": 13861.637000000002
+        },
+        {
+          "type": "Slice",
+          "count": 88,
+          "duration_us": 12924.759000000002
+        },
+        {
+          "type": "MatMulV2",
+          "count": 25,
+          "duration_us": 7972.660000000001
+        },
+        {
+          "type": "Mul",
+          "count": 8,
+          "duration_us": 5766.097
+        },
+        {
+          "type": "Sigmoid",
+          "count": 8,
+          "duration_us": 4261.364
+        },
+        {
+          "type": "ZerosLike",
+          "count": 25,
+          "duration_us": 2411.728
+        },
+        {
+          "type": "GatherV2",
+          "count": 1,
+          "duration_us": 1462.109
+        },
+        {
+          "type": "Fill",
+          "count": 8,
+          "duration_us": 950.3999999999999
+        },
+        {
+          "type": "GemmaRmsNorm",
+          "count": 1,
+          "duration_us": 378.987
+        },
+        {
+          "type": "IndexCheck",
+          "count": 9,
+          "duration_us": 166.08499999999998
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclnnMatmulGetWorkspaceSize",
+          "level": "acl",
+          "count": 8,
+          "total_us": 896023.43
+        },
+        {
+          "name": "aclrtSynchronizeStream",
+          "level": "acl",
+          "count": 1,
+          "total_us": 804522.27
+        },
+        {
+          "name": "MatMulV2_Tiling",
+          "level": "acl",
+          "count": 4,
+          "total_us": 768387.45
+        },
+        {
+          "name": "aclnnGemmaRmsNormGetWorkspaceSize",
+          "level": "acl",
+          "count": 1,
+          "total_us": 338701.17
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 147,
+          "total_us": 140408.27
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 519,
+          "total_us": 124863.97
+        },
+        {
+          "name": "MatMulV3_Tiling",
+          "level": "acl",
+          "count": 12,
+          "total_us": 103953.32
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 153,
+          "total_us": 69657.16
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 9,
+          "total_us": 59045.86
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 73,
+          "total_us": 44310.03
+        },
+        {
+          "name": "aclnnIndexGetWorkspaceSize",
+          "level": "acl",
+          "count": 5,
+          "total_us": 41280.91
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 4,
+          "total_us": 30061.89
+        },
+        {
+          "name": "aclnnAdds",
+          "level": "acl",
+          "count": 80,
+          "total_us": 27334.93
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 147,
+          "total_us": 25245.62
+        },
+        {
+          "name": "aclrtBinaryLoadFromData",
+          "level": "acl",
+          "count": 14,
+          "total_us": 19362.91
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L32768-seqs256/runtime/rank0_151491_20261014191022059_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 11304,
+      "summed_kernel_duration_us": 2104916.8869999996,
+      "kernel_interval_union_us": 2104916.887,
+      "first_to_last_kernel_span_us": 4152697.391,
+      "kernel_union_fraction_within_span": 0.5068794301173775,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 743681.3850000001
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 361634.2849999998
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 137658.49000000005
+        },
+        {
+          "type": "MatMulV2",
+          "count": 2320,
+          "duration_us": 121220.71799999967
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 114307.32299999997
+        },
+        {
+          "type": "Transpose",
+          "count": 720,
+          "duration_us": 92132.70900000008
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 68697.01599999999
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 59141.939999999995
+        },
+        {
+          "type": "SwiGlu",
+          "count": 512,
+          "duration_us": 54909.969999999994
+        },
+        {
+          "type": "Slice",
+          "count": 424,
+          "duration_us": 54490.74799999999
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 1024,
+          "duration_us": 53302.87599999997
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 384,
+          "duration_us": 42465.17499999997
+        },
+        {
+          "type": "ConcatD",
+          "count": 384,
+          "duration_us": 26358.09900000003
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 24,
+          "duration_us": 26128.283
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 384,
+          "duration_us": 22336.95399999999
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 361634.2849999998
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 33,
+          "total_us": 1450615.28
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 260,
+          "total_us": 205076.8
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 11304,
+          "total_us": 183534.98
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 128,
+          "total_us": 70767.46
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 9480,
+          "total_us": 65097.96
+        },
+        {
+          "name": "aclnnIndexPutImplGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 54203.99
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdH",
+          "level": "acl",
+          "count": 24,
+          "total_us": 50595.97
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 384,
+          "total_us": 33328.83
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 2448,
+          "total_us": 32958.0
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 128,
+          "total_us": 32012.49
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 384,
+          "total_us": 31812.78
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 51327,
+          "total_us": 30321.99
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 1351,
+          "total_us": 25958.74
+        },
+        {
+          "name": "aclrtMemcpy",
+          "level": "acl",
+          "count": 1,
+          "total_us": 23181.35
+        },
+        {
+          "name": "aclrtBinaryLoadFromData",
+          "level": "acl",
+          "count": 23,
+          "total_us": 22000.62
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L98304-seqs1/init/6b34af0cfc4f_152868_20261014191153813_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 519,
+      "summed_kernel_duration_us": 2802845.1810000017,
+      "kernel_interval_union_us": 2802845.181,
+      "first_to_last_kernel_span_us": 4392124.734,
+      "kernel_union_fraction_within_span": 0.6381524548478363,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 2215300.739000001
+        },
+        {
+          "type": "SwiGlu",
+          "count": 32,
+          "duration_us": 156250.98199999996
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 64,
+          "duration_us": 153635.47000000003
+        },
+        {
+          "type": "Index",
+          "count": 9,
+          "duration_us": 73670.77399999999
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 24,
+          "duration_us": 63928.381
+        },
+        {
+          "type": "split_qkv_rmsnorm_mrope_kernel",
+          "count": 8,
+          "duration_us": 41376.325
+        },
+        {
+          "type": "Slice",
+          "count": 88,
+          "duration_us": 34562.92500000002
+        },
+        {
+          "type": "Mul",
+          "count": 8,
+          "duration_us": 17014.418999999998
+        },
+        {
+          "type": "MatMulV2",
+          "count": 25,
+          "duration_us": 15031.883000000002
+        },
+        {
+          "type": "Sigmoid",
+          "count": 8,
+          "duration_us": 11224.684000000001
+        },
+        {
+          "type": "ZerosLike",
+          "count": 25,
+          "duration_us": 10767.094
+        },
+        {
+          "type": "GatherV2",
+          "count": 1,
+          "duration_us": 4348.267
+        },
+        {
+          "type": "Fill",
+          "count": 8,
+          "duration_us": 3785.858
+        },
+        {
+          "type": "GemmaRmsNorm",
+          "count": 1,
+          "duration_us": 1596.912
+        },
+        {
+          "type": "IndexCheck",
+          "count": 9,
+          "duration_us": 175.765
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeStream",
+          "level": "acl",
+          "count": 1,
+          "total_us": 2495419.98
+        },
+        {
+          "name": "aclnnMatmulGetWorkspaceSize",
+          "level": "acl",
+          "count": 7,
+          "total_us": 604830.86
+        },
+        {
+          "name": "MatMulV2_Tiling",
+          "level": "acl",
+          "count": 4,
+          "total_us": 465359.03
+        },
+        {
+          "name": "aclnnGemmaRmsNormGetWorkspaceSize",
+          "level": "acl",
+          "count": 1,
+          "total_us": 392831.24
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 443,
+          "total_us": 390978.58
+        },
+        {
+          "name": "aclrtGetMemInfo",
+          "level": "acl",
+          "count": 2,
+          "total_us": 211464.27
+        },
+        {
+          "name": "MatMulV3_Tiling",
+          "level": "acl",
+          "count": 10,
+          "total_us": 111288.85
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 443,
+          "total_us": 82972.57
+        },
+        {
+          "name": "aclrtFreePhysical",
+          "level": "acl",
+          "count": 443,
+          "total_us": 76244.49
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 73,
+          "total_us": 46640.77
+        },
+        {
+          "name": "aclnnIndexGetWorkspaceSize",
+          "level": "acl",
+          "count": 2,
+          "total_us": 44747.46
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 9,
+          "total_us": 37206.32
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 4,
+          "total_us": 35007.68
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 519,
+          "total_us": 28259.75
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 153,
+          "total_us": 26516.14
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L98304-seqs1/runtime/rank0_152868_20261014191210886_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 11289,
+      "summed_kernel_duration_us": 8743135.584999999,
+      "kernel_interval_union_us": 8743135.585,
+      "first_to_last_kernel_span_us": 34282491.364,
+      "kernel_union_fraction_within_span": 0.2550320947263814,
+      "top_types": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 3784964.585000001
+        },
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 2325403.7969999993
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 408398.542
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 340299.579
+        },
+        {
+          "type": "Transpose",
+          "count": 720,
+          "duration_us": 245964.86400000003
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 203643.60999999996
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 174977.459
+        },
+        {
+          "type": "SwiGlu",
+          "count": 512,
+          "duration_us": 159733.70100000047
+        },
+        {
+          "type": "Slice",
+          "count": 424,
+          "duration_us": 156610.44300000026
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 1024,
+          "duration_us": 154901.12399999905
+        },
+        {
+          "type": "MatMulV2",
+          "count": 2320,
+          "duration_us": 129399.0039999996
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 384,
+          "duration_us": 118746.17299999992
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 24,
+          "duration_us": 73718.009
+        },
+        {
+          "type": "ConcatD",
+          "count": 384,
+          "duration_us": 66871.21700000003
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 24,
+          "duration_us": 64902.71600000001
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 3784964.585000001
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 3766,
+          "total_us": 29835758.43
+        },
+        {
+          "name": "aclrtFreePhysical",
+          "level": "acl",
+          "count": 2816,
+          "total_us": 566733.91
+        },
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 33,
+          "total_us": 434667.08
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 2378,
+          "total_us": 363001.98
+        },
+        {
+          "name": "aclrtMapMem",
+          "level": "acl",
+          "count": 3307,
+          "total_us": 157724.45
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 11289,
+          "total_us": 145599.98
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 9465,
+          "total_us": 75222.69
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 128,
+          "total_us": 72435.61
+        },
+        {
+          "name": "aclrtSynchronizeDeviceWithTimeout",
+          "level": "acl",
+          "count": 124,
+          "total_us": 67771.75
+        },
+        {
+          "name": "aclnnIndexPutImplGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 61327.46
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 384,
+          "total_us": 49322.36
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 384,
+          "total_us": 37268.83
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 2448,
+          "total_us": 37013.02
+        },
+        {
+          "name": "aclnnContiguous",
+          "level": "acl",
+          "count": 384,
+          "total_us": 36783.03
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 51327,
+          "total_us": 34222.35
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L98304-seqs256/init/6b34af0cfc4f_155959_20261014191417739_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 519,
+      "summed_kernel_duration_us": 2797628.518,
+      "kernel_interval_union_us": 2797628.518,
+      "first_to_last_kernel_span_us": 4723952.465,
+      "kernel_union_fraction_within_span": 0.5922219875682004,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 2210239.7029999997
+        },
+        {
+          "type": "SwiGlu",
+          "count": 32,
+          "duration_us": 155377.003
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 64,
+          "duration_us": 153593.64799999996
+        },
+        {
+          "type": "Index",
+          "count": 9,
+          "duration_us": 73717.294
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 24,
+          "duration_us": 63734.95400000001
+        },
+        {
+          "type": "split_qkv_rmsnorm_mrope_kernel",
+          "count": 8,
+          "duration_us": 41448.488
+        },
+        {
+          "type": "Slice",
+          "count": 88,
+          "duration_us": 34547.012
+        },
+        {
+          "type": "Mul",
+          "count": 8,
+          "duration_us": 16809.215
+        },
+        {
+          "type": "MatMulV2",
+          "count": 25,
+          "duration_us": 15957.718
+        },
+        {
+          "type": "Sigmoid",
+          "count": 8,
+          "duration_us": 11289.887
+        },
+        {
+          "type": "ZerosLike",
+          "count": 25,
+          "duration_us": 10733.072999999999
+        },
+        {
+          "type": "GatherV2",
+          "count": 1,
+          "duration_us": 4366.267
+        },
+        {
+          "type": "Fill",
+          "count": 8,
+          "duration_us": 3860.6369999999997
+        },
+        {
+          "type": "GemmaRmsNorm",
+          "count": 1,
+          "duration_us": 1594.051
+        },
+        {
+          "type": "IndexCheck",
+          "count": 9,
+          "duration_us": 182.02300000000002
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeStream",
+          "level": "acl",
+          "count": 1,
+          "total_us": 2504273.58
+        },
+        {
+          "name": "aclnnMatmulGetWorkspaceSize",
+          "level": "acl",
+          "count": 7,
+          "total_us": 944409.39
+        },
+        {
+          "name": "MatMulV2_Tiling",
+          "level": "acl",
+          "count": 4,
+          "total_us": 664612.68
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 443,
+          "total_us": 401937.54
+        },
+        {
+          "name": "aclnnGemmaRmsNormGetWorkspaceSize",
+          "level": "acl",
+          "count": 1,
+          "total_us": 383504.5
+        },
+        {
+          "name": "MatMulV3_Tiling",
+          "level": "acl",
+          "count": 10,
+          "total_us": 250794.75
+        },
+        {
+          "name": "aclrtGetMemInfo",
+          "level": "acl",
+          "count": 2,
+          "total_us": 209559.98
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 443,
+          "total_us": 67640.38
+        },
+        {
+          "name": "aclrtFreePhysical",
+          "level": "acl",
+          "count": 443,
+          "total_us": 60158.06
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 73,
+          "total_us": 47965.57
+        },
+        {
+          "name": "aclnnIndexGetWorkspaceSize",
+          "level": "acl",
+          "count": 3,
+          "total_us": 44450.93
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 9,
+          "total_us": 38685.48
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 4,
+          "total_us": 33100.26
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 519,
+          "total_us": 25984.14
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 153,
+          "total_us": 25886.01
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "15920-L98304-seqs256/runtime/rank0_155959_20261014191434143_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 11305,
+      "summed_kernel_duration_us": 8775401.276999997,
+      "kernel_interval_union_us": 8775401.277,
+      "first_to_last_kernel_span_us": 29029330.866,
+      "kernel_union_fraction_within_span": 0.30229430080587927,
+      "top_types": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 3815889.5390000003
+        },
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 2328403.024
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 408264.9759999999
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 340510.564
+        },
+        {
+          "type": "Transpose",
+          "count": 720,
+          "duration_us": 247497.14399999988
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 200689.66999999995
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 174267.361
+        },
+        {
+          "type": "SwiGlu",
+          "count": 512,
+          "duration_us": 160658.14800000016
+        },
+        {
+          "type": "Slice",
+          "count": 424,
+          "duration_us": 156474.17299999998
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 1024,
+          "duration_us": 154886.30199999933
+        },
+        {
+          "type": "MatMulV2",
+          "count": 2320,
+          "duration_us": 129499.69099999986
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 384,
+          "duration_us": 118623.32699999987
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 24,
+          "duration_us": 73258.62599999999
+        },
+        {
+          "type": "ConcatD",
+          "count": 384,
+          "duration_us": 67102.80600000008
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 24,
+          "duration_us": 65098.937999999995
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 128,
+          "duration_us": 3815889.5390000003
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 3700,
+          "total_us": 24721942.36
+        },
+        {
+          "name": "aclrtFreePhysical",
+          "level": "acl",
+          "count": 2816,
+          "total_us": 552848.41
+        },
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 33,
+          "total_us": 466364.77
+        },
+        {
+          "name": "aclrtUnmapMem",
+          "level": "acl",
+          "count": 2376,
+          "total_us": 369343.53
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 11305,
+          "total_us": 165420.79
+        },
+        {
+          "name": "aclrtMapMem",
+          "level": "acl",
+          "count": 3239,
+          "total_us": 159189.51
+        },
+        {
+          "name": "aclrtSynchronizeDeviceWithTimeout",
+          "level": "acl",
+          "count": 123,
+          "total_us": 92431.49
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 128,
+          "total_us": 75727.77
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 9481,
+          "total_us": 65575.78
+        },
+        {
+          "name": "aclnnIndexPutImplGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 55646.47
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 128,
+          "total_us": 41219.98
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 51327,
+          "total_us": 36405.28
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 384,
+          "total_us": 35963.74
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 2448,
+          "total_us": 35301.5
+        },
+        {
+          "name": "aclrtMemcpyAsync",
+          "level": "acl",
+          "count": 822,
+          "total_us": 33159.1
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "16637-dynamic_graph/rank0_142023_20261014184056449_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 41718,
+      "summed_kernel_duration_us": 1704575.382,
+      "kernel_interval_union_us": 1704050.971,
+      "first_to_last_kernel_span_us": 4138076.959,
+      "kernel_union_fraction_within_span": 0.41179779590464594,
+      "top_types": [
+        {
+          "type": "MatMulV2",
+          "count": 5626,
+          "duration_us": 473494.3550000003
+        },
+        {
+          "type": "MatMulV3",
+          "count": 359,
+          "duration_us": 388596.3340000005
+        },
+        {
+          "type": "Transpose",
+          "count": 2467,
+          "duration_us": 84758.32099999976
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 72,
+          "duration_us": 70098.21899999998
+        },
+        {
+          "type": "RecurrentGatedDeltaRule",
+          "count": 816,
+          "duration_us": 64251.14200000004
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 72,
+          "duration_us": 58410.45300000001
+        },
+        {
+          "type": "ScatterUpdate",
+          "count": 96,
+          "duration_us": 47241.02600000002
+        },
+        {
+          "type": "Slice",
+          "count": 6919,
+          "duration_us": 46982.676999999574
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 385,
+          "duration_us": 44852.23699999999
+        },
+        {
+          "type": "SwiGlu",
+          "count": 1225,
+          "duration_us": 43998.216000000044
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 2450,
+          "duration_us": 41165.32900000012
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 888,
+          "duration_us": 38422.31500000005
+        },
+        {
+          "type": "Index",
+          "count": 1215,
+          "duration_us": 31795.645000000008
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 72,
+          "duration_us": 31294.045000000002
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 72,
+          "duration_us": 29957.881999999998
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 385,
+          "duration_us": 44852.23699999999
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 23094,
+          "total_us": 208037.25
+        },
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 173,
+          "total_us": 175782.8
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 19838,
+          "total_us": 124741.67
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 7688,
+          "total_us": 110898.35
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 888,
+          "total_us": 89601.49
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 888,
+          "total_us": 72479.6
+        },
+        {
+          "name": "aclmdlRIExecuteAsync",
+          "level": "acl",
+          "count": 1248,
+          "total_us": 69317.72
+        },
+        {
+          "name": "aclnnContiguous",
+          "level": "acl",
+          "count": 888,
+          "total_us": 62618.3
+        },
+        {
+          "name": "aclrtMemcpyAsync",
+          "level": "acl",
+          "count": 3495,
+          "total_us": 51766.39
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 2766,
+          "total_us": 48086.7
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 80112,
+          "total_us": 47985.12
+        },
+        {
+          "name": "aclnnContiguousGetWorkspaceSize",
+          "level": "acl",
+          "count": 888,
+          "total_us": 47738.44
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 61,
+          "total_us": 46615.63
+        },
+        {
+          "name": "aclnnScatterPaKvCacheGetWorkspaceSize",
+          "level": "acl",
+          "count": 385,
+          "total_us": 38059.41
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 863,
+          "total_us": 29829.9
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "16637-static_graph/rank0_141080_20261014183832554_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 42068,
+      "summed_kernel_duration_us": 1695414.3630000008,
+      "kernel_interval_union_us": 1694732.615,
+      "first_to_last_kernel_span_us": 2517453.598,
+      "kernel_union_fraction_within_span": 0.6731931886833531,
+      "top_types": [
+        {
+          "type": "MatMulV2",
+          "count": 5626,
+          "duration_us": 464575.61600000085
+        },
+        {
+          "type": "MatMulV3",
+          "count": 359,
+          "duration_us": 389305.702
+        },
+        {
+          "type": "Transpose",
+          "count": 2467,
+          "duration_us": 88302.68399999962
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 72,
+          "duration_us": 70222.61499999999
+        },
+        {
+          "type": "RecurrentGatedDeltaRule",
+          "count": 816,
+          "duration_us": 66420.27600000006
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 72,
+          "duration_us": 58516.807999999975
+        },
+        {
+          "type": "ScatterUpdate",
+          "count": 96,
+          "duration_us": 46904.89900000002
+        },
+        {
+          "type": "Slice",
+          "count": 6919,
+          "duration_us": 46795.541000000005
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 385,
+          "duration_us": 46030.565000000046
+        },
+        {
+          "type": "SwiGlu",
+          "count": 1225,
+          "duration_us": 43674.587999999894
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 2450,
+          "duration_us": 40668.63399999991
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 888,
+          "duration_us": 36566.24300000002
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 72,
+          "duration_us": 31228.60900000001
+        },
+        {
+          "type": "Index",
+          "count": 1215,
+          "duration_us": 31196.51099999996
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 72,
+          "duration_us": 29567.316
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 385,
+          "duration_us": 46030.565000000046
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 173,
+          "total_us": 184576.71
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 13492,
+          "total_us": 125509.13
+        },
+        {
+          "name": "aclrtSynchronizeStreamWithTimeout",
+          "level": "acl",
+          "count": 98,
+          "total_us": 101115.22
+        },
+        {
+          "name": "aclrtMallocPhysical",
+          "level": "acl",
+          "count": 62,
+          "total_us": 95175.49
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 12540,
+          "total_us": 78696.44
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 4136,
+          "total_us": 59110.23
+        },
+        {
+          "name": "aclrtMemcpyAsync",
+          "level": "acl",
+          "count": 2713,
+          "total_us": 44539.75
+        },
+        {
+          "name": "aclnnInplaceCopyGetWorkspaceSize",
+          "level": "acl",
+          "count": 1616,
+          "total_us": 31485.63
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 44478,
+          "total_us": 28253.18
+        },
+        {
+          "name": "aclnnIndex",
+          "level": "acl",
+          "count": 703,
+          "total_us": 25118.98
+        },
+        {
+          "name": "aclrtSynchronizeStream",
+          "level": "acl",
+          "count": 3,
+          "total_us": 24335.71
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 385,
+          "total_us": 21013.57
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 385,
+          "total_us": 18835.46
+        },
+        {
+          "name": "aclrtPointerGetAttributes",
+          "level": "acl",
+          "count": 6041,
+          "total_us": 14359.77
+        },
+        {
+          "name": "aclmdlRIExecuteAsync",
+          "level": "acl",
+          "count": 64,
+          "total_us": 12631.31
+        }
+      ],
+      "pipe_metrics_available": true
+    }
+  ],
+  "limitations": [
+    "task-duration sums can overlap; kernel union is bounded by first/last device task",
+    "kernel union fraction is not overall NPU utilization or proof of a CPU bottleneck",
+    "attention-name matching is not exhaustive; memory profiling can contain incomplete records"
+  ]
+}

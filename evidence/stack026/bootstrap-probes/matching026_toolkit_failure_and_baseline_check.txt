@@ -1,0 +1,70 @@
+24:[ge-executor] [2026-10-14 17:30:44] [INFO]: OperationLogFile:/var/log/ascend_seclog/operation.log
+25:[ge-executor] [2026-10-14 17:30:44] [INFO]: Check version matched!
+26:[ge-executor] [2026-10-14 17:30:44] [INFO]: version compatibility check successfully!
+27:[ge-executor] [2026-10-14 17:30:44] [INFO]: parent_dir value is [/root/vllm_project/envs] and children_dir value is [cann-9.1.0]
+28:[ge-executor] [2026-10-14 17:30:44] [INFO]: [cann-9.1.0] belongs to root.
+29:[ge-executor] [2026-10-14 17:30:44] [INFO]: [cann-9.1.0] permission is ok.
+30:[ge-executor] [2026-10-14 17:30:44] [INFO]: parent_dir value is [/root/vllm_project] and children_dir value is [envs]
+31:[ge-executor] [2026-10-14 17:30:44] [INFO]: [envs] belongs to root.
+32:[ge-executor] [2026-10-14 17:30:44] [INFO]: [envs] permission is ok.
+33:[ge-executor] [2026-10-14 17:30:44] [INFO]: parent_dir value is [/root] and children_dir value is [vllm_project]
+34:[ge-executor] [2026-10-14 17:30:44] [INFO]: [vllm_project] belongs to root.
+35:[ge-executor] [2026-10-14 17:30:44] [INFO]: [vllm_project] permission is ok.
+36:[ge-executor] [2026-10-14 17:30:44] [INFO]: parent_dir value is [/] and children_dir value is [root]
+37:[ge-executor] [2026-10-14 17:30:44] [INFO]: [root] belongs to root.
+38:[ge-executor] [2026-10-14 17:30:45] [WARNING]: [root] permission is too small, it is recommended that the permission be 755 for the root user.
+39:[ge-executor] [2026-10-14 17:30:45] [ERROR]: the given dir, or its parents, permission is invalid.
+40:[Toolkit] [20261014-17:30:45] [INFO] start uninstall cann-ge-executor_9.1.0_linux-aarch64.run
+41:[ge-executor] [2026-10-14 17:30:45] [INFO]: Start time:2026-10-14 17:30:45
+42:[ge-executor] [2026-10-14 17:30:45] [INFO]: LogFile:/var/log/ascend_seclog/ascend_install.log
+43:[ge-executor] [2026-10-14 17:30:45] [INFO]: InputParams:--quiet --uninstall --install-path=/root/vllm_project/envs/cann-9.1.0/cann-9.1.0
+44:[ge-executor] [2026-10-14 17:30:45] [INFO]: OperationLogFile:/var/log/ascend_seclog/operation.log
+45:[ge-executor] [2026-10-14 17:30:45] [INFO]: parent_dir value is [/root/vllm_project/envs/cann-9.1.0] and children_dir value is [cann-9.1.0]
+46:[ge-executor] [2026-10-14 17:30:45] [INFO]: [cann-9.1.0] belongs to root.
+47:[ge-executor] [2026-10-14 17:30:45] [INFO]: [cann-9.1.0] permission is ok.
+48:[ge-executor] [2026-10-14 17:30:45] [INFO]: parent_dir value is [/root/vllm_project/envs] and children_dir value is [cann-9.1.0]
+49:[ge-executor] [2026-10-14 17:30:45] [INFO]: [cann-9.1.0] belongs to root.
+50:[ge-executor] [2026-10-14 17:30:45] [INFO]: [cann-9.1.0] permission is ok.
+51:[ge-executor] [2026-10-14 17:30:45] [INFO]: parent_dir value is [/root/vllm_project] and children_dir value is [envs]
+52:[ge-executor] [2026-10-14 17:30:46] [INFO]: [envs] belongs to root.
+53:[ge-executor] [2026-10-14 17:30:46] [INFO]: [envs] permission is ok.
+54:[ge-executor] [2026-10-14 17:30:46] [INFO]: parent_dir value is [/root] and children_dir value is [vllm_project]
+55:[ge-executor] [2026-10-14 17:30:46] [INFO]: [vllm_project] belongs to root.
+56:[ge-executor] [2026-10-14 17:30:46] [INFO]: [vllm_project] permission is ok.
+57:[ge-executor] [2026-10-14 17:30:46] [INFO]: parent_dir value is [/] and children_dir value is [root]
+58:[ge-executor] [2026-10-14 17:30:46] [INFO]: [root] belongs to root.
+59:[ge-executor] [2026-10-14 17:30:46] [WARNING]: [root] permission is too small, it is recommended that the permission be 755 for the root user.
+60:[ge-executor] [2026-10-14 17:30:46] [ERROR]: the given dir, or its parents, permission is invalid.
+62:[Toolkit] [20261014-17:30:46] [ERROR] cann-ge-executor_9.1.0_linux-aarch64.run install failed
+63:[Toolkit] [20261014-17:30:46] [ERROR] package install failed, Please refer to the log for more details: /var/log/ascend_seclog/ascend_toolkit_install.log
+64:[Toolkit] [20261014-17:30:46] [ERROR] process exit
+ascend_cann_install.info
+-r-xr-xr-x 1 root root   264008 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libascendcl.so
+-r-xr-xr-x 1 root root  1182584 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_common.so
+-r-xr-xr-x 1 root root  5446448 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_common_base.so
+-r-xr-xr-x 1 root root 21572784 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_compiler.so
+-r-xr-xr-x 1 root root  1116088 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_executor.so
+-r-xr-xr-x 1 root root  1380336 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_runner.so
+-r-xr-xr-x 1 root root  1380352 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libge_runner_v2.so
+-r-xr-xr-x 1 root root  8261208 May 13 08:11 /usr/local/Ascend/cann-9.0.0/lib64/libgert.so
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/setuptools/build_meta.py", line 374, in prepare_metadata_for_build_wheel
+          self.run_setup()
+        File "/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/setuptools/build_meta.py", line 317, in run_setup
+          exec(code, locals())
+        File "<string>", line 17, in <module>
+      ModuleNotFoundError: No module named 'torch'
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: metadata-generation-failed
+
+× Encountered error while generating package metadata.
+╰─> See above for output.
+
+note: This is an issue with the package mentioned above, not pip.
+hint: See above for details.
+
+[notice] A new release of pip is available: 24.0 -> 26.2.1
+[notice] To update, run: python -m pip install --upgrade pip
+BASELINE_NPU_MATMUL True

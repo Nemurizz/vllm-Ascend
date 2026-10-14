@@ -1,0 +1,197 @@
+{
+  "workload_sha256": "63d6a11c988199fc2dad7369eae7ae88faf61071bc72b3fedb7d88dafdb7dd73",
+  "rows": [
+    {
+      "variant": "static_graph",
+      "concurrency": 4,
+      "runs": 3,
+      "median_output_tokens_per_s": 391.30779987630257,
+      "min_output_tokens_per_s": 361.1536520582263,
+      "max_output_tokens_per_s": 414.61528919131626,
+      "decode_dispatches": 1935,
+      "full_fraction": 1.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 300.8944201283157,
+      "median_request_average_tpot_p50_ms": 8.690646925858514
+    },
+    {
+      "variant": "static_graph",
+      "concurrency": 8,
+      "runs": 3,
+      "median_output_tokens_per_s": 572.3312427576063,
+      "min_output_tokens_per_s": 539.0318309749955,
+      "max_output_tokens_per_s": 586.8914338948664,
+      "decode_dispatches": 1044,
+      "full_fraction": 1.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 507.1744902525097,
+      "median_request_average_tpot_p50_ms": 11.070184388408723
+    },
+    {
+      "variant": "static_graph",
+      "concurrency": 16,
+      "runs": 3,
+      "median_output_tokens_per_s": 767.277879441392,
+      "min_output_tokens_per_s": 733.7227237882277,
+      "max_output_tokens_per_s": 788.4545677010292,
+      "decode_dispatches": 635,
+      "full_fraction": 1.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 747.939360095188,
+      "median_request_average_tpot_p50_ms": 14.361227038506197
+    },
+    {
+      "variant": "dynamic_graph",
+      "concurrency": 4,
+      "runs": 3,
+      "median_output_tokens_per_s": 186.59105654430448,
+      "min_output_tokens_per_s": 183.423921637773,
+      "max_output_tokens_per_s": 186.90914656075108,
+      "decode_dispatches": 1935,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 419.94764981791377,
+      "median_request_average_tpot_p50_ms": 18.941224512379335
+    },
+    {
+      "variant": "dynamic_graph",
+      "concurrency": 8,
+      "runs": 3,
+      "median_output_tokens_per_s": 300.41898884689755,
+      "min_output_tokens_per_s": 297.18967723252285,
+      "max_output_tokens_per_s": 321.13428707594795,
+      "decode_dispatches": 1061,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 614.0570749994367,
+      "median_request_average_tpot_p50_ms": 20.204633332977167
+    },
+    {
+      "variant": "dynamic_graph",
+      "concurrency": 16,
+      "runs": 3,
+      "median_output_tokens_per_s": 215.09514578647753,
+      "min_output_tokens_per_s": 213.7462146137203,
+      "max_output_tokens_per_s": 224.64152513359326,
+      "decode_dispatches": 1851,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 787.2644148301333,
+      "median_request_average_tpot_p50_ms": 68.28920515740893
+    },
+    {
+      "variant": "eager_dynamic",
+      "concurrency": 4,
+      "runs": 3,
+      "median_output_tokens_per_s": 111.7946154376718,
+      "min_output_tokens_per_s": 110.17033085356742,
+      "max_output_tokens_per_s": 113.01573744438649,
+      "decode_dispatches": 1935,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 1.0,
+      "median_ttft_p50_ms": 491.63854494690895,
+      "median_request_average_tpot_p50_ms": 31.93729860730437
+    },
+    {
+      "variant": "eager_dynamic",
+      "concurrency": 8,
+      "runs": 3,
+      "median_output_tokens_per_s": 184.3603758799492,
+      "min_output_tokens_per_s": 183.69042463571893,
+      "max_output_tokens_per_s": 193.65219167800353,
+      "decode_dispatches": 1083,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 1.0,
+      "median_ttft_p50_ms": 619.9193748179823,
+      "median_request_average_tpot_p50_ms": 33.501665815156315
+    },
+    {
+      "variant": "eager_dynamic",
+      "concurrency": 16,
+      "runs": 3,
+      "median_output_tokens_per_s": 122.1182449041564,
+      "min_output_tokens_per_s": 121.9350972327785,
+      "max_output_tokens_per_s": 123.00682882448088,
+      "decode_dispatches": 1851,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 0.0,
+      "none_fraction": 1.0,
+      "median_ttft_p50_ms": 700.1560248900205,
+      "median_request_average_tpot_p50_ms": 122.2440270362996
+    },
+    {
+      "variant": "dynamic_patched",
+      "concurrency": 4,
+      "runs": 3,
+      "median_output_tokens_per_s": 194.15326343673902,
+      "min_output_tokens_per_s": 192.83260628502381,
+      "max_output_tokens_per_s": 196.79120737533404,
+      "decode_dispatches": 1935,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 399.34402517974377,
+      "median_request_average_tpot_p50_ms": 18.18715336989483
+    },
+    {
+      "variant": "dynamic_patched",
+      "concurrency": 8,
+      "runs": 3,
+      "median_output_tokens_per_s": 318.59766513169984,
+      "min_output_tokens_per_s": 307.4827624091393,
+      "max_output_tokens_per_s": 332.21245381740334,
+      "decode_dispatches": 1061,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 595.3396600671113,
+      "median_request_average_tpot_p50_ms": 19.62205620697385
+    },
+    {
+      "variant": "dynamic_patched",
+      "concurrency": 16,
+      "runs": 3,
+      "median_output_tokens_per_s": 222.97813352906357,
+      "min_output_tokens_per_s": 221.34619701558347,
+      "max_output_tokens_per_s": 224.35706694210134,
+      "decode_dispatches": 1851,
+      "full_fraction": 0.0,
+      "piecewise_fraction": 1.0,
+      "none_fraction": 0.0,
+      "median_ttft_p50_ms": 770.9483050275594,
+      "median_request_average_tpot_p50_ms": 65.39191125430821
+    }
+  ],
+  "patch_vs_dynamic": [
+    {
+      "concurrency": 4,
+      "median_throughput_change_percent": 4.052823877246747
+    },
+    {
+      "concurrency": 8,
+      "median_throughput_change_percent": 6.051107606272743
+    },
+    {
+      "concurrency": 16,
+      "median_throughput_change_percent": 3.6648840743302546
+    }
+  ],
+  "patch_output_equality": {
+    "matched_requests": 288,
+    "compared_requests": 288,
+    "mismatches": []
+  },
+  "limitations": [
+    "graph fractions are measured runtime dispatches; successful replays are separate raw counters",
+    "three sequential repetitions do not establish a small statistically reliable gain",
+    "TPOT is each request's average, not a per-token distribution"
+  ]
+}

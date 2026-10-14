@@ -1,0 +1,6 @@
+The bundle contains this ref:
+ad7a83ffd05d70401384c33d6d46eb6978d5c1fa refs/heads/codex/issue16637-026-experiment
+The bundle requires this ref:
+568afb3a13806beb53bb2e6bd518269357b237c0 
+The bundle uses this hash algorithm: sha1
+ad7a83ffd05d70401384c33d6d46eb6978d5c1fa

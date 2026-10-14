@@ -1,0 +1,9 @@
+{
+  "description": "Negative padding experiment, not a validated issue fix",
+  "base": "568afb3a13806beb53bb2e6bd518269357b237c0",
+  "branch": "codex/issue16637-026-experiment",
+  "head": "ad7a83ffd05d70401384c33d6d46eb6978d5c1fa",
+  "bundle": "code/vllm-16637-026.bundle",
+  "bytes": 997,
+  "sha256": "c80ad1e3999aef39de7143bcf32a25ff80ddfe7c400e20c0b0a4251db23f603e"
+}
