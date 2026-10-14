@@ -25,10 +25,13 @@ def main() -> None:
     parser.add_argument("--destination", type=Path)
     parser.add_argument("--include-profiler", action="store_true", help="Also restore large CSV/trace exports")
     parser.add_argument("--verify-only", action="store_true")
+    parser.add_argument("--archive-root", type=Path, default=ARCHIVE_ROOT,
+                        help="Directory containing a manifest and its archive parts")
     args = parser.parse_args()
+    archive_root = args.archive_root.resolve()
     if not args.verify_only and args.destination is None:
         parser.error("--destination is required for extraction")
-    manifest = json.loads((ARCHIVE_ROOT / "manifest.json").read_text(encoding="utf-8"))
+    manifest = json.loads((archive_root / "manifest.json").read_text(encoding="utf-8"))
     entries = [
         item for item in manifest["archives"]
         if args.include_profiler or item["file"] == "benchmark-records.tar.gz"
@@ -37,7 +40,9 @@ def main() -> None:
         combined_hash = hashlib.sha256()
         total_bytes = 0
         for part in item["parts"]:
-            path = ARCHIVE_ROOT / part["file"]
+            path = (archive_root / part["file"]).resolve()
+            if not path.is_relative_to(archive_root):
+                raise RuntimeError(f"Unsafe archive part: {part['file']}")
             if path.stat().st_size != part["bytes"] or digest(path) != part["sha256"]:
                 raise RuntimeError(f"Archive part failed validation: {part['file']}")
             with path.open("rb") as stream:
@@ -62,7 +67,7 @@ def main() -> None:
         # The temporary concatenation stays on the selected system disk.
         with tempfile.TemporaryFile(dir=destination) as combined:
             for part in item["parts"]:
-                with (ARCHIVE_ROOT / part["file"]).open("rb") as stream:
+                with (archive_root / part["file"]).open("rb") as stream:
                     shutil.copyfileobj(stream, combined)
             combined.seek(0)
             expected = {m["path"]: m["bytes"] for m in item["members"]}

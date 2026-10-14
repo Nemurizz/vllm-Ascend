@@ -1,0 +1,51 @@
+diff --git a/vllm/v1/core/sched/scheduler.py b/vllm/v1/core/sched/scheduler.py
+--- a/vllm/v1/core/sched/scheduler.py
++++ b/vllm/v1/core/sched/scheduler.py
+@@ -237,6 +237,7 @@
+         speculative_config = vllm_config.speculative_config
+         self.use_eagle = False
+         self.num_spec_tokens = vllm_config.num_speculative_tokens
++        self._effective_spec_k = self.num_spec_tokens
+         self.num_lookahead_tokens = 0
+         self.dynamic_sd_lookup: list[int] | None = None
+         if speculative_config is not None:
+@@ -452,6 +453,14 @@
+         encoder_compute_budget = self.max_num_encoder_input_tokens
+         # Spec decode-related.
+         scheduled_spec_decode_tokens: dict[str, list[int]] = {}
++        self._effective_spec_k = self.num_spec_tokens
++        if self.dynamic_sd_lookup is not None:
++            num_decode_reqs = sum(
++                request.num_computed_tokens >= request.num_tokens
++                for request in self.running
++            )
++            lookup_idx = max(1, min(num_decode_reqs, len(self.dynamic_sd_lookup) - 1))
++            self._effective_spec_k = self.dynamic_sd_lookup[lookup_idx]
+         # Whether the running batch contains any prefill requests.
+         prefill_scheduled = False
+ 
+@@ -844,12 +853,13 @@
+                     # preserve full cudagraph for this step.
+                     # Not for diffusion where draft tokens can't be padded.
+                     if (
+-                        (self.num_spec_tokens > 0 and self.dynamic_sd_lookup is None)
++                        self.num_spec_tokens > 0
++                        and self._effective_spec_k > 0
+                         and self.num_sampled_tokens_per_step > 0
+                         and num_new_tokens == 1
+                         and (scheduled_running_reqs and not prefill_scheduled)
+                     ):
+-                        num_new_tokens = 1 + self.num_spec_tokens
++                        num_new_tokens = 1 + self._effective_spec_k
+                         if (
+                             num_new_tokens > token_budget
+                             or num_computed_tokens + num_new_tokens > self.max_model_len
+@@ -1032,7 +1042,7 @@
+                 if pad_spec_decode:
+                     scheduled_spec_decode_tokens[request_id] = [
+                         -1
+-                    ] * self.num_spec_tokens
++                    ] * self._effective_spec_k
+                 # Only track requests that will still be prefilling after this chunk.
+                 if num_computed_tokens + num_new_tokens < request.num_tokens:
+                     self._inflight_prefills.add(request)

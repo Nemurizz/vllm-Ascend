@@ -31,6 +31,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--profile-names", nargs="+", default=["runtime_graph_probe1", "runtime_eager_probe_eager"],
+                        help="Relative folders below profiles to archive")
     args = parser.parse_args()
     root = args.project_root.resolve()
     output = args.output_dir.resolve()
@@ -48,8 +50,10 @@ def main() -> None:
             raise RuntimeError(f"Sensitive record requires redaction: {path.relative_to(root)}")
 
     groups = {"benchmark-records": records}
-    for name in ["runtime_graph_probe1", "runtime_eager_probe_eager"]:
-        folder = root / "profiles" / name
+    for name in args.profile_names:
+        folder = (root / "profiles" / name).resolve()
+        if not folder.is_relative_to(root / "profiles") or Path(name).name != name:
+            raise ValueError(f"Unsafe profiler directory name: {name}")
         exports = [
             p for p in sorted(folder.rglob("*"))
             if p.is_file() and not p.is_symlink()
