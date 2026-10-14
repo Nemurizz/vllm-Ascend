@@ -15,6 +15,9 @@ _dispatch = Counter()
 _replays = Counter()
 _shapes = Counter()
 _installed = False
+_paired_original_schedule = None
+_paired_schedule_class = None
+_padding_events = Counter()
 
 
 def install():
@@ -74,6 +77,7 @@ class Issue16637ProbeWorker(NPUWorker):
             _dispatch.clear()
             _replays.clear()
             _shapes.clear()
+            _padding_events.clear()
             torch.npu.reset_peak_memory_stats()
         _active = active
         return {"active": _active}
@@ -88,4 +92,58 @@ class Issue16637ProbeWorker(NPUWorker):
                              for (p, m, reqs, tokens, padded, queries), n in _shapes.items()],
             "peak_allocated_bytes": torch.npu.max_memory_allocated(),
             "peak_reserved_bytes": torch.npu.max_memory_reserved(),
+            "scheduler_padding_events": dict(_padding_events),
         }
+
+    def issue_probe_scheduler_variant(self, variant, candidate_method_source=None):
+        """Experiment only: switch the host method in a single-process executor.
+
+        No source file, graph, tensor or KV policy is changed by this RPC itself.
+        The candidate is the schedule method from the archived 16-line patch.
+        """
+        import ast
+        import hashlib
+        import os
+        import textwrap
+        from vllm.v1.core.sched import scheduler as module
+        global _paired_original_schedule, _paired_schedule_class
+        if _paired_original_schedule is None:
+            # Ascend's async patch can replace module.Scheduler with AsyncScheduler.
+            # Change the large base method, retaining the async wrapper's super cell.
+            _paired_schedule_class = next(
+                cls for cls in module.Scheduler.__mro__
+                if "schedule" in cls.__dict__
+                and cls.__name__ == "Scheduler"
+                and inspect.getsourcefile(cls.__dict__["schedule"]).replace("\\", "/").endswith("/vllm/v1/core/sched/scheduler.py")
+                and "scheduled_spec_decode_tokens: dict[str, list[int]] = {}" in inspect.getsource(cls.__dict__["schedule"])
+            )
+            _paired_original_schedule = _paired_schedule_class.__dict__["schedule"]
+            if "__class__" in _paired_original_schedule.__code__.co_freevars:
+                raise RuntimeError("Refusing to transplant a method with a super closure")
+            if "_effective_spec_k" in inspect.getsource(_paired_original_schedule):
+                raise RuntimeError("Paired experiment must start from the stock scheduler")
+        source = (inspect.getsource(_paired_original_schedule) if variant == "stock"
+                  else candidate_method_source)
+        if variant not in ("stock", "candidate") or not source:
+            raise ValueError("Invalid paired variant")
+        source = textwrap.dedent(source)
+        tree = ast.parse(source)
+        assert len(tree.body) == 1 and isinstance(tree.body[0], ast.FunctionDef)
+        assert tree.body[0].name == "schedule"
+        found = 0
+        for node in ast.walk(tree):
+            if isinstance(node, ast.If) and isinstance(node.test, ast.Name) and node.test.id == "pad_spec_decode":
+                node.body.insert(0, ast.Expr(ast.Call(ast.Name("_paired_note_padding", ast.Load()), [], [])))
+                found += 1
+        assert found == 1, "Scheduler source changed; refuse instrumentation"
+        ast.fix_missing_locations(tree)
+
+        def note_padding():
+            _padding_events[variant] += 1
+
+        namespace = dict(_paired_original_schedule.__globals__, _paired_note_padding=note_padding)
+        exec(compile(tree, "<paired_scheduler_observation>", "exec"), namespace)
+        _paired_schedule_class.schedule = namespace["schedule"]
+        return {"variant": variant, "pid": os.getpid(),
+                "schedule_owner": _paired_schedule_class.__qualname__,
+                "uninstrumented_method_sha256": hashlib.sha256(source.encode()).hexdigest()}

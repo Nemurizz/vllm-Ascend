@@ -114,7 +114,8 @@ def main():
             kwargs["compilation_config"] = {"cudagraph_mode": "FULL_DECODE_ONLY",
                                             "cudagraph_capture_sizes": [4, 8, 16, 32, 64, 128]}
         if args.profile_dir:
-            kwargs["profiler_config"] = {"profiler": "torch", "torch_profiler_dir": str(args.profile_dir)}
+            kwargs["profiler_config"] = {"profiler": "torch", "torch_profiler_dir": str(args.profile_dir),
+                                         "torch_profiler_with_memory": True, "torch_profiler_with_stack": False}
         result["engine_config"] = kwargs
         llm = LLM(**kwargs)
         tokenizer = llm.get_tokenizer()

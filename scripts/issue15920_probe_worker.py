@@ -53,6 +53,7 @@ class Issue15920ProbeWorker(NPUWorker):
         self.init_observation = None
 
     def determine_available_memory(self):
+        before_allocated = torch.npu.memory_allocated()
         directory = os.getenv("ISSUE15920_INIT_PROFILE_DIR")
         profiler = None
         if directory:
@@ -60,6 +61,9 @@ class Issue15920ProbeWorker(NPUWorker):
                 activities=[torch_npu.profiler.ProfilerActivity.CPU,
                             torch_npu.profiler.ProfilerActivity.NPU],
                 record_shapes=True, profile_memory=True, with_stack=False,
+                experimental_config=torch_npu.profiler._ExperimentalConfig(
+                    profiler_level=torch_npu.profiler.ProfilerLevel.Level1,
+                    aic_metrics=torch_npu.profiler.AiCMetrics.PipeUtilization),
                 on_trace_ready=torch_npu.profiler.tensorboard_trace_handler(directory))
             profiler.start()
         try:
@@ -67,6 +71,7 @@ class Issue15920ProbeWorker(NPUWorker):
             torch.npu.synchronize()
             self.init_observation = {
                 "available_kv_cache_bytes": available,
+                "before_profile_allocated_bytes": before_allocated,
                 "peak_allocated_bytes": torch.npu.max_memory_allocated(),
                 "peak_reserved_bytes": torch.npu.max_memory_reserved(),
                 "dummy_runs": list(_dummy_runs),

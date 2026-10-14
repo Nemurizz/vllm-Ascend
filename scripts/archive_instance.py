@@ -57,7 +57,7 @@ def main() -> None:
         exports = [
             p for p in sorted(folder.rglob("*"))
             if p.is_file() and not p.is_symlink()
-            and p.parent.name == "ASCEND_PROFILER_OUTPUT"
+            and p.parent.name in ("ASCEND_PROFILER_OUTPUT", "mindstudio_profiler_output")
             and (p.suffix == ".csv" or p.name == "trace_view.json")
         ]
         if exports:

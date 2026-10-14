@@ -32,9 +32,18 @@ def main():
                       enable_chunked_prefill=False, limit_mm_per_prompt={"image": 0, "video": 0},
                       worker_cls="issue15920_probe_worker.Issue15920ProbeWorker")
         if args.profile_dir:
-            kwargs["profiler_config"] = {"profiler": "torch", "torch_profiler_dir": str(args.profile_dir)}
+            kwargs["profiler_config"] = {"profiler": "torch", "torch_profiler_dir": str(args.profile_dir),
+                                         "torch_profiler_with_memory": True, "torch_profiler_with_stack": False}
         result["engine_config"] = kwargs
         llm = LLM(**kwargs)
+        config = llm.llm_engine.vllm_config
+        result["effective_scheduler"] = {
+            "enable_chunked_prefill": config.scheduler_config.enable_chunked_prefill,
+            "max_num_batched_tokens": config.scheduler_config.max_num_batched_tokens,
+            "max_num_seqs": config.scheduler_config.max_num_seqs,
+            "max_model_len": config.model_config.max_model_len,
+            "cudagraph_mode": config.compilation_config.cudagraph_mode.name,
+        }
         tokenizer = llm.get_tokenizer()
         unit = tokenizer.encode("This document explains efficient inference on Ascend hardware. ", add_special_tokens=False)
         ids = (unit * (args.input_tokens // len(unit) + 1))[:args.input_tokens]
