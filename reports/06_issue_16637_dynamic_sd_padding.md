@@ -1,7 +1,15 @@
 # Issue #16637：动态 speculative decoding 的统一 padding
 
 调查日期：2026-10-11（Asia/Shanghai）  
-状态：源码修复和回归测试完成；910B2 NPU 吞吐 A/B 暂缓，等待与 Issue 相同的版本和模型负载。
+状态（2026-10-15 更正）：历史 scheduler 单例失败→通过；新 0.26 NPU 对照发现配置层强制 PIECEWISE，原 padding patch 不能单独恢复 FULL。端到端效果正在验证，不能称为已完成的 Ascend 性能修复。
+
+## 2026-10-15 新发现与结论更正
+
+此前只检查 scheduler padding 门控，遗漏了 `VllmConfig._maybe_override_dynamic_sd_cudagraph_mode()` 和 `_maybe_disable_dynamic_sd_for_data_parallel()`。在固定官方 0.26 tag 和当前主线，这两处保护分别将 V1 动态 SD 的 FULL 模式改成 PIECEWISE，以及在 DP>1 时禁用动态表。因而 Issue 声明的 DP2+动态 FULL 配置不能直接等同于干净官方 tag 的实际生效配置；原作者可能还有其他环境差异，需要额外证据。
+
+910B2×1、Qwen3.5-4B MTP×3、官方 0.26 的预跑中，c4/c8/c16 的 decode dispatch 分别有 86/49/77 次，全部为 PIECEWISE；成功 target replay 分别为 2,838/1,617/2,541 次（分段 replay 数不能当成 decode 命中率分母）。当前保留可靠性保护完成四组 A/B，不通过删保护伪造 FULL 加速。
+
+[上游 PR #45953](https://github.com/vllm-project/vllm/pull/45953) 已合并 V2 动态 SD 的多 K Full Graph 支持，并明确 V1 保持 PIECEWISE；[PR #49652](https://github.com/vllm-project/vllm/pull/49652) 仍为 Open，提出 autoregressive drafter capture 修复。#45953 的已合并功能不能当作本项目原创，也不能直接推断 Ascend V2 + Qwen3.5 已兼容。另有[上游性能 Issue #49986](https://github.com/vllm-project/vllm/issues/49986) 讨论相同 PIECEWISE 成本。完整验收见报告 09。
 
 ## 先决核查
 

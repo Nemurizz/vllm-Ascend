@@ -1,7 +1,13 @@
 # Issue #15920：长上下文 profile shape 与密集 causal mask OOM
 
 调查日期：2026-10-12（Asia/Shanghai）  
-状态：完成当前主线比对、最小源码修复和 CPU 回归；未在远端 910B2 上声称 NPU OOM 或性能收益。
+状态（2026-10-15 更正）：历史 profile shape 实验及 CPU 策略测试通过；它不是已验证的 #15920 修复。当前 V1 profile 绕过 attention，改变请求数量不能证明覆盖原始 mask OOM。
+
+## 2026-10-15 适用性与结论更正
+
+之前将下述策略改动称为“最小修复”，依据不充分。`GPUModelRunner.profile_run()` 的 `is_profile=True` dummy run 没有强制建立 attention metadata；Ascend attention 在 `attn_metadata is None` 时直接返回填零输出。因此 single-request profile shape 并不自动执行长序列 attention/mask，不能声称解决了 Issue 原始 OOM，也不能声称显存预算变得正确。补丁保留为历史实验，停止部署为修复。
+
+在实际安装的 0.22.1/0.22.1rc1、CANN 9.0.0、单张 910B2 上，Qwen3 generation 路径调用 `AttentionMaskBuilder.get_splitfuse_attn_mask()`。对配置长度 2,048、32,768、98,304，NPU 实测均返回同一份 2,048×2,048 int8 mask（4,194,304 bytes），后两次没有新分配。这排除了此路径中的原始 L² mask 分配机制；这是 helper 实测，不能据此排除其他长上下文 OOM。完整命令与 JSON 将记录在当前环境适用性报告中。
 
 ## Issue、PR 和当前主线核查
 
@@ -13,7 +19,7 @@ Issue 作者后来在同一页面修正了根因：实际是 V0，不是 V1；vl
 
 当前固定源码仍在 V1 `GPUModelRunner._dummy_run()` 中以 `scheduler_config.max_num_seqs` 计算 `num_reqs` 和每请求长度；`profile_run()` 只传 `self.max_num_tokens`。vLLM-Ascend V1 runner 复制了相同的 shape 构造，随后通过 `super().profile_run()` 进入该路径。当前主线默认启用 chunked prefill，因此旧 Issue 的 V0 复现不能直接宣称仍存在；但是显式关闭 chunked prefill 时，单请求长序列的 profile shape 仍未被覆盖。
 
-## 最小修复
+## 历史 shape 策略实验（不能当作 Issue 修复）
 
 本次只改变关闭 chunked prefill 的 profile 形状：
 
@@ -22,7 +28,7 @@ Issue 作者后来在同一页面修正了根因：实际是 V0，不是 V1；vl
 3. vLLM-Ascend `NPUModelRunner._dummy_run()` 和 310P wrapper 透传同一个参数；V2 wrapper 使用 `*args, **kwargs`，无需另改。
 4. 增加参数化单元测试，验证 chunked=True → `None`、chunked=False → `1`。
 
-这个策略不改变默认 chunked prefill 的 profile。关闭 chunked 时，它可能让显存预算更保守、降低可用 KV cache，但避免 profile 漏掉运行时会实际遇到的 `L²` mask 工作区；这是该分支应该承担的资源代价。
+这个策略不改变默认 chunked prefill 的 profile。关闭 chunked 时，它改变 dummy 请求形状，但 attention 被跳过，尚未证明可覆盖真实 mask 工作区或改善显存预算。
 
 ## 固定提交和可迁移文件
 

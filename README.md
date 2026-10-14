@@ -11,7 +11,7 @@
 - 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
 - PA workspace cache 已确认不是社区空白：对应上游 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已合并；本仓库的 0.22.1rc1 patch 只保留为 910B2 回移和独立复现实验证据。
 - Issue #16637 的动态 speculative padding 修复已分别提交在 vLLM `f9de447` 和 vLLM-Ascend `b7a7f5e`；当前研究分支只保存可迁移 patch、源码固定点和 CPU 回归证据，未把不匹配版本的 NPU 吞吐当作结论。
-- Issue #15920 的长上下文 profile shape 修复已分别提交在 vLLM `b9f0001` 和 vLLM-Ascend `dad2ab9`；补丁只在关闭 chunked prefill 时覆盖单请求长序列，远端旧栈没有做 NPU OOM 复现。
+- Issue #15920 的历史 profile shape 策略实验分别保存在 vLLM `b9f0001` 和 vLLM-Ascend `dad2ab9`。2026-10-15 复核发现 profile 跳过 attention，不能将这两个提交称为原始 OOM 的已验证修复；详见报告 07 的更正。
 
 ## 目录
 

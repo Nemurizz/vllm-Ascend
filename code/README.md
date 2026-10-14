@@ -14,4 +14,6 @@ python scripts/restore_sources.py --destination "$HOME/vllm_project/src/issue_ch
 
 两个原始源码历史均按研究顺序排列：base → #16637 → #15920。因此 `codex/issue-15920-profile-shape` 包含前一个 #16637 commit；只比较 #15920 的变更时用 `git diff codex/issue-16637-dynamic-padding..codex/issue-15920-profile-shape`。单独的 #15920 diff patch 仍在 `patches/`，不能把累计分支对 base 的结果全归因给 #15920。
 
+2026-10-15 更正：#15920 提交是历史 shape 策略实验。V1 profile 绕过 attention，helper 策略单元测试不构成原始 OOM 修复证据；恢复历史代码不等于应部署该补丁。见 [`reports/07_issue_15920_profile_shape.md`](../reports/07_issue_15920_profile_shape.md)。
+
 这两个源码 base 是之前调查时从镜像取得的固定快照，均不是已经在 910B2 上验收的软件组合。恢复成功只说明代码和提交可恢复；NPU 兼容性、原始 Issue 的实际 OOM、吞吐收益需要另外验证。不要覆盖已经可运行的 0.22.1 环境来冒充验证。

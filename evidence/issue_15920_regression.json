@@ -1,6 +1,13 @@
 {
   "issue": "https://github.com/vllm-project/vllm-ascend/issues/15920",
   "status_at_2026-10-12": "open",
+  "assessment_2026-10-15": {
+    "patch_status": "historical_shape_policy_experiment_not_validated_oom_fix",
+    "reason": "V1 profile dummy run skips attention; request-count policy tests do not demonstrate original dense-mask OOM coverage",
+    "current_runtime_generation_mask": "fixed_2048x2048_int8_4194304_bytes_at_2k_32k_98k_configuration",
+    "evidence": "evidence/current_issues_20261015.json",
+    "scope": "generation-mask helper on NPU, not a full long-context engine benchmark"
+  },
   "upstream_pr_found": false,
   "related_issue": {
     "url": "https://github.com/vllm-project/vllm/issues/21652",
