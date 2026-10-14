@@ -22,7 +22,7 @@ Issue [#16637](https://github.com/vllm-project/vllm-ascend/issues/16637) 仍是 
 - vLLM 主线 `vllm/v1/core/sched/scheduler.py` 仍以 `dynamic_sd_lookup is None` 作为 padding 条件；但同一文件稍后又按最终 `len(num_scheduled_tokens)` 选择动态 K，形成前后不一致。
 - Ascend 的 `RecomputeScheduler` 和 `DyntraLBScheduler` 各自复制了这段 padding 逻辑，也仍使用同一门控。默认单节点 scheduler 仍走 vLLM scheduler；Ascend 特殊 P/D 和 Dyntra 路径需要同步修复。
 
-这确认问题没有在当前主线自然消失；也没有把已解决的 PA workspace、off-stride capture 等旧问题重新包装成新贡献。
+这只确认 scheduler 门控仍存在，不能单独确认 Issue 原始 FULL 回退机制仍可由官方配置触发；配置层保护见上方更正。PA workspace、off-stride capture 等旧问题仍不作为新贡献。
 
 ## 调用链和根因
 
@@ -62,4 +62,4 @@ Issue [#16637](https://github.com/vllm-project/vllm-ascend/issues/16637) 仍是 
 
 ## 下一步边界
 
-这个补丁已经证明了调度器层面的“动态 K 导致 padding 缺失”可以稳定复现并修复；尚未证明 910B2 上的最终收益。下一步只有在实例切换到与 Issue 相容的 vLLM/vllm-Ascend、CANN 和 Qwen3.5/MTP 负载后，才运行同一配置的 eager、静态 MTP、动态无补丁、动态补丁四组对照，并记录 TTFT、TPOT、吞吐、FULL/PIECEWISE 命中率和 `torch_npu.profiler`/`msprof` 结果。若兼容栈无法准备，应停止 #16637 的性能宣称并转 #15920，而不是用 0.22.1 结果替代。
+历史 CPU 测试证明候选改动能实现特定缓存命中场景的 padding 期望；该期望本身不证明违反官方动态 SD 规范，尤其官方 V1 已主动选择 PIECEWISE。候选基于 Issue 已公开的建议，不能称为本项目原创算法。它也没有覆盖所有动态 batch 阈值/Mamba alignment 边界，不应部署为已验证修复。2026-10-15 已建立 0.26+CANN9.1 的单卡 Qwen3.5/MTP 环境开展四组对照，结果以报告 09 为准；不采用 0.22.1 数字替代。

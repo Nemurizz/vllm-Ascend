@@ -44,6 +44,8 @@ python scripts/restore_sources.py --destination "$SYSTEM_ROOT/src/issue_checkout
 
 这只恢复源码，不能将它直接当作当前 0.22.1 NPU 环境已通过验收的安装栈。仍须依据兼容矩阵建立独立环境；#16637/#15920 的 NPU 复现和性能验收尚未完成。
 
+2026-10-15 已另建 0.26 环境并完成限定条件的 NPU 对照。原始触发机制及两份旧候选的修复宣称已更正；新实验的源码/证据恢复见 [`stack026_reproduction.md`](stack026_reproduction.md)，不要直接部署历史 patch。
+
 ## 4. 下载模型
 
 ```bash

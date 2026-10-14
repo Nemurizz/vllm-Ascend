@@ -4,13 +4,15 @@
 
 ## 当前固定证据
 
+- 2026-10-15：原 0.22.1 环境没有 #16637 的动态配置特性；当前 Qwen3 的 4 MiB mask 没有 #15920 的原始平方增长路径。另建 0.26/CANN9.1 环境完成四组 A/B、交错验证和 32K/98K profile；两个历史候选都不作为已验证修复。见 [`报告 09`](reports/09_current_environment_and_026_ab.md) 和 [`0.26 恢复说明`](docs/stack026_reproduction.md)。
+
 - 远端验证栈：Python 3.11.15、CANN 9.0.0、torch 2.10.0+cpu、torch-npu 2.10.0、vLLM 0.22.1、vLLM-Ascend 0.22.1rc1、Triton Ascend 3.2.1。
 - 模型：Qwen3-8B，revision `b968826d9c46dd6066d109eabc6255188de91218`。权重不进入 Git，需要在新实例重新下载。
 - ACLGraph off-stride 现象在旧栈上已复现，但对应上游 Issue #16049 已由 PR #16970 合并修复；仓库中的 patch 仅用于旧版本回归验证。
 - 5 请求 graph bucket A/B 观察到 `5 -> 8` padding，但增加精确 bucket 后 E2E P50 只改善约 0.63%，低于项目门槛。
 - 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
 - PA workspace cache 已确认不是社区空白：对应上游 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已合并；本仓库的 0.22.1rc1 patch 只保留为 910B2 回移和独立复现实验证据。
-- Issue #16637 的动态 speculative padding 修复已分别提交在 vLLM `f9de447` 和 vLLM-Ascend `b7a7f5e`；当前研究分支只保存可迁移 patch、源码固定点和 CPU 回归证据，未把不匹配版本的 NPU 吞吐当作结论。
+- Issue #16637 的候选 padding 改动保存在 vLLM `f9de447` 和 vLLM-Ascend `b7a7f5e`。2026-10-15 发现官方 V1 动态 SD 配置强制 PIECEWISE，候选 scheduler patch 不能单独恢复 FULL；CPU 测试仅证明所写 padding 期望，不能称为完成端到端 Bug 修复。
 - Issue #15920 的历史 profile shape 策略实验分别保存在 vLLM `b9f0001` 和 vLLM-Ascend `dad2ab9`。2026-10-15 复核发现 profile 跳过 attention，不能将这两个提交称为原始 OOM 的已验证修复；详见报告 07 的更正。
 
 ## 目录
