@@ -1,6 +1,8 @@
 # 原始源码提交的迁移归档
 
-两个 `.bundle` 文件保存 vLLM、vLLM-Ascend 中本项目创建的 Git commit、tree 和 blob 对象。它们是相对于固定 upstream base 的增量 bundle，不包含模型权重或全部上游历史。完整 SHA、文件校验值、国内镜像及 prerequisites 见 `source-bundles.json`。
+GDN 0.26 的 `gdn-operator-026.bundle` 保存社区 PR #14333 / #16538 的组合回移历史，base、两个 commit 及 SHA256 见 `gdn-operator-bundle.json`。先获取对应 base，再导入 bundle。直接源码分支推送受到 GitHub workflow scope 限制，因此通过研究分支归档完整增量提交；恢复命令见 [`GDN 复现说明`](../docs/gdn_operator_reproduction.md)。
+
+早期的 vLLM / vLLM-Ascend 两个 `.bundle` 文件保存本项目创建的 Git commit、tree 和 blob 对象。它们是相对于固定 upstream base 的增量 bundle，不包含模型权重或全部上游历史。对应的完整 SHA、文件校验值、国内镜像及 prerequisites 见 `source-bundles.json`。
 
 在新实例 clone 本研究仓库之后：
 

@@ -1,0 +1,2 @@
+HEAD is now at f2f74a1 [Doc] Update release note (#15705)
+Both standalone patches reconstruct the bundle HEAD tree exactly.

@@ -1,0 +1,1010 @@
+{
+  "format_version": 1,
+  "archive_kind": "selected_exports",
+  "archives": [
+    {
+      "file": "benchmark-records.tar.gz",
+      "bytes": 941633,
+      "sha256": "8983ce996263747b9bd6b5fb198725f4490a2518c8a47f4acc4f162f4c1a7c3d",
+      "parts": [
+        {
+          "file": "benchmark-records.tar.gz",
+          "bytes": 941633,
+          "sha256": "8983ce996263747b9bd6b5fb198725f4490a2518c8a47f4acc4f162f4c1a7c3d"
+        }
+      ],
+      "members": [
+        {
+          "path": "results/gdn-operator/contract-variants/__pycache__/chunk_head_first.cpython-311.pyc",
+          "bytes": 17314
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/__pycache__/chunk_skip_outputs.cpython-311.pyc",
+          "bytes": 17006
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/__pycache__/wy_fixed.cpython-311.pyc",
+          "bytes": 7305
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/__pycache__/wy_head_first.cpython-311.pyc",
+          "bytes": 7849
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/chunk_head_first.py",
+          "bytes": 16381
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/chunk_skip_outputs.py",
+          "bytes": 16163
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/wy_fixed.py",
+          "bytes": 4394
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/wy_head_first.py",
+          "bytes": 4919
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/wy_parallel.py",
+          "bytes": 4240
+        },
+        {
+          "path": "results/gdn-operator/contract-variants/wy_stock.py",
+          "bytes": 4307
+        },
+        {
+          "path": "results/gdn-operator/engine-eager.json",
+          "bytes": 138430
+        },
+        {
+          "path": "results/gdn-operator/engine-graph-fixed-batch.json",
+          "bytes": 139680
+        },
+        {
+          "path": "results/gdn-operator/engine-graph.json",
+          "bytes": 140779
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/__pycache__/chunk_head_first.cpython-311.pyc",
+          "bytes": 17312
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/__pycache__/chunk_skip_outputs.cpython-311.pyc",
+          "bytes": 17004
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/__pycache__/wy_fixed.cpython-311.pyc",
+          "bytes": 7303
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/__pycache__/wy_head_first.cpython-311.pyc",
+          "bytes": 7847
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/chunk_head_first.py",
+          "bytes": 16381
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/chunk_skip_outputs.py",
+          "bytes": 16163
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/wy_fixed.py",
+          "bytes": 4394
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/wy_head_first.py",
+          "bytes": 4919
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/wy_parallel.py",
+          "bytes": 4240
+        },
+        {
+          "path": "results/gdn-operator/engine-variants/wy_stock.py",
+          "bytes": 4307
+        },
+        {
+          "path": "results/gdn-operator/failed-metrics.json",
+          "bytes": 1339
+        },
+        {
+          "path": "results/gdn-operator/gdn-pipeline.json",
+          "bytes": 12998
+        },
+        {
+          "path": "results/gdn-operator/geometry-screen.json",
+          "bytes": 8001
+        },
+        {
+          "path": "results/gdn-operator/graph-baseline-control.json",
+          "bytes": 138616
+        },
+        {
+          "path": "results/gdn-operator/msprof-export.json",
+          "bytes": 380
+        },
+        {
+          "path": "results/gdn-operator/profile-summary.json",
+          "bytes": 17372
+        },
+        {
+          "path": "results/gdn-operator/return-contract.json",
+          "bytes": 3671
+        },
+        {
+          "path": "results/gdn-operator/source-pins.json",
+          "bytes": 556
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/chunk_head_first.cpython-311.pyc",
+          "bytes": 17305
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/chunk_skip_outputs.cpython-311.pyc",
+          "bytes": 16997
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/wy_fixed.cpython-311.pyc",
+          "bytes": 7296
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/wy_head_first.cpython-311.pyc",
+          "bytes": 7840
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/wy_parallel.cpython-311.pyc",
+          "bytes": 7282
+        },
+        {
+          "path": "results/gdn-operator/variants/__pycache__/wy_stock.cpython-311.pyc",
+          "bytes": 7229
+        },
+        {
+          "path": "results/gdn-operator/variants/chunk_head_first.py",
+          "bytes": 16381
+        },
+        {
+          "path": "results/gdn-operator/variants/chunk_skip_outputs.py",
+          "bytes": 16163
+        },
+        {
+          "path": "results/gdn-operator/variants/wy_fixed.py",
+          "bytes": 4394
+        },
+        {
+          "path": "results/gdn-operator/variants/wy_head_first.py",
+          "bytes": 4919
+        },
+        {
+          "path": "results/gdn-operator/variants/wy_parallel.py",
+          "bytes": 4240
+        },
+        {
+          "path": "results/gdn-operator/variants/wy_stock.py",
+          "bytes": 4307
+        },
+        {
+          "path": "results/gdn-operator/wy-correctness.json",
+          "bytes": 32388
+        },
+        {
+          "path": "results/gdn-operator/wy-layout-correctness.json",
+          "bytes": 37600
+        },
+        {
+          "path": "results/qwen3_06b_graph_smoke.log",
+          "bytes": 14829
+        },
+        {
+          "path": "results/raw/15920-L32768-seqs1.json",
+          "bytes": 2737
+        },
+        {
+          "path": "results/raw/15920-L32768-seqs256.json",
+          "bytes": 2860
+        },
+        {
+          "path": "results/raw/15920-L98304-seqs1.json",
+          "bytes": 2832
+        },
+        {
+          "path": "results/raw/15920-L98304-seqs256.json",
+          "bytes": 2849
+        },
+        {
+          "path": "results/raw/cudagraph_offstride_repro.json",
+          "bytes": 1199
+        },
+        {
+          "path": "results/raw/current_issues_20261015.json",
+          "bytes": 2325
+        },
+        {
+          "path": "results/raw/issue16637-dynamic-pilot.json",
+          "bytes": 494169
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_graph-profile.json",
+          "bytes": 212794
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_graph.json",
+          "bytes": 2854512
+        },
+        {
+          "path": "results/raw/issue16637-dynamic_patched.json",
+          "bytes": 2854510
+        },
+        {
+          "path": "results/raw/issue16637-eager_dynamic.json",
+          "bytes": 2850976
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba-instrumentation-failed.json",
+          "bytes": 1270
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba-wrapper-retry-failed.json",
+          "bytes": 1270
+        },
+        {
+          "path": "results/raw/issue16637-paired-abba.json",
+          "bytes": 2806969
+        },
+        {
+          "path": "results/raw/issue16637-static-graph.json",
+          "bytes": 2856722
+        },
+        {
+          "path": "results/raw/issue16637-static_graph-profile.json",
+          "bytes": 212549
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c1.json",
+          "bytes": 3771
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c4.json",
+          "bytes": 3765
+        },
+        {
+          "path": "results/raw/qwen3_8b_eager_c8.json",
+          "bytes": 3747
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c1.json",
+          "bytes": 3750
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c4.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_c8.json",
+          "bytes": 3756
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_msprof_request.json",
+          "bytes": 2155
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_exact5_metrics.json",
+          "bytes": 4517
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics.json",
+          "bytes": 4539
+        },
+        {
+          "path": "results/raw/qwen3_8b_graph_pad5_metrics_valid.json",
+          "bytes": 4507
+        },
+        {
+          "path": "results/raw/qwen3_8b_no_chunk_hol.json",
+          "bytes": 1455
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_c12.json",
+          "bytes": 3854
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_c12.json",
+          "bytes": 3848
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_fixed_msprof_c12.json",
+          "bytes": 3858
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_old_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_c12.json",
+          "bytes": 3856
+        },
+        {
+          "path": "results/raw/qwen3_8b_offstride_patched_text.json",
+          "bytes": 210
+        },
+        {
+          "path": "results/raw/runtime_eager_probe.json",
+          "bytes": 5043
+        },
+        {
+          "path": "results/raw/runtime_eager_probe_eager/worker_6406.json",
+          "bytes": 343131
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1/worker_2658.json",
+          "bytes": 32108
+        },
+        {
+          "path": "results/raw/runtime_graph_probe1.json",
+          "bytes": 5048
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_base.json",
+          "bytes": 6980
+        },
+        {
+          "path": "results/raw/runtime_pa_mix_cache.json",
+          "bytes": 6984
+        },
+        {
+          "path": "results/raw/runtime_pa_probe.json",
+          "bytes": 5526
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_cache.json",
+          "bytes": 5535
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa/worker_13596.json",
+          "bytes": 809397
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_cache/worker_16898.json",
+          "bytes": 433509
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_22154.json",
+          "bytes": 650470
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_base/worker_compact.json",
+          "bytes": 1305
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_23764.json",
+          "bytes": 348449
+        },
+        {
+          "path": "results/raw/runtime_pa_probe_pa_mix_cache/worker_compact.json",
+          "bytes": 1318
+        },
+        {
+          "path": "results/raw/stack026-smoke-eager.json",
+          "bytes": 1800
+        },
+        {
+          "path": "results/raw/stack026-smoke-qwen35-mtp-graph.json",
+          "bytes": 1764
+        },
+        {
+          "path": "logs/download_qwen3_8b.log",
+          "bytes": 1415
+        },
+        {
+          "path": "logs/gdn-operator/engine-confirmation.log",
+          "bytes": 15699
+        },
+        {
+          "path": "logs/gdn-operator/engine-eager.log",
+          "bytes": 24075
+        },
+        {
+          "path": "logs/gdn-operator/engine-graph-fixed-batch.log",
+          "bytes": 24522
+        },
+        {
+          "path": "logs/gdn-operator/engine-graph.log",
+          "bytes": 29127
+        },
+        {
+          "path": "logs/gdn-operator/geometry-screen.log",
+          "bytes": 5055
+        },
+        {
+          "path": "logs/gdn-operator/graph-baseline-control.log",
+          "bytes": 30895
+        },
+        {
+          "path": "logs/gdn-operator/pipeline-fixed-anchor.log",
+          "bytes": 7692
+        },
+        {
+          "path": "logs/gdn-operator/pipeline-metadata.log",
+          "bytes": 2055
+        },
+        {
+          "path": "logs/gdn-operator/pipeline-retry.log",
+          "bytes": 5883
+        },
+        {
+          "path": "logs/gdn-operator/pipeline.log",
+          "bytes": 33048
+        },
+        {
+          "path": "logs/gdn-operator/return-contract.log",
+          "bytes": 2084
+        },
+        {
+          "path": "logs/gdn-operator/source-tests.log",
+          "bytes": 2859
+        },
+        {
+          "path": "logs/gdn-operator/wy-correctness.log",
+          "bytes": 26796
+        },
+        {
+          "path": "logs/msprof_analyze_offstride.log",
+          "bytes": 458
+        },
+        {
+          "path": "logs/qwen3_06b_graph_msprof.log",
+          "bytes": 19115
+        },
+        {
+          "path": "logs/qwen3_8b_eager_c8_server.log",
+          "bytes": 20818
+        },
+        {
+          "path": "logs/qwen3_8b_eager_server.log",
+          "bytes": 23814
+        },
+        {
+          "path": "logs/qwen3_8b_graph_c8_server.log",
+          "bytes": 31789
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_exact5.log",
+          "bytes": 34779
+        },
+        {
+          "path": "logs/qwen3_8b_graph_metrics_valid.log",
+          "bytes": 33351
+        },
+        {
+          "path": "logs/qwen3_8b_graph_msprof.log",
+          "bytes": 31763
+        },
+        {
+          "path": "logs/qwen3_8b_graph_server.log",
+          "bytes": 33369
+        },
+        {
+          "path": "logs/qwen3_8b_metrics.log",
+          "bytes": 30601
+        },
+        {
+          "path": "logs/qwen3_8b_metrics_pad5.log",
+          "bytes": 31533
+        },
+        {
+          "path": "logs/qwen3_8b_no_chunk_server.log",
+          "bytes": 62265
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_msprof.log",
+          "bytes": 33957
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_fixed_server.log",
+          "bytes": 33751
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_old_server.log",
+          "bytes": 31569
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_patched_server.log",
+          "bytes": 33282
+        },
+        {
+          "path": "logs/qwen3_8b_offstride_server.log",
+          "bytes": 32524
+        },
+        {
+          "path": "logs/runtime_eager_probe.log",
+          "bytes": 24347
+        },
+        {
+          "path": "logs/runtime_graph_enpu.log",
+          "bytes": 32532
+        },
+        {
+          "path": "logs/runtime_graph_probe1.log",
+          "bytes": 34429
+        },
+        {
+          "path": "logs/runtime_nosync_probe.log",
+          "bytes": 32057
+        },
+        {
+          "path": "logs/stack026/15920-L32768-seqs1.log",
+          "bytes": 17681
+        },
+        {
+          "path": "logs/stack026/15920-L32768-seqs256.log",
+          "bytes": 17454
+        },
+        {
+          "path": "logs/stack026/15920-L98304-seqs1.log",
+          "bytes": 17453
+        },
+        {
+          "path": "logs/stack026/15920-L98304-seqs256.log",
+          "bytes": 17459
+        },
+        {
+          "path": "logs/stack026/ab-controller-retry.log",
+          "bytes": 126
+        },
+        {
+          "path": "logs/stack026/ab-controller.log",
+          "bytes": 159
+        },
+        {
+          "path": "logs/stack026/archive.log",
+          "bytes": 152
+        },
+        {
+          "path": "logs/stack026/ascend-cann-install-9.1.info",
+          "bytes": 88
+        },
+        {
+          "path": "logs/stack026/download-cann.log",
+          "bytes": 18422
+        },
+        {
+          "path": "logs/stack026/download-qwen35.log",
+          "bytes": 694
+        },
+        {
+          "path": "logs/stack026/dynamic-pilot.log",
+          "bytes": 24286
+        },
+        {
+          "path": "logs/stack026/dynamic_graph-profile.log",
+          "bytes": 29214
+        },
+        {
+          "path": "logs/stack026/dynamic_graph.log",
+          "bytes": 29012
+        },
+        {
+          "path": "logs/stack026/dynamic_patched.log",
+          "bytes": 29020
+        },
+        {
+          "path": "logs/stack026/eager_dynamic.log",
+          "bytes": 21227
+        },
+        {
+          "path": "logs/stack026/graph-capture-stack.txt",
+          "bytes": 185
+        },
+        {
+          "path": "logs/stack026/install-build-deps.log",
+          "bytes": 1281
+        },
+        {
+          "path": "logs/stack026/install-native-remaining.log",
+          "bytes": 6759
+        },
+        {
+          "path": "logs/stack026/install-numpy.log",
+          "bytes": 3617
+        },
+        {
+          "path": "logs/stack026/install-pyspy.log",
+          "bytes": 641
+        },
+        {
+          "path": "logs/stack026/install-python-retry.log",
+          "bytes": 2548
+        },
+        {
+          "path": "logs/stack026/install-python-third.log",
+          "bytes": 44009
+        },
+        {
+          "path": "logs/stack026/install-python.log",
+          "bytes": 2538
+        },
+        {
+          "path": "logs/stack026/install-toolkit-opt.log",
+          "bytes": 13417
+        },
+        {
+          "path": "logs/stack026/install-toolkit.log",
+          "bytes": 1098
+        },
+        {
+          "path": "logs/stack026/install-transformers.log",
+          "bytes": 5470
+        },
+        {
+          "path": "logs/stack026/long-controller-base-method.log",
+          "bytes": 722
+        },
+        {
+          "path": "logs/stack026/long-controller-retry.log",
+          "bytes": 1032
+        },
+        {
+          "path": "logs/stack026/long-controller.log",
+          "bytes": 1032
+        },
+        {
+          "path": "logs/stack026/msprof-export-all.log",
+          "bytes": 1602
+        },
+        {
+          "path": "logs/stack026/paired-abba-base-method.log",
+          "bytes": 28664
+        },
+        {
+          "path": "logs/stack026/paired-abba-instrumentation-failed.log",
+          "bytes": 29946
+        },
+        {
+          "path": "logs/stack026/paired-abba-retry.log",
+          "bytes": 29945
+        },
+        {
+          "path": "logs/stack026/paired-abba.log",
+          "bytes": 29946
+        },
+        {
+          "path": "logs/stack026/pip-check.txt",
+          "bytes": 1380
+        },
+        {
+          "path": "logs/stack026/profile-controller.log",
+          "bytes": 262
+        },
+        {
+          "path": "logs/stack026/profile-summary.log",
+          "bytes": 23
+        },
+        {
+          "path": "logs/stack026/smoke-eager.log",
+          "bytes": 14829
+        },
+        {
+          "path": "logs/stack026/smoke-qwen35-mtp-graph.log",
+          "bytes": 26932
+        },
+        {
+          "path": "logs/stack026/static-graph.log",
+          "bytes": 26169
+        },
+        {
+          "path": "logs/stack026/static_graph-profile.log",
+          "bytes": 30559
+        },
+        {
+          "path": "logs/stack026/summary-16637.log",
+          "bytes": 6593
+        }
+      ]
+    },
+    {
+      "file": "gdn-operator.tar.gz",
+      "bytes": 4777604,
+      "sha256": "71a7f95dfaf3ac61c08face5d71b3cf08c99354c7bb49b687df602e6278fbb37",
+      "parts": [
+        {
+          "file": "gdn-operator.tar.gz",
+          "bytes": 4777604,
+          "sha256": "71a7f95dfaf3ac61c08face5d71b3cf08c99354c7bb49b687df602e6278fbb37"
+        }
+      ],
+      "members": [
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 5553
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 2103864
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 1292333
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 104219
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3341
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 696287
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 536167
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 226
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 955910
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 17005106
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/api_statistic_20261015103739.csv",
+          "bytes": 5469
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/hbm_20261015103739.csv",
+          "bytes": 164
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/llc_read_write_20261015103739.csv",
+          "bytes": 128
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/npu_mem_20261015103739.csv",
+          "bytes": 3324
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/npu_module_mem_20261015103739.csv",
+          "bytes": 96519
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/op_statistic_20261015103739.csv",
+          "bytes": 3293
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/op_summary_20261015103739.csv",
+          "bytes": 2097564
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC/mindstudio_profiler_output/task_time_20261015103739.csv",
+          "bytes": 947454
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 4917
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 2067701
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 1199975
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 97928
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 3339
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 667416
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 498148
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 226
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 939666
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 16392498
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/api_statistic_20261015103744.csv",
+          "bytes": 4843
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/hbm_20261015103744.csv",
+          "bytes": 165
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/llc_read_write_20261015103744.csv",
+          "bytes": 127
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/npu_mem_20261015103744.csv",
+          "bytes": 3177
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/npu_module_mem_20261015103744.csv",
+          "bytes": 90673
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/op_statistic_20261015103744.csv",
+          "bytes": 3291
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/op_summary_20261015103744.csv",
+          "bytes": 2061497
+        },
+        {
+          "path": "profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML/mindstudio_profiler_output/task_time_20261015103744.csv",
+          "bytes": 931309
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 1246
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 23273
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 45837
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 25276
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 860
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 20351
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 19216
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 226
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 8100
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 594948
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/api_statistic_20261015101257.csv",
+          "bytes": 1228
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/hbm_20261015101257.csv",
+          "bytes": 164
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/llc_read_write_20261015101257.csv",
+          "bytes": 124
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/npu_mem_20261015101257.csv",
+          "bytes": 866
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/npu_module_mem_20261015101257.csv",
+          "bytes": 23428
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/op_statistic_20261015101257.csv",
+          "bytes": 849
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/op_summary_20261015101257.csv",
+          "bytes": 23226
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/PROF_000002_20261015101152032_00010294QBPMLHKI/mindstudio_profiler_output/task_time_20261015101257.csv",
+          "bytes": 8037
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/api_statistic.csv",
+          "bytes": 1233
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 27560
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 56925
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 25272
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/op_statistic.csv",
+          "bytes": 858
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 25591
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 23834
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 223
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 9780
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 667354
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/api_statistic_20261015101300.csv",
+          "bytes": 1215
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/hbm_20261015101300.csv",
+          "bytes": 164
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/llc_read_write_20261015101300.csv",
+          "bytes": 129
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/npu_mem_20261015101300.csv",
+          "bytes": 817
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/npu_module_mem_20261015101300.csv",
+          "bytes": 23428
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/op_statistic_20261015101300.csv",
+          "bytes": 847
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/op_summary_20261015101300.csv",
+          "bytes": 27501
+        },
+        {
+          "path": "profiles/gdn-operator/pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/PROF_000001_20261015101146054_00010294ONLLBPOJ/mindstudio_profiler_output/task_time_20261015101300.csv",
+          "bytes": 9705
+        }
+      ]
+    }
+  ]
+}

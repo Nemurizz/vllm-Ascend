@@ -1,0 +1,10 @@
+[
+  {
+    "directory": "/root/vllm_project/profiles/gdn-operator/engine-graph/rank0_15935_20261015102133910_ascend_pt/PROF_000001_20261015102133932_00015935MPPIILRC",
+    "exit_code": 0
+  },
+  {
+    "directory": "/root/vllm_project/profiles/gdn-operator/engine-graph/rank0_15935_20261015102142486_ascend_pt/PROF_000002_20261015102142508_00015935DBARFIML",
+    "exit_code": 0
+  }
+]

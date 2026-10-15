@@ -1,0 +1,41 @@
+{
+  "engine_config": {
+    "model": "/data/vllm_project/models/Qwen3.5-4B",
+    "dtype": "bfloat16",
+    "tensor_parallel_size": 1,
+    "max_model_len": 33024,
+    "max_num_batched_tokens": 32768,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.8,
+    "seed": 0,
+    "disable_log_stats": false,
+    "enforce_eager": true,
+    "enable_prefix_caching": false,
+    "enable_chunked_prefill": true,
+    "limit_mm_per_prompt": {
+      "image": 0,
+      "video": 0
+    },
+    "worker_cls": "gdn_experiment.GDNExperimentWorker"
+  },
+  "versions": {
+    "vllm": "0.26.0+empty",
+    "vllm-ascend": "0.26.0rc1",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4",
+    "triton-ascend": "3.2.2"
+  },
+  "order": [
+    "stock",
+    "head_first",
+    "head_first",
+    "stock",
+    "head_first",
+    "stock",
+    "stock",
+    "head_first"
+  ],
+  "runs": [],
+  "status": "failed",
+  "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/benchmark_gdn_engine.py\", line 128, in main\n    workload(llm, tokenizer, tokens, concurrency, min(output, 8))\n  File \"/root/vllm_project/scripts/benchmark_gdn_engine.py\", line 40, in workload\n    else metrics.first_token_time - metrics.arrival_time,\n         ^^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'RequestStateStats' object has no attribute 'first_token_time'\n"
+}

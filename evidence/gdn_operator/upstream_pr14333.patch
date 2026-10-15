@@ -1,0 +1,143 @@
+From bc4f5f9090b6bb1bd1346b188d88870ba68b1f63 Mon Sep 17 00:00:00 2001
+From: yangsiqt <duzhaoyang123@qq.com>
+Date: Sat, 15 Aug 2026 08:05:43 +0000
+Subject: [PATCH 1/2] fix(kernel): handle equal-length WY indices
+
+Initialize the chunk and batch indices in the equal-length path, and use the correct batch-head base for transposed beta and gate tensors.
+
+Add a batched NPU regression test covering multiple chunks and distinct per-batch values.
+
+Fixes #14154
+
+Signed-off-by: yangsiqt <duzhaoyang123@qq.com>
+---
+ tests/ut/ops/a2/test_wy_fast.py       | 56 +++++++++++++++++++++++++++
+ vllm_ascend/ops/triton/fla/wy_fast.py | 11 ++++--
+ 2 files changed, 63 insertions(+), 4 deletions(-)
+ create mode 100644 tests/ut/ops/a2/test_wy_fast.py
+
+diff --git a/tests/ut/ops/a2/test_wy_fast.py b/tests/ut/ops/a2/test_wy_fast.py
+new file mode 100644
+index 000000000000..07164dbee024
+--- /dev/null
++++ b/tests/ut/ops/a2/test_wy_fast.py
+@@ -0,0 +1,56 @@
++import torch
++
++from vllm_ascend.ops.triton.fla.wy_fast import recompute_w_u_fwd
++
++
++@torch.inference_mode()
++def test_recompute_w_u_fwd_equal_length():
++    batch_size, seq_len, key_heads, value_heads = 2, 96, 2, 4
++    key_dim = value_dim = chunk_size = 64
++    device = "npu"
++
++    k = torch.randn(
++        batch_size,
++        seq_len,
++        key_heads,
++        key_dim,
++        dtype=torch.float32,
++        device=device,
++    )
++    v = torch.randn(
++        batch_size,
++        seq_len,
++        value_heads,
++        value_dim,
++        dtype=torch.float32,
++        device=device,
++    )
++    batch_values = torch.arange(1, batch_size + 1, dtype=torch.float32, device=device).view(batch_size, 1, 1)
++    beta = batch_values.expand(batch_size, seq_len, value_heads).contiguous()
++    g_cumsum = batch_values.log().expand_as(beta).contiguous()
++    A = torch.zeros(
++        batch_size,
++        seq_len,
++        value_heads,
++        chunk_size,
++        dtype=torch.float32,
++        device=device,
++    )
++    token_indices = torch.arange(seq_len, device=device)
++    A[:, token_indices, :, token_indices % chunk_size] = 1
++
++    w, u = recompute_w_u_fwd(
++        k,
++        v,
++        beta,
++        g_cumsum,
++        A,
++        cu_seqlens=None,
++    )
++
++    expected_w = (
++        k.repeat_interleave(value_heads // key_heads, dim=2) * beta.unsqueeze(-1) * g_cumsum.exp().unsqueeze(-1)
++    )
++    expected_u = v * beta.unsqueeze(-1)
++    torch.testing.assert_close(w, expected_w)
++    torch.testing.assert_close(u, expected_u)
+diff --git a/vllm_ascend/ops/triton/fla/wy_fast.py b/vllm_ascend/ops/triton/fla/wy_fast.py
+index 82f2ab185abf..b7eb74b77068 100644
+--- a/vllm_ascend/ops/triton/fla/wy_fast.py
++++ b/vllm_ascend/ops/triton/fla/wy_fast.py
+@@ -41,8 +41,7 @@ def recompute_w_u_fwd_kernel(
+     T_max = T
+     i_t_o = tl.program_id(0)
+ 
+-    for i_bh in range(H):
+-        i_b, i_h = i_bh // H, i_bh % H
++    for i_h in range(H):
+         if IS_VARLEN:
+             i_n, i_t = (
+                 tl.load(chunk_indices + i_t_o * 2).to(tl.int32),
+@@ -50,8 +49,12 @@ def recompute_w_u_fwd_kernel(
+             )
+             bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)
+             T = eos - bos
++            bos_bh = bos
+         else:
++            i_b = tl.program_id(1)
+             bos, eos = i_b * T, i_b * T + T
++            i_t = i_t_o
++            bos_bh = i_b * H * T_max
+ 
+         offs_t = tl.arange(0, BT)
+         global_offs_t = i_t * BT + offs_t
+@@ -63,10 +66,10 @@ def recompute_w_u_fwd_kernel(
+         mask_A = mask_t[:, None]
+         b_A = tl.load(ptr_A, mask=mask_A, other=0.0).to(tl.float32)
+ 
+-        ptr_g = g + bos + i_h * T_max + global_offs_t
++        ptr_g = g + bos_bh + i_h * T_max + global_offs_t
+         b_g = tl.exp(tl.load(ptr_g, mask=mask_t, other=0.0)).to(tl.float32)
+ 
+-        ptr_beta = beta + bos + i_h * T_max + global_offs_t
++        ptr_beta = beta + bos_bh + i_h * T_max + global_offs_t
+         b_beta = tl.load(ptr_beta, mask=mask_t, other=0.0).to(tl.float32)
+ 
+         for i_v in range(tl.cdiv(V, BV)):
+
+From 0f4f61df96f2fc05d4208edc7ac14e72d2c0a48b Mon Sep 17 00:00:00 2001
+From: yangsiqt <duzhaoyang123@qq.com>
+Date: Sat, 15 Aug 2026 09:13:51 +0000
+Subject: [PATCH 2/2] ci: register WY regression test runtime
+
+Signed-off-by: yangsiqt <duzhaoyang123@qq.com>
+---
+ .github/workflows/scripts/test_config.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/.github/workflows/scripts/test_config.yaml b/.github/workflows/scripts/test_config.yaml
+index aa2bb53dd8dc..03dafa9a96ce 100644
+--- a/.github/workflows/scripts/test_config.yaml
++++ b/.github/workflows/scripts/test_config.yaml
+@@ -871,6 +871,7 @@ estimated_times:
+   tests/ut/ops/a2/test_gdn_chunk_meta.py: 30
+   tests/ut/ops/a2/test_gdn_layerwise_kv.py: 80
+   tests/ut/ops/a2/test_token_dispatcher.py: 30
++  tests/ut/ops/a2/test_wy_fast.py: 30
+   tests/ut/ops/a3_2/test_activation.py: 50
+   tests/ut/ops/a3_2/test_select_experts.py: 20
+   tests/ut/quantization/methods/a2/test_w4a16.py: 30

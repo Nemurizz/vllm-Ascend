@@ -1,0 +1,687 @@
+{
+  "profiles": [
+    {
+      "path": "engine-graph/rank0_15935_20261015102133910_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 6313,
+      "summed_kernel_duration_us": 504799.776,
+      "kernel_interval_union_us": 504799.776,
+      "first_to_last_kernel_span_us": 554572.94,
+      "kernel_union_fraction_within_span": 0.9102495624831605,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 188689.93099999995
+        },
+        {
+          "type": "MatMulV2",
+          "count": 1096,
+          "duration_us": 55741.16300000009
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 34872.776
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 28900.676999999996
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 64,
+          "duration_us": 26062.659
+        },
+        {
+          "type": "Transpose",
+          "count": 528,
+          "duration_us": 25561.632999999983
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 17785.972
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 15373.789000000002
+        },
+        {
+          "type": "SwiGlu",
+          "count": 256,
+          "duration_us": 15012.089000000002
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 512,
+          "duration_us": 13334.480999999972
+        },
+        {
+          "type": "Slice",
+          "count": 296,
+          "duration_us": 12981.544000000018
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 192,
+          "duration_us": 11890.986000000014
+        },
+        {
+          "type": "ConcatD",
+          "count": 208,
+          "duration_us": 6023.3070000000025
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 192,
+          "duration_us": 5962.515999999987
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 24,
+          "duration_us": 5839.68
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 64,
+          "duration_us": 26062.659
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeStreamWithTimeout",
+          "level": "acl",
+          "count": 28,
+          "total_us": 198877.35
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 2036,
+          "total_us": 18475.18
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 1780,
+          "total_us": 12086.07
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 770,
+          "total_us": 9964.96
+        },
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 17,
+          "total_us": 5640.91
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 8130,
+          "total_us": 5068.85
+        },
+        {
+          "name": "aclmdlRIExecuteAsync",
+          "level": "acl",
+          "count": 7,
+          "total_us": 3259.93
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 64,
+          "total_us": 2933.53
+        },
+        {
+          "name": "aclrtPointerGetAttributes",
+          "level": "acl",
+          "count": 1362,
+          "total_us": 2747.05
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScoreGetWorkspaceSize",
+          "level": "acl",
+          "count": 64,
+          "total_us": 2692.85
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2689.17
+        },
+        {
+          "name": "aclnnIndexPutImpl",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2653.84
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2318.26
+        },
+        {
+          "name": "aclrtMemcpyAsync",
+          "level": "acl",
+          "count": 232,
+          "total_us": 2239.06
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 160,
+          "total_us": 2229.47
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "engine-graph/rank0_15935_20261015102142486_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 6217,
+      "summed_kernel_duration_us": 490511.98,
+      "kernel_interval_union_us": 490511.98,
+      "first_to_last_kernel_span_us": 520719.924,
+      "kernel_union_fraction_within_span": 0.9419881156688754,
+      "top_types": [
+        {
+          "type": "MatMulV3",
+          "count": 128,
+          "duration_us": 188656.192
+        },
+        {
+          "type": "MatMulV2",
+          "count": 1096,
+          "duration_us": 55608.15500000011
+        },
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 24,
+          "duration_us": 35394.12899999999
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 24,
+          "duration_us": 28890.437
+        },
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 64,
+          "duration_us": 26168.642000000014
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 24,
+          "duration_us": 17884.056
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 24,
+          "duration_us": 15343.388
+        },
+        {
+          "type": "SwiGlu",
+          "count": 256,
+          "duration_us": 14989.77600000002
+        },
+        {
+          "type": "Slice",
+          "count": 296,
+          "duration_us": 13463.244000000013
+        },
+        {
+          "type": "AddRmsNormBias",
+          "count": 512,
+          "duration_us": 13344.368999999977
+        },
+        {
+          "type": "CausalConv1d",
+          "count": 192,
+          "duration_us": 11883.40400000001
+        },
+        {
+          "type": "Transpose",
+          "count": 432,
+          "duration_us": 11716.687000000002
+        },
+        {
+          "type": "ConcatD",
+          "count": 208,
+          "duration_us": 6024.401999999998
+        },
+        {
+          "type": "_fused_norm_gate_kernel",
+          "count": 192,
+          "duration_us": 5965.119999999984
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 24,
+          "duration_us": 5838.954999999999
+        }
+      ],
+      "attention_named_device_tasks": [
+        {
+          "type": "FusedInferAttentionScore",
+          "count": 64,
+          "duration_us": 26168.642000000014
+        }
+      ],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeStreamWithTimeout",
+          "level": "acl",
+          "count": 28,
+          "total_us": 174952.36
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 1940,
+          "total_us": 17888.05
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 1684,
+          "total_us": 11610.18
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 674,
+          "total_us": 8826.62
+        },
+        {
+          "name": "aclrtSynchronizeEvent",
+          "level": "acl",
+          "count": 17,
+          "total_us": 5445.27
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 7554,
+          "total_us": 4838.67
+        },
+        {
+          "name": "aclnnInnerFusedInferAttentionScore",
+          "level": "acl",
+          "count": 64,
+          "total_us": 2924.64
+        },
+        {
+          "name": "aclrtPointerGetAttributes",
+          "level": "acl",
+          "count": 1362,
+          "total_us": 2881.12
+        },
+        {
+          "name": "aclnnCausalConv1d",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2768.74
+        },
+        {
+          "name": "aclnnIndexPutImpl",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2694.75
+        },
+        {
+          "name": "aclnnCausalConv1dGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 2458.57
+        },
+        {
+          "name": "aclrtMemcpyAsync",
+          "level": "acl",
+          "count": 232,
+          "total_us": 2306.9
+        },
+        {
+          "name": "aclnnMatmul",
+          "level": "acl",
+          "count": 160,
+          "total_us": 2248.16
+        },
+        {
+          "name": "aclnnIndexPutImplGetWorkspaceSize",
+          "level": "acl",
+          "count": 24,
+          "total_us": 1992.27
+        },
+        {
+          "name": "aclnnContiguous",
+          "level": "acl",
+          "count": 24,
+          "total_us": 1984.45
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "pipeline/head_first/f634c2ecaae4_10294_20261015101152011_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 60,
+      "summed_kernel_duration_us": 58459.48800000001,
+      "kernel_interval_union_us": 58459.488,
+      "first_to_last_kernel_span_us": 59261.504,
+      "kernel_union_fraction_within_span": 0.9864664926492585,
+      "top_types": [
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 3,
+          "duration_us": 17157.204
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 3,
+          "duration_us": 14225.645
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 3,
+          "duration_us": 8493.889000000001
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 3,
+          "duration_us": 7382.107
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 3,
+          "duration_us": 3254.4049999999997
+        },
+        {
+          "type": "Transpose",
+          "count": 24,
+          "duration_us": 3109.9619999999995
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 3,
+          "duration_us": 2910.358
+        },
+        {
+          "type": "ZerosLike",
+          "count": 9,
+          "duration_us": 1865.578
+        },
+        {
+          "type": "chunk_local_cumsum_scalar_kernel",
+          "count": 3,
+          "duration_us": 51.42
+        },
+        {
+          "type": "Cast",
+          "count": 6,
+          "duration_us": 8.92
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeDeviceWithTimeout",
+          "level": "acl",
+          "count": 2,
+          "total_us": 48152.5
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 60,
+          "total_us": 1218.77
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 45,
+          "total_us": 840.09
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdH",
+          "level": "acl",
+          "count": 3,
+          "total_us": 528.11
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 30,
+          "total_us": 506.81
+        },
+        {
+          "name": "aclnnChunkFwdO",
+          "level": "acl",
+          "count": 3,
+          "total_us": 330.54
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdHGetWorkspaceSize",
+          "level": "acl",
+          "count": 3,
+          "total_us": 325.91
+        },
+        {
+          "name": "aclnnChunkFwdOGetWorkspaceSize",
+          "level": "acl",
+          "count": 3,
+          "total_us": 174.24
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 297,
+          "total_us": 165.18
+        },
+        {
+          "name": "aclrtPointerGetAttributes",
+          "level": "acl",
+          "count": 84,
+          "total_us": 135.95
+        },
+        {
+          "name": "aclnnInplaceZero",
+          "level": "acl",
+          "count": 9,
+          "total_us": 125.41
+        },
+        {
+          "name": "ChunkGatedDeltaRuleFwdH_Tiling",
+          "level": "acl",
+          "count": 6,
+          "total_us": 122.29
+        },
+        {
+          "name": "ChunkFwdO_Tiling",
+          "level": "acl",
+          "count": 6,
+          "total_us": 47.81
+        },
+        {
+          "name": "aclrtGetStreamAttribute",
+          "level": "acl",
+          "count": 45,
+          "total_us": 33.0
+        },
+        {
+          "name": "aclrtGetResInCurrentThread",
+          "level": "acl",
+          "count": 12,
+          "total_us": 12.36
+        }
+      ],
+      "pipe_metrics_available": true
+    },
+    {
+      "path": "pipeline/stock/f634c2ecaae4_10294_20261015101146032_ascend_pt/ASCEND_PROFILER_OUTPUT",
+      "kernel_tasks": 72,
+      "summed_kernel_duration_us": 65425.005999999994,
+      "kernel_interval_union_us": 65425.006,
+      "first_to_last_kernel_span_us": 66068.38,
+      "kernel_union_fraction_within_span": 0.9902619982509031,
+      "top_types": [
+        {
+          "type": "recompute_w_u_fwd_kernel",
+          "count": 3,
+          "duration_us": 17132.443
+        },
+        {
+          "type": "merge_16x16_to_64x64_inverse_kernel",
+          "count": 3,
+          "duration_us": 14235.902999999998
+        },
+        {
+          "type": "Transpose",
+          "count": 36,
+          "duration_us": 10054.501
+        },
+        {
+          "type": "ChunkGatedDeltaRuleFwdH",
+          "count": 3,
+          "duration_us": 8528.57
+        },
+        {
+          "type": "ChunkFwdO",
+          "count": 3,
+          "duration_us": 7370.126
+        },
+        {
+          "type": "solve_tril_16x16_kernel",
+          "count": 3,
+          "duration_us": 3227.3450000000003
+        },
+        {
+          "type": "chunk_scaled_dot_kkt_fwd_kernel",
+          "count": 3,
+          "duration_us": 2909.219
+        },
+        {
+          "type": "ZerosLike",
+          "count": 9,
+          "duration_us": 1906.9779999999998
+        },
+        {
+          "type": "chunk_local_cumsum_scalar_kernel",
+          "count": 3,
+          "duration_us": 50.900999999999996
+        },
+        {
+          "type": "Cast",
+          "count": 6,
+          "duration_us": 9.02
+        }
+      ],
+      "attention_named_device_tasks": [],
+      "top_host_apis": [
+        {
+          "name": "aclrtSynchronizeDeviceWithTimeout",
+          "level": "acl",
+          "count": 2,
+          "total_us": 54468.64
+        },
+        {
+          "name": "launch",
+          "level": "node",
+          "count": 72,
+          "total_us": 1178.79
+        },
+        {
+          "name": "aclrtLaunchKernelWithHostArgs",
+          "level": "acl",
+          "count": 57,
+          "total_us": 833.64
+        },
+        {
+          "name": "aclnnInplaceCopy",
+          "level": "acl",
+          "count": 42,
+          "total_us": 599.87
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdH",
+          "level": "acl",
+          "count": 3,
+          "total_us": 475.36
+        },
+        {
+          "name": "aclnnChunkFwdO",
+          "level": "acl",
+          "count": 3,
+          "total_us": 327.02
+        },
+        {
+          "name": "aclnnChunkGatedDeltaRuleFwdHGetWorkspaceSize",
+          "level": "acl",
+          "count": 3,
+          "total_us": 261.39
+        },
+        {
+          "name": "aclrtStreamGetId",
+          "level": "acl",
+          "count": 369,
+          "total_us": 194.35
+        },
+        {
+          "name": "aclnnChunkFwdOGetWorkspaceSize",
+          "level": "acl",
+          "count": 3,
+          "total_us": 158.24
+        },
+        {
+          "name": "aclrtPointerGetAttributes",
+          "level": "acl",
+          "count": 84,
+          "total_us": 114.81
+        },
+        {
+          "name": "aclnnInplaceZero",
+          "level": "acl",
+          "count": 9,
+          "total_us": 114.2
+        },
+        {
+          "name": "ChunkGatedDeltaRuleFwdH_Tiling",
+          "level": "acl",
+          "count": 6,
+          "total_us": 82.57
+        },
+        {
+          "name": "ChunkFwdO_Tiling",
+          "level": "acl",
+          "count": 6,
+          "total_us": 46.74
+        },
+        {
+          "name": "aclrtGetStreamAttribute",
+          "level": "acl",
+          "count": 57,
+          "total_us": 39.31
+        },
+        {
+          "name": "aclrtGetResInCurrentThread",
+          "level": "acl",
+          "count": 12,
+          "total_us": 12.01
+        }
+      ],
+      "pipe_metrics_available": true
+    }
+  ],
+  "limitations": [
+    "task-duration sums can overlap; kernel union is bounded by first/last device task",
+    "kernel union fraction is not overall NPU utilization or proof of a CPU bottleneck",
+    "attention-name matching is not exhaustive; memory profiling can contain incomplete records"
+  ]
+}

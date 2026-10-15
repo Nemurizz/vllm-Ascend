@@ -71,7 +71,7 @@ def main():
     axes[1].tick_params(axis="x", rotation=18, labelsize=8)
     axes[1].legend(fontsize=8)
     fig.suptitle(
-        "Community PR reproduction on pinned v0.26 / CANN 9.1; four runs per arm",
+        "Community PR reproduction on pinned v0.26 / CANN 9.1; four E2E runs per arm",
         fontsize=12,
     )
     fig.text(

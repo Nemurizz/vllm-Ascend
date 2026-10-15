@@ -1,0 +1,744 @@
+{
+  "variants": {
+    "stock": {
+      "path": "/root/vllm_project/results/gdn-operator/variants/wy_stock.py",
+      "sha256": "51e23f0876d91ae09b32ae70aa03318b2440b7bd3ba029c0d9838869359597ef"
+    },
+    "fixed": {
+      "path": "/root/vllm_project/results/gdn-operator/variants/wy_fixed.py",
+      "sha256": "b4e8e912f64571eec99e53426ad9042ff85a802706f88c707c19b28b7ec04d96"
+    },
+    "parallel": {
+      "path": "/root/vllm_project/results/gdn-operator/variants/wy_parallel.py",
+      "sha256": "1607ed9a153307b3028ab7cfa8c34da76c38e5e5d15ede6f479a7aea3b93a593"
+    }
+  },
+  "cases": [
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          1.3889512047171593e-06,
+          2.2533349692821503e-06
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          1.3889512047171593e-06,
+          2.2533349692821503e-06
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          1.3889512047171593e-06,
+          2.2533349692821503e-06
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          9.312934707850218e-07,
+          2.386164851486683e-06
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          9.312934707850218e-07,
+          2.386164851486683e-06
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          9.312934707850218e-07,
+          2.386164851486683e-06
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          3.2904790714383125e-06,
+          7.428694516420364e-06
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.2904790714383125e-06,
+          7.428694516420364e-06
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.2904790714383125e-06,
+          7.428694516420364e-06
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          3.018602728843689e-05,
+          6.0597434639930725e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.018602728843689e-05,
+          6.0597434639930725e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.018602728843689e-05,
+          6.0597434639930725e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          3.0493363738059998e-05,
+          5.922280251979828e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0493363738059998e-05,
+          5.922280251979828e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0493363738059998e-05,
+          5.922280251979828e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          3.0295923352241516e-05,
+          5.8846548199653625e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0295923352241516e-05,
+          5.8846548199653625e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0295923352241516e-05,
+          5.8846548199653625e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          3.0492432415485382e-05,
+          5.890801548957825e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0492432415485382e-05,
+          5.890801548957825e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0492432415485382e-05,
+          5.890801548957825e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          3.0450522899627686e-05,
+          6.100162863731384e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0450522899627686e-05,
+          6.100162863731384e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0450522899627686e-05,
+          6.100162863731384e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          2.995971590280533e-05,
+          5.517341196537018e-05
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          2.995971590280533e-05,
+          5.517341196537018e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          2.995971590280533e-05,
+          5.517341196537018e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0508264899253845e-05,
+          5.8883801102638245e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0508264899253845e-05,
+          5.8883801102638245e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.0440278351306915e-05,
+          6.006099283695221e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.0440278351306915e-05,
+          6.006099283695221e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.bfloat16",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.04514542222023e-05,
+          5.998462438583374e-05
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.04514542222023e-05,
+          5.998462438583374e-05
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        1
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          0.0,
+          0.0
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        65
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.916241884231567e-09
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.916241884231567e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.916241884231567e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          1.1175870895385742e-08
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          1.1175870895385742e-08
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          1.1175870895385742e-08
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          5.587935447692871e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": true,
+      "lengths": [
+        31,
+        0,
+        97,
+        1
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "fixed": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          5.587935447692871e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 64,
+      "value_dim": 64,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          5.122274160385132e-09,
+          6.51925802230835e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          5.122274160385132e-09,
+          6.51925802230835e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 128,
+      "value_dim": 128,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          4.6566128730773926e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      }
+    },
+    {
+      "dtype": "torch.float32",
+      "packed": false,
+      "lengths": [
+        96,
+        96
+      ],
+      "key_dim": 32,
+      "value_dim": 96,
+      "stock": {
+        "status": "failed",
+        "error": "Traceback (most recent call last):\n  File \"/root/vllm_project/scripts/test_wy_operator.py\", line 69, in main\n    out = functions[variant](**data)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/results/gdn-operator/variants/wy_stock.py\", line 122, in recompute_w_u_fwd\n    recompute_w_u_fwd_kernel[(NT, B)](\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 333, in <lambda>\n    return lambda *args, **kwargs: self.run(grid=grid, warmup=False, *args, **kwargs)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/autotuner.py\", line 386, in run\n    return self.fn.run(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 622, in run\n    kernel = self._do_compile(key, signature, device, backend, target, constants, options, configs[0], warmup)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/runtime/jit.py\", line 787, in _do_compile\n    kernel = self.compile(src, target=target, options=options.__dict__)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 282, in compile\n    module = src.make_ir(options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/backends/ascend/__init__.py\", line 38, in _patched_make_ir\n    module = _original_make_ir(self, options, codegen_fns, module_map, context)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/vllm_project/envs/vllm026/lib/python3.11/site-packages/triton/compiler/compiler.py\", line 102, in make_ir\n    return ast_to_ttir(self.fn, self, context=context, options=options, codegen_fns=codegen_fns,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntriton.compiler.errors.CompilationError: at 37:24:\n        if IS_VARLEN:\n            i_n, i_t = (\n                tl.load(chunk_indices + i_t_o * 2).to(tl.int32),\n                tl.load(chunk_indices + i_t_o * 2 + 1).to(tl.int32),\n            )\n            bos, eos = tl.load(cu_seqlens + i_n).to(tl.int32), tl.load(cu_seqlens + i_n + 1).to(tl.int32)\n            T = eos - bos\n        else:\n            bos, eos = i_b * T, i_b * T + T\n\n        offs_t = tl.arange(0, BT)\n        global_offs_t = i_t * BT + offs_t\n                        ^\nNameError('i_t is not defined')\n"
+      },
+      "fixed": {
+        "max_abs_error": [
+          3.725290298461914e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      },
+      "parallel": {
+        "max_abs_error": [
+          3.725290298461914e-09,
+          7.450580596923828e-09
+        ],
+        "status": "passed"
+      }
+    }
+  ]
+}

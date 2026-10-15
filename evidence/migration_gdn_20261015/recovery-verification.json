@@ -1,0 +1,21 @@
+{
+  "archives": [
+    {
+      "file": "benchmark-records.tar.gz",
+      "members": 172,
+      "sha256": "8983ce996263747b9bd6b5fb198725f4490a2518c8a47f4acc4f162f4c1a7c3d",
+      "verified": true
+    },
+    {
+      "file": "gdn-operator.tar.gz",
+      "members": 72,
+      "sha256": "71a7f95dfaf3ac61c08face5d71b3cf08c99354c7bb49b687df602e6278fbb37",
+      "verified": true
+    }
+  ],
+  "members_verified": 244,
+  "credential_scan": "passed; all new text and all decompressed archive members",
+  "source_bundle_sha256": "193d3218451b292be6b011a483d5b6663029dcf63375bee7fa1a55d71de2a39f",
+  "linux_full_restore": "/root/vllm_project/recovery-gdn-evidence-proof",
+  "windows_record_restore": "work/recovery-gdn-records-proof"
+}

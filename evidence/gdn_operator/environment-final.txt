@@ -1,0 +1,24 @@
++------------------------------------------------------------------------------------------------------------------+
+| npu-smi 26.1.1                              Version: 26.1.1                                                      |
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU   Name                | Health        | Power(W)             Temp(C)                 Hugepages-Usage(page)   |
+| Chip                      | Bus-Id        | AICore(%)            Memory-Usage(MB)        HBM-Usage(MB)           |
++===========================+===============+======================================================================+
+| 4     910B2               | OK            | 96.0                 44                      0    / 0                |
+| 0                         | 0000:81:00.0  | 0                    0    / 0                3435 / 65536            |
++===========================+===============+======================================================================+
++---------------------------+---------------+----------------------------------------------------------------------+
+| NPU     Chip              | Process id    | Process name       | Process memory(MB)    | Process id in container |
++===========================+===============+======================================================================+
+| No running processes found in NPU 4                                                                              |
++===========================+===============+======================================================================+
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          30G  392M   30G   2% /
+/dev/loop18      98G   28G   65G  31% /data
+## HEAD (no branch)
+## HEAD (no branch)
+51e23f0876d91ae09b32ae70aa03318b2440b7bd3ba029c0d9838869359597ef  /root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/ops/triton/fla/wy_fast.py
+00c953f57f75d93dfc3aae27adf3dca54169bab87053b2a9e6fbf2693d0183f4  /root/vllm_project/envs/vllm026/lib/python3.11/site-packages/vllm_ascend/ops/triton/fla/chunk.py
+33:from vllm_ascend.ops.triton.fla.chunk import chunk_gated_delta_rule
+404:            (core_attn_out_non_spec, last_recurrent_state) = chunk_gated_delta_rule(
+12 passed, 15 warnings in 24.62s
