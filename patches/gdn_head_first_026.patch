@@ -1,0 +1,179 @@
+From 140d8dfe4a59930f3f41d05574e198419e0f4807 Mon Sep 17 00:00:00 2001
+From: Codex <codex@localhost>
+Date: Thu, 15 Oct 2026 10:15:54 +0000
+Subject: [PATCH] perf(ops): reproduce GDN head-first output and
+ suppressed-copy removal
+
+Reproduce community PR #16538 (and overlapping #16524) on the pinned 0.26 stack. Compose with #14333 so equal-length batch addressing is valid. Preserve seq-major outputs for PCP and SUPPRESS_LEVEL >= 3. Add head-first correctness cases.
+
+Signed-off-by: Codex <codex@localhost>
+---
+ .../triton/test_wy_source_regression.py       | 18 +++++-----------
+ vllm_ascend/ops/triton/fla/chunk.py           | 10 +++++----
+ vllm_ascend/ops/triton/fla/wy_fast.py         | 21 +++++++++++++++----
+ 3 files changed, 28 insertions(+), 21 deletions(-)
+
+diff --git a/tests/e2e/nightly/single_node/ops/singlecard_ops/triton/test_wy_source_regression.py b/tests/e2e/nightly/single_node/ops/singlecard_ops/triton/test_wy_source_regression.py
+index 81370dd..74bc956 100644
+--- a/tests/e2e/nightly/single_node/ops/singlecard_ops/triton/test_wy_source_regression.py
++++ b/tests/e2e/nightly/single_node/ops/singlecard_ops/triton/test_wy_source_regression.py
+@@ -24,9 +24,7 @@ def source_function():
+         ),
+         Path(wy_fast.__file__),
+     )
+-    spec = importlib.util.spec_from_file_location(
+-        "vllm_ascend.ops.triton.fla.wy_source_regression", path
+-    )
++    spec = importlib.util.spec_from_file_location("vllm_ascend.ops.triton.fla.wy_source_regression", path)
+     module = importlib.util.module_from_spec(spec)
+     sys.modules[spec.name] = module
+     spec.loader.exec_module(module)
+@@ -35,32 +33,26 @@ def source_function():
+ 
+ @pytest.mark.parametrize("dtype", [torch.bfloat16, torch.float32])
+ @pytest.mark.parametrize("key_dim,value_dim", [(32, 96), (64, 64), (128, 128)])
+-@pytest.mark.parametrize("head_first", [False])
++@pytest.mark.parametrize("head_first", [False, True])
+ @torch.inference_mode()
+ def test_batched_wy_identity(dtype, key_dim, value_dim, head_first):
+     torch.manual_seed(1901)
+     batch, length, key_heads, heads, chunk = 2, 96, 2, 4, 64
+     k = torch.randn(batch, length, key_heads, key_dim, device="npu", dtype=dtype)
+     v = torch.randn(batch, length, heads, value_dim, device="npu", dtype=dtype)
+-    batch_values = torch.tensor([0.25, 0.75], device="npu", dtype=torch.float32).view(
+-        batch, 1, 1
+-    )
++    batch_values = torch.tensor([0.25, 0.75], device="npu", dtype=torch.float32).view(batch, 1, 1)
+     beta = batch_values.expand(batch, length, heads).contiguous()
+     g = batch_values.log().expand_as(beta).contiguous()
+     a = torch.zeros(batch, length, heads, chunk, device="npu", dtype=dtype)
+     tokens = torch.arange(length, device="npu")
+     a[:, tokens, :, tokens % chunk] = 1
+-    w, u = source_function()(k, v, beta, g, a, **{})
++    w, u = source_function()(k, v, beta, g, a, head_first_output=head_first)
+     torch.npu.synchronize()
+     if head_first:
+         assert w.is_contiguous() and u.is_contiguous()
+         assert tuple(w.shape) == (batch, heads, length, key_dim)
+         w, u = w.transpose(1, 2), u.transpose(1, 2)
+-    expected_w = (
+-        k.repeat_interleave(heads // key_heads, dim=2).float()
+-        * beta[..., None]
+-        * g.exp()[..., None]
+-    )
++    expected_w = k.repeat_interleave(heads // key_heads, dim=2).float() * beta[..., None] * g.exp()[..., None]
+     expected_u = v.float() * beta[..., None]
+     tolerance = 1e-2 if dtype == torch.bfloat16 else 1e-5
+     torch.testing.assert_close(w.float(), expected_w, rtol=tolerance, atol=tolerance)
+diff --git a/vllm_ascend/ops/triton/fla/chunk.py b/vllm_ascend/ops/triton/fla/chunk.py
+index 6c3e289..c1f78d4 100644
+--- a/vllm_ascend/ops/triton/fla/chunk.py
++++ b/vllm_ascend/ops/triton/fla/chunk.py
+@@ -77,6 +77,7 @@ def chunk_gated_delta_rule_fwd(
+         chunk_indices_bt=chunk_indices_chunk64,
+         output_dtype=k.dtype,
+     )
++    head_first_output = get_pcp_group().world_size == 1 and SUPPRESS_LEVEL < 3
+     w, u = recompute_w_u_fwd(
+         k=k,
+         v=v,
+@@ -85,11 +86,12 @@ def chunk_gated_delta_rule_fwd(
+         g_cumsum=g,
+         cu_seqlens=cu_seqlens,
+         chunk_indices=chunk_indices_chunk64,
++        head_first_output=head_first_output,
+     )
+ 
+     k_ascendc = k.to(torch.bfloat16).transpose(1, 2).contiguous()
+-    w_ascendc = w.to(torch.bfloat16).transpose(1, 2).contiguous()
+-    u_ascendc = u.to(torch.bfloat16).transpose(1, 2).contiguous()
++    w_ascendc = w.to(torch.bfloat16) if head_first_output else w.to(torch.bfloat16).transpose(1, 2).contiguous()
++    u_ascendc = u.to(torch.bfloat16) if head_first_output else u.to(torch.bfloat16).transpose(1, 2).contiguous()
+     g_ascendc = g.transpose(1, 2).contiguous()
+     q_ascendc = q.to(torch.bfloat16).transpose(1, 2).contiguous()
+ 
+@@ -209,12 +211,12 @@ def chunk_gated_delta_rule_fwd(
+     )
+ 
+     o = o_ascendc.to(torch.bfloat16).transpose(1, 2).contiguous()
+-    v_new = v_new.to(torch.bfloat16).transpose(1, 2).contiguous()
+-    h = h.to(torch.bfloat16).transpose(1, 2).contiguous()
+ 
+     if SUPPRESS_LEVEL < 3:
+         return g, o, A, final_state, None, None, None
+     elif SUPPRESS_LEVEL >= 3:
++        v_new = v_new.to(torch.bfloat16).transpose(1, 2).contiguous()
++        h = h.to(torch.bfloat16).transpose(1, 2).contiguous()
+         return g, o, A, final_state, w, h, v_new
+ 
+ 
+diff --git a/vllm_ascend/ops/triton/fla/wy_fast.py b/vllm_ascend/ops/triton/fla/wy_fast.py
+index d78357b..28500dd 100644
+--- a/vllm_ascend/ops/triton/fla/wy_fast.py
++++ b/vllm_ascend/ops/triton/fla/wy_fast.py
+@@ -37,6 +37,7 @@ def recompute_w_u_fwd_kernel(
+     BK: tl.constexpr,
+     BV: tl.constexpr,
+     IS_VARLEN: tl.constexpr,
++    HEAD_FIRST_OUTPUT: tl.constexpr,
+ ):
+     T_max = T
+     i_t_o = tl.program_id(0)
+@@ -82,7 +83,10 @@ def recompute_w_u_fwd_kernel(
+             b_vb = b_v * b_beta[:, None]
+             b_u = tl.dot(b_A, b_vb, allow_tf32=False)
+ 
+-            ptr_u = u + (bos * H + i_h) * V + offs_t_2d * (H * V) + offs_v * 1
++            if HEAD_FIRST_OUTPUT:
++                ptr_u = u + (bos_bh + i_h * T_max + global_offs_t[:, None]) * V + offs_v
++            else:
++                ptr_u = u + (bos * H + i_h) * V + offs_t_2d * (H * V) + offs_v * 1
+             tl.store(ptr_u, b_u.to(ptr_u.dtype.element_ty), mask=mask_v)
+ 
+         for i_k in range(tl.cdiv(K, BK)):
+@@ -94,7 +98,10 @@ def recompute_w_u_fwd_kernel(
+             b_kb = b_k * b_beta[:, None] * b_g[:, None]
+             b_w = tl.dot(b_A, b_kb)
+ 
+-            ptr_w = w + (bos * H + i_h) * K + offs_t_2d * (H * K) + offs_k * 1
++            if HEAD_FIRST_OUTPUT:
++                ptr_w = w + (bos_bh + i_h * T_max + global_offs_t[:, None]) * K + offs_k
++            else:
++                ptr_w = w + (bos * H + i_h) * K + offs_t_2d * (H * K) + offs_k * 1
+             tl.store(ptr_w, b_w.to(ptr_w.dtype.element_ty), mask=mask_k)
+ 
+ 
+@@ -106,6 +113,7 @@ def recompute_w_u_fwd(
+     A: torch.Tensor,
+     cu_seqlens: torch.LongTensor | None = None,
+     chunk_indices: torch.Tensor | None = None,
++    head_first_output: bool = False,
+ ) -> tuple[torch.Tensor, torch.Tensor]:
+     B, T, Hg, K, V = *k.shape, v.shape[-1]
+     H = v.shape[-2]
+@@ -118,8 +126,12 @@ def recompute_w_u_fwd(
+     BK = 64
+     BV = 64
+ 
+-    u = torch.empty_like(v)
+-    w = k.new_empty(B, T, H, K)
++    if head_first_output:
++        u = v.new_empty(B, H, T, V)
++        w = k.new_empty(B, H, T, K)
++    else:
++        u = torch.empty_like(v)
++        w = k.new_empty(B, T, H, K)
+     beta = beta.transpose(1, 2).contiguous()
+     g_cumsum = g_cumsum.transpose(1, 2).contiguous()
+     recompute_w_u_fwd_kernel[(NT, B)](
+@@ -140,6 +152,7 @@ def recompute_w_u_fwd(
+         BT=BT,
+         BK=BK,
+         BV=BV,
++        HEAD_FIRST_OUTPUT=head_first_output,
+         num_warps=4,
+         num_stages=3,
+     )
+-- 
+2.43.0
+

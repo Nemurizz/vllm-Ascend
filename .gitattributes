@@ -1,6 +1,9 @@
 code/*.bundle binary
 scripts/*.sh text eol=lf
 scripts/*.py text eol=lf
-patches/*.patch text eol=lf
+# Unified-diff blank context lines and format-patch footers contain spaces.
+# Check the actual source tree with git diff --check, preserving patch bytes.
+patches/*.patch text eol=lf -whitespace
 evidence/migration_20261014/*.gz* binary
 evidence/migration_20261015/*.gz* binary
+evidence/migration_gdn_20261015/*.gz* binary

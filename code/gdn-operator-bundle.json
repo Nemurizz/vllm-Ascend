@@ -1,0 +1,14 @@
+{
+  "base": "f2f74a16c3c50a76f4349d807918e83edec1e35c",
+  "fix": "71d87b70a81e4d6ab492907936cf34dead2f4f6c",
+  "head": "140d8dfe4a59930f3f41d05574e198419e0f4807",
+  "branch": "codex/gdn-operator-910b",
+  "bundle": "gdn-operator-026.bundle",
+  "sha256": "193d3218451b292be6b011a483d5b6663029dcf63375bee7fa1a55d71de2a39f",
+  "bytes": 4274,
+  "upstream_references": [
+    "https://github.com/vllm-project/vllm-ascend/pull/14333",
+    "https://github.com/vllm-project/vllm-ascend/pull/16538",
+    "https://github.com/vllm-project/vllm-ascend/pull/16524"
+  ]
+}
