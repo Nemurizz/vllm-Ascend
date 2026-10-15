@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "archives": [
+    {
+      "file": "additional-records.tar.gz",
+      "members_verified": 49
+    },
+    {
+      "file": "native-profiler-source.tar.zst",
+      "members_verified": 3311
+    }
+  ],
+  "extracted": false
+}

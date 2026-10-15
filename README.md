@@ -8,6 +8,8 @@
 
 按结果或复现目标查找资料，可看 [文档导航](docs/README.md)。当前已经验证的模型收益来自 GDN 布局复现；prepare/tiling 仍是组件筛选，两者的模型级组合尚未验证。
 
+**旧实例销毁后继续：** 阅读 [新空实例续做手册](docs/resume_on_new_instance.md) 和 [固定版本清单](configs/resume026-manifest.json)。代码/主要结果在本分支；额外原始采集已存本地 `D:\AI_Inference_Project\vllm_ascend_preservation_20261015`，见 [持久化审计](evidence/preservation_20261015/summary.json)。模型和 SDK 按固定版本重新下载，无需保留旧实例。
+
 ## 当前固定证据
 
 - 2026-10-15 分区执行：新增 [GDN 报告 11](reports/11_gdn_length_specialization.md) 与 [prepare 恢复说明](docs/gdn_prepare_reproduction.md)。复现未合并的 #17604 并完成长度/tiling/graph 组件筛选；长输入 eager 的 BLOCK_T=4 相对 PR 默认局部耗时低约 6%–9%，尚无这项组合的整模型收益。另查明最新主线已合并 #18723、改变 QKV 输入布局，不能将 0.26 的节省宣称为最新主线仍有相同问题。

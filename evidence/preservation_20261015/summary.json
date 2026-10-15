@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-15",
+  "research_checkpoint": "0354d2b430b91ac1a346adcf7dd113d43576afb7",
+  "local_backup_directory": "D:\\AI_Inference_Project\\vllm_ascend_preservation_20261015",
+  "audit_totals": {
+    "scanned_files": 3996,
+    "github_byte_identical": 489,
+    "github_assembled_duplicate": 1,
+    "additional_records": 49,
+    "native_source_files": 3311,
+    "regenerable_omitted": 146
+  },
+  "local_archives": [
+    {
+      "file": "additional-records.tar.gz",
+      "bytes": 50068,
+      "sha256": "d123cae962361cc2c675801349cf2f0a906ef9a8f9b6c57cb8d2a9fd486de12f",
+      "members": 49,
+      "uncompressed_bytes": 240952
+    },
+    {
+      "file": "native-profiler-source.tar.zst",
+      "bytes": 213580196,
+      "sha256": "180cc7f94361ba79d06c53f56b9ba0af087511c35ee5d5c216db3428e4e50a1a",
+      "members": 3311,
+      "uncompressed_bytes": 1797699987
+    }
+  ],
+  "source_checkouts": [
+    {
+      "path": "src/stack026/vllm",
+      "commit": "568afb3a13806beb53bb2e6bd518269357b237c0",
+      "clean": true
+    },
+    {
+      "path": "src/stack026/vllm-ascend",
+      "commit": "f2f74a16c3c50a76f4349d807918e83edec1e35c",
+      "clean": true
+    },
+    {
+      "path": "src/gdn-operator-026",
+      "commit": "140d8dfe4a59930f3f41d05574e198419e0f4807",
+      "clean": true
+    }
+  ],
+  "exclusions": [
+    "models",
+    "SDK/wheels",
+    "venvs",
+    "compiler/download caches",
+    "duplicate recovery proof trees",
+    "Git database",
+    "derived profiler databases/exports reconstructible from retained PROF and FRAMEWORK sources"
+  ],
+  "notes": [
+    "All selected files were streamed through a credential-pattern check before archiving.",
+    "Files identical to archived or tracked GitHub artifacts were excluded by path, size and SHA256.",
+    "One assembled stack026 archive was omitted because its identical parts already exist in GitHub.",
+    "146 derived profiler output files can be regenerated from the retained source recordings.",
+    "The complete per-file backup manifest and native source archive are stored locally; only additional-records is copied into this GitHub evidence folder."
+  ],
+  "local_verification": {
+    "status": "verified",
+    "archives": [
+      {
+        "file": "additional-records.tar.gz",
+        "members_verified": 49
+      },
+      {
+        "file": "native-profiler-source.tar.zst",
+        "members_verified": 3311
+      }
+    ],
+    "extracted": false
+  }
+}

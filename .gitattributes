@@ -10,3 +10,4 @@ evidence/migration_gdn_20261015/*.gz* binary
 evidence/migration_gdn_dispatch_20261015/*.gz* binary
 evidence/gdn_dispatch/*.py text eol=lf
 evidence/gdn_dispatch/*.md text eol=lf
+evidence/preservation_20261015/*.gz binary

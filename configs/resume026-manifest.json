@@ -1,0 +1,62 @@
+{
+  "snapshot_date": "2026-10-15",
+  "research_repository": "https://github.com/Nemurizz/vllm-Ascend.git",
+  "research_branch": "research/gdn-prepare-shapes",
+  "research_checkpoint_before_handover": "0354d2b430b91ac1a346adcf7dd113d43576afb7",
+  "target": {
+    "hardware": "single Ascend 910B2 64GB",
+    "architecture": "aarch64",
+    "historical_driver": "26.1.1",
+    "python": "3.11.15",
+    "cann_toolkit": "9.1.0",
+    "cann_910b_ops": "9.1.0",
+    "atb": "9.1.0",
+    "torch": "2.10.0+cpu",
+    "torch-npu": "2.10.0.post4",
+    "triton-ascend": "3.2.2",
+    "vllm": "0.26.0",
+    "vllm-ascend": "0.26.0rc1",
+    "transformers": "5.14.1",
+    "numpy": "1.26.4"
+  },
+  "sources": {
+    "vllm_base": "568afb3a13806beb53bb2e6bd518269357b237c0",
+    "vllm_ascend_base": "f2f74a16c3c50a76f4349d807918e83edec1e35c",
+    "wy_fix": "71d87b70a81e4d6ab492907936cf34dead2f4f6c",
+    "gdn_layout": "140d8dfe4a59930f3f41d05574e198419e0f4807",
+    "gdn_bundle_manifest": "code/gdn-operator-bundle.json",
+    "prepare_pr_head": "8bf4a11d205ffae9bd0c158dc70770d9733ecfb8",
+    "prepare_snapshot": "evidence/gdn_dispatch/pr17604_fused_gdn_prepare.py"
+  },
+  "model": {
+    "id": "Qwen/Qwen3.5-4B",
+    "dtype": "bfloat16",
+    "manifest": "evidence/stack026/qwen35-modelscope-files.json",
+    "revision_type": "per-file revision and SHA256",
+    "output": "/data/vllm_project/models/Qwen3.5-4B"
+  },
+  "pip_indexes": {
+    "general": "https://pypi.tuna.tsinghua.edu.cn/simple",
+    "ascend": "https://mirrors.huaweicloud.com/ascend/repos/pypi"
+  },
+  "local_supplement": {
+    "directory": "D:\\AI_Inference_Project\\vllm_ascend_preservation_20261015",
+    "manifest": "manifest.json",
+    "verifier": "scripts/verify_instance_supplement.py",
+    "verification_dependency": "zstandard==0.23.0",
+    "needed_for_new_benchmarks": false,
+    "purpose": "Reparse historical raw PROF/FRAMEWORK sources after the old VM is destroyed"
+  },
+  "resume_next": "Validate the replacement environment and existing baseline, then consider baseline/layout-only/prepare-only/combined model A/B. The combined model experiment has not been completed.",
+  "do_not_enable_by_default": [
+    "historical issue16637 padding candidates",
+    "historical issue15920 profile-shape candidates",
+    "unvalidated shape dispatcher",
+    "production replacement by isolated benchmark modules"
+  ],
+  "limitations": [
+    "The historical venv reused general dependencies from the old image; a complete clean-image installer was not validated.",
+    "Offline BF16 text inference was validated; pip metadata constraints and optional frontend/multimodal features are not fully validated.",
+    "Driver/device access must be supplied by the replacement platform; do not transplant a physical NPU id."
+  ]
+}
