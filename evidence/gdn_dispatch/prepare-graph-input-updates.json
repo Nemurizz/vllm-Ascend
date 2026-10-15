@@ -1,0 +1,3130 @@
+{
+  "source": "/root/vllm_project/results/gdn_dispatch_20261015/pr17604_fused_gdn_prepare.py",
+  "sha256": "438ba4f6f6a0f0b5552b1bb4cdc477be7a488e9b69a898df407394f6e4be303b",
+  "baseline_rearrange": {
+    "path": "/root/vllm_project/src/stack026/vllm/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py",
+    "sha256": "1227d6f385a52296e9f08223544b1c5fdc7e8d9aa09a848e7a8e522a8dc51214",
+    "line": 732
+  },
+  "config": {
+    "key_dim": 2048,
+    "value_dim": 4096,
+    "tp_size": 1,
+    "head_k_dim": 128,
+    "head_v_dim": 128
+  },
+  "scope": "prepare component only; event span includes host launch gaps",
+  "rounds": 1,
+  "repetitions": 1,
+  "correctness": [
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "T": 1,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.21366000175476074,
+          "wall_ms": 1.4737597666680813
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.2728999853134155,
+          "wall_ms": 0.43926993384957314
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.2262199968099594,
+          "wall_ms": 0.3570597618818283
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.9369000196456909,
+          "wall_ms": 1.0598301887512207
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.9369000196456909,
+          "wall_ms": 1.0598301887512207
+        },
+        "pr_default": {
+          "event_ms": 0.2728999853134155,
+          "wall_ms": 0.43926993384957314
+        },
+        "block_1": {
+          "event_ms": 0.21366000175476074,
+          "wall_ms": 1.4737597666680813
+        },
+        "block_4": {
+          "event_ms": 0.2262199968099594,
+          "wall_ms": 0.3570597618818283
+        }
+      },
+      "graph_samples": [
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.4687800109386444,
+          "wall_ms": 0.6750402972102165
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.4262000024318695,
+          "wall_ms": 0.555800274014473
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.39965999126434326,
+          "wall_ms": 0.531539786607027
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.4199199974536896,
+          "wall_ms": 0.6193900480866432
+        }
+      ],
+      "graph_medians": {
+        "legacy": {
+          "event_ms": 0.4687800109386444,
+          "wall_ms": 0.6750402972102165
+        },
+        "pr_default": {
+          "event_ms": 0.39965999126434326,
+          "wall_ms": 0.531539786607027
+        },
+        "block_1": {
+          "event_ms": 0.4199199974536896,
+          "wall_ms": 0.6193900480866432
+        },
+        "block_4": {
+          "event_ms": 0.4262000024318695,
+          "wall_ms": 0.555800274014473
+        }
+      },
+      "graph_input_update_checks": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "T": 65,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.22360000014305115,
+          "wall_ms": 0.4111998714506626
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.24595999717712402,
+          "wall_ms": 0.3832699730992317
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 1.0415799617767334,
+          "wall_ms": 1.1641299352049828
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.2477400004863739,
+          "wall_ms": 0.3785202279686928
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 1.0415799617767334,
+          "wall_ms": 1.1641299352049828
+        },
+        "pr_default": {
+          "event_ms": 0.24595999717712402,
+          "wall_ms": 0.3832699730992317
+        },
+        "block_1": {
+          "event_ms": 0.22360000014305115,
+          "wall_ms": 0.4111998714506626
+        },
+        "block_4": {
+          "event_ms": 0.2477400004863739,
+          "wall_ms": 0.3785202279686928
+        }
+      },
+      "graph_samples": [
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.32506000995635986,
+          "wall_ms": 0.5032499320805073
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.28290000557899475,
+          "wall_ms": 0.41770003736019135
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.2935599982738495,
+          "wall_ms": 0.4267999902367592
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.3175399899482727,
+          "wall_ms": 0.533130019903183
+        }
+      ],
+      "graph_medians": {
+        "legacy": {
+          "event_ms": 0.32506000995635986,
+          "wall_ms": 0.5032499320805073
+        },
+        "pr_default": {
+          "event_ms": 0.3175399899482727,
+          "wall_ms": 0.533130019903183
+        },
+        "block_1": {
+          "event_ms": 0.2935599982738495,
+          "wall_ms": 0.4267999902367592
+        },
+        "block_4": {
+          "event_ms": 0.28290000557899475,
+          "wall_ms": 0.41770003736019135
+        }
+      },
+      "graph_input_update_checks": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "T": 8192,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.403439998626709,
+          "wall_ms": 0.6385399028658867
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.35596001148223877,
+          "wall_ms": 0.48501044511795044
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.39715999364852905,
+          "wall_ms": 0.5185799673199654
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 1.0503400564193726,
+          "wall_ms": 1.1727800592780113
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 1.0503400564193726,
+          "wall_ms": 1.1727800592780113
+        },
+        "pr_default": {
+          "event_ms": 0.35596001148223877,
+          "wall_ms": 0.48501044511795044
+        },
+        "block_1": {
+          "event_ms": 0.403439998626709,
+          "wall_ms": 0.6385399028658867
+        },
+        "block_4": {
+          "event_ms": 0.39715999364852905,
+          "wall_ms": 0.5185799673199654
+        }
+      },
+      "graph_samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.6026399731636047,
+          "wall_ms": 0.8510001935064793
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.676360011100769,
+          "wall_ms": 0.8138902485370636
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.5787400007247925,
+          "wall_ms": 0.7040901109576225
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.5543000102043152,
+          "wall_ms": 0.7735299877822399
+        }
+      ],
+      "graph_medians": {
+        "legacy": {
+          "event_ms": 0.676360011100769,
+          "wall_ms": 0.8138902485370636
+        },
+        "pr_default": {
+          "event_ms": 0.5543000102043152,
+          "wall_ms": 0.7735299877822399
+        },
+        "block_1": {
+          "event_ms": 0.6026399731636047,
+          "wall_ms": 0.8510001935064793
+        },
+        "block_4": {
+          "event_ms": 0.5787400007247925,
+          "wall_ms": 0.7040901109576225
+        }
+      },
+      "graph_input_update_checks": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "T": 32768,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 1.1745799779891968,
+          "wall_ms": 1.4863400720059872
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 1.331220030784607,
+          "wall_ms": 1.4894399791955948
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 2.4870800971984863,
+          "wall_ms": 2.627470064908266
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 1.0983799695968628,
+          "wall_ms": 1.2188199907541275
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 2.4870800971984863,
+          "wall_ms": 2.627470064908266
+        },
+        "pr_default": {
+          "event_ms": 1.1745799779891968,
+          "wall_ms": 1.4863400720059872
+        },
+        "block_1": {
+          "event_ms": 1.331220030784607,
+          "wall_ms": 1.4894399791955948
+        },
+        "block_4": {
+          "event_ms": 1.0983799695968628,
+          "wall_ms": 1.2188199907541275
+        }
+      },
+      "graph_samples": [
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 1.0966600179672241,
+          "wall_ms": 1.3624601997435093
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 1.2171800136566162,
+          "wall_ms": 1.3399100862443447
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.9614599943161011,
+          "wall_ms": 1.0806098580360413
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 2.394700050354004,
+          "wall_ms": 2.507089637219906
+        }
+      ],
+      "graph_medians": {
+        "legacy": {
+          "event_ms": 2.394700050354004,
+          "wall_ms": 2.507089637219906
+        },
+        "pr_default": {
+          "event_ms": 1.0966600179672241,
+          "wall_ms": 1.3624601997435093
+        },
+        "block_1": {
+          "event_ms": 1.2171800136566162,
+          "wall_ms": 1.3399100862443447
+        },
+        "block_4": {
+          "event_ms": 0.9614599943161011,
+          "wall_ms": 1.0806098580360413
+        }
+      },
+      "graph_input_update_checks": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "status": "complete"
+}

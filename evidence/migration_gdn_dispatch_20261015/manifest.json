@@ -1,0 +1,138 @@
+{
+  "format_version": 1,
+  "archive_kind": "selected_exports",
+  "archives": [
+    {
+      "file": "benchmark-records.tar.gz",
+      "bytes": 58060,
+      "sha256": "d621cd1b5b74e14cc4159e03a87eb3e33e50bbc74e1139107321db85b4baccdd",
+      "parts": [
+        {
+          "file": "benchmark-records.tar.gz",
+          "bytes": 58060,
+          "sha256": "d621cd1b5b74e14cc4159e03a87eb3e33e50bbc74e1139107321db85b4baccdd"
+        }
+      ],
+      "members": [
+        {
+          "path": "results/gdn_dispatch_20261015/msprof-export.log",
+          "bytes": 4034
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/msprof-export.rc",
+          "bytes": 2
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/pr17604_fused_gdn_prepare.py",
+          "bytes": 15676
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-graph-confirmation.json",
+          "bytes": 134069
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-graph-confirmation.log",
+          "bytes": 3506
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-graph-repeat.json",
+          "bytes": 171274
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-graph-repeat.log",
+          "bytes": 5422
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-screen.json",
+          "bytes": 96750
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/prepare-screen.log",
+          "bytes": 4068
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile-summary.json",
+          "bytes": 511
+        },
+        {
+          "path": "scripts/benchmark_gdn_prepare.py",
+          "bytes": 11626
+        }
+      ]
+    },
+    {
+      "file": "prepare-profiler.tar.gz",
+      "bytes": 31238,
+      "sha256": "ca4d968f9866886b550123275470655f3e0e13726be889dfa0b4a700c43cd2c8",
+      "parts": [
+        {
+          "file": "prepare-profiler.tar.gz",
+          "bytes": 31238,
+          "sha256": "ca4d968f9866886b550123275470655f3e0e13726be889dfa0b4a700c43cd2c8"
+        }
+      ],
+      "members": [
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/kernel_details.csv",
+          "bytes": 2497
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/memory_record.csv",
+          "bytes": 30741
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/npu_module_mem.csv",
+          "bytes": 15822
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_details.csv",
+          "bytes": 12556
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/operator_memory.csv",
+          "bytes": 13079
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/step_trace_time.csv",
+          "bytes": 203
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/task_time.csv",
+          "bytes": 3555
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/ASCEND_PROFILER_OUTPUT/trace_view.json",
+          "bytes": 251808
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/api_statistic_20261015110501.csv",
+          "bytes": 630
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/hbm_20261015110501.csv",
+          "bytes": 140
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/llc_read_write_20261015110501.csv",
+          "bytes": 130
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/npu_mem_20261015110501.csv",
+          "bytes": 532
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/npu_module_mem_20261015110501.csv",
+          "bytes": 14665
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/op_summary_20261015110501.csv",
+          "bytes": 4356
+        },
+        {
+          "path": "results/gdn_dispatch_20261015/profile/f634c2ecaae4_29821_20261015110250932_ascend_pt/PROF_000001_20261015110250954_00029821JIHOHGBE/mindstudio_profiler_output/task_time_20261015110501.csv",
+          "bytes": 3524
+        }
+      ]
+    }
+  ]
+}

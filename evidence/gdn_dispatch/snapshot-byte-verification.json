@@ -1,0 +1,51 @@
+[
+  {
+    "file": "main_chunk.py",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm-ascend/c5abc52f0c5e68b297779c722dedd940b07ef2ee/vllm_ascend/ops/triton/fla/chunk.py",
+    "official_sha256": "4002426b79838308a2f13b5693e19d28321a570fb456f1414232bd27e7390be9",
+    "initial_transport_sha256": "dd4ca900032160ef96561bebc14c0a2bf200d70545c5a1bb55546bd66d8491ae",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "main_wy_fast.py",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm-ascend/c5abc52f0c5e68b297779c722dedd940b07ef2ee/vllm_ascend/ops/triton/fla/wy_fast.py",
+    "official_sha256": "f068ebed1d8f39b8136dd097ffec7c61b6b6dbf11eac7df06800b08acd5c1641",
+    "initial_transport_sha256": "93da0ec5e11febda8be2c6550ec5adcc7524265a4151f1734d97f99a2487891b",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "main_gdn.py",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm-ascend/c5abc52f0c5e68b297779c722dedd940b07ef2ee/vllm_ascend/ops/gdn.py",
+    "official_sha256": "acdabe4f4ccbfab835ce34e9906b818d6dfb19342835d7ef89e8ec2f4f11c711",
+    "initial_transport_sha256": "7da4362f82619f7dd13727a758384948bd1a43375593846332129375ff2264e0",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "pr17604_fused_gdn_prepare.py",
+    "url": "https://raw.githubusercontent.com/CaitinZhao/vllm-ascend/8bf4a11d205ffae9bd0c158dc70770d9733ecfb8/vllm_ascend/ops/triton/fused_gdn_prepare.py",
+    "official_sha256": "5df365868fe81c1e6c1a675b2cf77985cb0fc3a072aef6a626fc17afb48c971b",
+    "initial_transport_sha256": "438ba4f6f6a0f0b5552b1bb4cdc477be7a488e9b69a898df407394f6e4be303b",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "pr17604_gdn.py",
+    "url": "https://raw.githubusercontent.com/CaitinZhao/vllm-ascend/8bf4a11d205ffae9bd0c158dc70770d9733ecfb8/vllm_ascend/ops/gdn.py",
+    "official_sha256": "0c41346961afcf7ae3d41ca8d0da23be22d697c4662feaf76c957c303c13c5ac",
+    "initial_transport_sha256": "b0006778b5084a9e50feff28af5d99315295f596e45fcf436777e78146c234d3",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "pr17604_fused_gdn_prepare.md",
+    "url": "https://raw.githubusercontent.com/CaitinZhao/vllm-ascend/8bf4a11d205ffae9bd0c158dc70770d9733ecfb8/vllm_ascend/ops/triton/docs/fused_gdn_prepare.md",
+    "official_sha256": "06f2b0354ea7612bb1ba9e41d2d380c8e5e838a0117e5dd6feb52184402d0a4d",
+    "initial_transport_sha256": "9d735777b34e80c23bab7d8fea1ecea48c9c7fd89c1428c95beb35d2905ec3c4",
+    "difference": "one extra EOF newline in initial transport"
+  },
+  {
+    "file": "rc030_chunk.py",
+    "url": "https://raw.githubusercontent.com/vllm-project/vllm-ascend/v0.30.0rc2/vllm_ascend/ops/triton/fla/chunk.py",
+    "official_sha256": "4002426b79838308a2f13b5693e19d28321a570fb456f1414232bd27e7390be9",
+    "initial_transport_sha256": "dd4ca900032160ef96561bebc14c0a2bf200d70545c5a1bb55546bd66d8491ae",
+    "difference": "one extra EOF newline in initial transport"
+  }
+]

@@ -1,0 +1,4142 @@
+{
+  "source": "/root/vllm_project/results/gdn_dispatch_20261015/pr17604_fused_gdn_prepare.py",
+  "sha256": "438ba4f6f6a0f0b5552b1bb4cdc477be7a488e9b69a898df407394f6e4be303b",
+  "baseline_rearrange": {
+    "path": "/root/vllm_project/src/stack026/vllm/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py",
+    "sha256": "1227d6f385a52296e9f08223544b1c5fdc7e8d9aa09a848e7a8e522a8dc51214",
+    "line": 732
+  },
+  "config": {
+    "key_dim": 2048,
+    "value_dim": 4096,
+    "tp_size": 1,
+    "head_k_dim": 128,
+    "head_v_dim": 128
+  },
+  "scope": "prepare component only; event span includes host launch gaps",
+  "rounds": 8,
+  "repetitions": 10,
+  "correctness": [
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 0,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0005942583084106445
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009004175662994385
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.001667618751525879
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 1,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009405016899108887
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0007869303226470947
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 1.1920928955078125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009728968143463135
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009745955467224121
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019428133964538574
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 32,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009653568267822266
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009740293025970459
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019518733024597168
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009749233722686768
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009762942790985107
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 64,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009737312793731689
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752511978149414
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009756386280059814
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009760260581970215
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.00194549560546875
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 65,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009763836860656738
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009757876396179199
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 4.76837158203125e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": false,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.000975191593170166
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009758174419403076
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 7.152557373046875e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "legacy",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "pr_default",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "block_1",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    },
+    {
+      "T": 128,
+      "indexed": true,
+      "variant": "block_4",
+      "checks": [
+        {
+          "tensor": "q",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009765326976776123
+        },
+        {
+          "tensor": "k",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0009752810001373291
+        },
+        {
+          "tensor": "v",
+          "pass": true,
+          "bit_equal": true,
+          "max_abs": 0.0
+        },
+        {
+          "tensor": "g",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 3.5762786865234375e-07
+        },
+        {
+          "tensor": "beta",
+          "pass": true,
+          "bit_equal": false,
+          "max_abs": 0.0019530653953552246
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "T": 1,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.15345799922943115,
+          "wall_ms": 0.39251199923455715
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.15873199701309204,
+          "wall_ms": 0.4423069767653942
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.17121399641036988,
+          "wall_ms": 0.30422802083194256
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.8666020393371582,
+          "wall_ms": 0.9438619948923588
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.8405520439147949,
+          "wall_ms": 1.4847230166196823
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.15978000164031983,
+          "wall_ms": 0.4623299930244684
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.1538040041923523,
+          "wall_ms": 0.4329200368374586
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.15476399660110474,
+          "wall_ms": 0.40822303853929043
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.15181200504302977,
+          "wall_ms": 0.7267449982464314
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.15599199533462524,
+          "wall_ms": 0.4351399838924408
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.8386280059814453,
+          "wall_ms": 1.1420829687267542
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.15662000179290772,
+          "wall_ms": 0.4353910218924284
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.8375619888305664,
+          "wall_ms": 1.1400529649108648
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.1567579984664917,
+          "wall_ms": 0.45197797007858753
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.1536620020866394,
+          "wall_ms": 0.2230479847639799
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.15312800407409669,
+          "wall_ms": 0.1778659876435995
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.1533139944076538,
+          "wall_ms": 0.38798400200903416
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.1528779983520508,
+          "wall_ms": 0.39588697254657745
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.1540120005607605,
+          "wall_ms": 0.22153500467538834
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.8376540184020996,
+          "wall_ms": 0.9645130019634962
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.15406399965286255,
+          "wall_ms": 0.3281800076365471
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.8355899810791015,
+          "wall_ms": 0.8510959800332785
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.15546200275421143,
+          "wall_ms": 0.7416639942675829
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.1546020030975342,
+          "wall_ms": 0.43390500359237194
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.15221400260925294,
+          "wall_ms": 0.4310960415750742
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.15323599576950073,
+          "wall_ms": 0.3591239918023348
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.838617992401123,
+          "wall_ms": 1.4841279946267605
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.15888400077819825,
+          "wall_ms": 0.1728649716824293
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.15232800245285033,
+          "wall_ms": 0.31580799259245396
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.151774001121521,
+          "wall_ms": 0.2902569714933634
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.15559200048446656,
+          "wall_ms": 0.4348709713667631
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.8367899894714356,
+          "wall_ms": 0.8512299973517656
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.8381360054016114,
+          "wall_ms": 1.0522829834371805
+        },
+        "pr_default": {
+          "event_ms": 0.15346600413322448,
+          "wall_ms": 0.4320080392062664
+        },
+        "block_1": {
+          "event_ms": 0.15338599681854248,
+          "wall_ms": 0.37355399690568447
+        },
+        "block_4": {
+          "event_ms": 0.15668900012969972,
+          "wall_ms": 0.43513099662959576
+        }
+      }
+    },
+    {
+      "T": 32,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.9386179924011231,
+          "wall_ms": 1.1912050191313028
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.1566699981689453,
+          "wall_ms": 0.17171800136566162
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.15678600072860718,
+          "wall_ms": 0.21390500478446484
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.1547379970550537,
+          "wall_ms": 0.7143039721995592
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.15354199409484864,
+          "wall_ms": 0.6455669645220041
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.15370800495147705,
+          "wall_ms": 0.23810802958905697
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.9308019638061523,
+          "wall_ms": 1.2346509844064713
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.15720399618148803,
+          "wall_ms": 0.5011640023440123
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.1548840045928955,
+          "wall_ms": 0.3856239840388298
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.9430560111999512,
+          "wall_ms": 1.234768982976675
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.15712399482727052,
+          "wall_ms": 0.2860100008547306
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.15362999439239503,
+          "wall_ms": 0.3166100010275841
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.15403200387954713,
+          "wall_ms": 0.4332310054451227
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.15641800165176392,
+          "wall_ms": 0.4288509953767061
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.9348179817199707,
+          "wall_ms": 0.9757560212165117
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.15973999500274658,
+          "wall_ms": 0.20899400115013123
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.15538400411605835,
+          "wall_ms": 0.39084702730178833
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.15292199850082397,
+          "wall_ms": 0.19304300658404827
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.15302799940109252,
+          "wall_ms": 0.5883580073714256
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.9386059761047363,
+          "wall_ms": 1.0646429844200611
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.1606619954109192,
+          "wall_ms": 0.46196398325264454
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.1552340030670166,
+          "wall_ms": 0.4345090128481388
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.9348879814147949,
+          "wall_ms": 1.2077259831130505
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.15433000326156615,
+          "wall_ms": 0.19803401082754135
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.15432000160217285,
+          "wall_ms": 0.18156501464545727
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.15839799642562866,
+          "wall_ms": 0.33575701527297497
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.15459799766540527,
+          "wall_ms": 0.27557997964322567
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.9349160194396973,
+          "wall_ms": 1.2159919831901789
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.15746400356292725,
+          "wall_ms": 0.5386089906096458
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.9329339981079101,
+          "wall_ms": 1.1199239641427994
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.15698599815368652,
+          "wall_ms": 0.45717600733041763
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.15434800386428832,
+          "wall_ms": 0.3565500024706125
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.9349020004272461,
+          "wall_ms": 1.1994655011221766
+        },
+        "pr_default": {
+          "event_ms": 0.1543150007724762,
+          "wall_ms": 0.3749205032363534
+        },
+        "block_1": {
+          "event_ms": 0.15716399550437926,
+          "wall_ms": 0.3108835080638528
+        },
+        "block_4": {
+          "event_ms": 0.15513400435447694,
+          "wall_ms": 0.38823550567030907
+        }
+      }
+    },
+    {
+      "T": 128,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 1.002157974243164,
+          "wall_ms": 1.1788049712777138
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.17031999826431274,
+          "wall_ms": 0.1839709933847189
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.16489000320434571,
+          "wall_ms": 0.17801201902329922
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.16537599563598632,
+          "wall_ms": 0.1775489654392004
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.16779600381851195,
+          "wall_ms": 0.18022898584604263
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.16605600118637084,
+          "wall_ms": 0.17855395562946796
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.9957480430603027,
+          "wall_ms": 1.0113429743796587
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.16672999858856202,
+          "wall_ms": 0.17902902327477932
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.16840800046920776,
+          "wall_ms": 0.18025599420070648
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.16482599973678588,
+          "wall_ms": 0.18034200184047222
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.1686460018157959,
+          "wall_ms": 0.18208101391792297
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.9933019638061523,
+          "wall_ms": 1.0062200017273426
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.16968599557876587,
+          "wall_ms": 0.18253596499562263
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.16705199480056762,
+          "wall_ms": 0.17874501645565033
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.16536999940872193,
+          "wall_ms": 0.1782730221748352
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.9943639755249023,
+          "wall_ms": 1.0062379762530327
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.17004599571228027,
+          "wall_ms": 0.1836839597672224
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.16388399600982667,
+          "wall_ms": 0.1804170198738575
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.9876440048217774,
+          "wall_ms": 1.0006070137023926
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.16554800271987916,
+          "wall_ms": 0.1775910146534443
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.1675320029258728,
+          "wall_ms": 0.18064100295305252
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.16256799697875976,
+          "wall_ms": 0.17413999885320663
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.16455399990081787,
+          "wall_ms": 0.17824103124439716
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.988405990600586,
+          "wall_ms": 1.002601021900773
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.16648000478744507,
+          "wall_ms": 0.17867903225123882
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.9888199806213379,
+          "wall_ms": 1.0005929972976446
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.16762200593948365,
+          "wall_ms": 0.18031001091003418
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.16548000574111937,
+          "wall_ms": 0.178014999255538
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.16700600385665892,
+          "wall_ms": 0.18042102456092834
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.16323399543762207,
+          "wall_ms": 0.17535299994051456
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.16737200021743776,
+          "wall_ms": 0.1791589893400669
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.9989139556884765,
+          "wall_ms": 1.0111790150403976
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.9938329696655273,
+          "wall_ms": 1.0062289889901876
+        },
+        "pr_default": {
+          "event_ms": 0.1676640033721924,
+          "wall_ms": 0.1803385093808174
+        },
+        "block_1": {
+          "event_ms": 0.16671400070190429,
+          "wall_ms": 0.17885647248476744
+        },
+        "block_4": {
+          "event_ms": 0.16485800147056578,
+          "wall_ms": 0.17847602721303701
+        }
+      }
+    },
+    {
+      "T": 512,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.9260499954223633,
+          "wall_ms": 0.9436150081455708
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.15527000427246093,
+          "wall_ms": 0.16837399452924728
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.15702999830245973,
+          "wall_ms": 0.16778497956693172
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.15183199644088746,
+          "wall_ms": 0.16413303092122078
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.15095200538635253,
+          "wall_ms": 0.16285600140690804
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.9114879608154297,
+          "wall_ms": 0.9233070071786642
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.15667999982833863,
+          "wall_ms": 0.17034700140357018
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.15408600568771363,
+          "wall_ms": 0.16677798703312874
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.9077460289001464,
+          "wall_ms": 0.9192150086164474
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.15617200136184692,
+          "wall_ms": 0.16827802173793316
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.15667400360107422,
+          "wall_ms": 0.16893702559173107
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.15221199989318848,
+          "wall_ms": 0.16458802856504917
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.15677399635314943,
+          "wall_ms": 0.16949502751231194
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.9095339775085449,
+          "wall_ms": 0.923611968755722
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.15446799993515015,
+          "wall_ms": 0.16696001403033733
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.1544540047645569,
+          "wall_ms": 0.16782698221504688
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.15277999639511108,
+          "wall_ms": 0.16471599228680134
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.155485999584198,
+          "wall_ms": 0.16801897436380386
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.15132399797439575,
+          "wall_ms": 0.1634499989449978
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.9138179779052734,
+          "wall_ms": 0.9257410187274218
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.1527400016784668,
+          "wall_ms": 0.16560801304876804
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.9103940010070801,
+          "wall_ms": 0.9216230362653732
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.1591220021247864,
+          "wall_ms": 0.1717899926006794
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.15449800491333007,
+          "wall_ms": 0.16652699559926987
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.908057975769043,
+          "wall_ms": 0.920818978920579
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.15506600141525267,
+          "wall_ms": 0.16631600446999073
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.15157599449157716,
+          "wall_ms": 0.16387500800192356
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.1546239972114563,
+          "wall_ms": 0.1674409955739975
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.15165599584579467,
+          "wall_ms": 0.16403598710894585
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.9060620307922364,
+          "wall_ms": 0.9182489942759275
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.15482399463653565,
+          "wall_ms": 0.16679400578141212
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.15362399816513062,
+          "wall_ms": 0.16468199901282787
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.9099639892578125,
+          "wall_ms": 0.9224650217220187
+        },
+        "pr_default": {
+          "event_ms": 0.15667700171470644,
+          "wall_ms": 0.16847799997776747
+        },
+        "block_1": {
+          "event_ms": 0.15343300104141236,
+          "wall_ms": 0.1661930000409484
+        },
+        "block_4": {
+          "event_ms": 0.1533330023288727,
+          "wall_ms": 0.16555751208215952
+        }
+      }
+    },
+    {
+      "T": 2048,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.14718600511550903,
+          "wall_ms": 0.17240000888705254
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.15064200162887573,
+          "wall_ms": 0.1636359840631485
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.14863200187683107,
+          "wall_ms": 0.1598730217665434
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.9090920448303222,
+          "wall_ms": 0.9205670095980167
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.8726099967956543,
+          "wall_ms": 0.8851670194417238
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.14886800050735474,
+          "wall_ms": 0.16167801804840565
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.15254600048065187,
+          "wall_ms": 0.1655549742281437
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.14960999488830568,
+          "wall_ms": 0.16175499185919762
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.15176399946212768,
+          "wall_ms": 0.16357400454580784
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.14778599739074708,
+          "wall_ms": 0.15971199609339237
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.8892160415649414,
+          "wall_ms": 0.9008789900690317
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.15256600379943847,
+          "wall_ms": 0.16574300825595856
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.876471996307373,
+          "wall_ms": 0.8888639975339174
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.14992799758911132,
+          "wall_ms": 0.16225101426243782
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.15110399723052978,
+          "wall_ms": 0.16433601267635822
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.14846999645233155,
+          "wall_ms": 0.16049500554800034
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.1509660005569458,
+          "wall_ms": 0.16314899548888206
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.14906599521636962,
+          "wall_ms": 0.16101798973977566
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.878656005859375,
+          "wall_ms": 0.8905849885195494
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.15250200033187866,
+          "wall_ms": 0.16407500952482224
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.14740999937057495,
+          "wall_ms": 0.1596810296177864
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.1505519986152649,
+          "wall_ms": 0.16285600140690804
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.8808839797973633,
+          "wall_ms": 0.8924639783799648
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.15090999603271485,
+          "wall_ms": 0.16285800375044346
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.8831560134887695,
+          "wall_ms": 0.895618973299861
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.15185400247573852,
+          "wall_ms": 0.16298801638185978
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.14714399576187134,
+          "wall_ms": 0.15888400375843048
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.14700000286102294,
+          "wall_ms": 0.15958095900714397
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.8804699897766113,
+          "wall_ms": 0.8920869790017605
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.15410799980163575,
+          "wall_ms": 0.16556899063289165
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.14658600091934204,
+          "wall_ms": 0.15832800418138504
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.1468019962310791,
+          "wall_ms": 0.15753698535263538
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.8806769847869873,
+          "wall_ms": 0.8922754786908627
+        },
+        "pr_default": {
+          "event_ms": 0.15087299942970275,
+          "wall_ms": 0.1632810104638338
+        },
+        "block_1": {
+          "event_ms": 0.14927999973297118,
+          "wall_ms": 0.1610620180144906
+        },
+        "block_4": {
+          "event_ms": 0.14793999791145324,
+          "wall_ms": 0.161086511798203
+        }
+      }
+    },
+    {
+      "T": 8192,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 0.3073460102081299,
+          "wall_ms": 0.32717701978981495
+        },
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 0.25592999458312987,
+          "wall_ms": 0.2680310048162937
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.24341399669647218,
+          "wall_ms": 0.2551250159740448
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 0.9383419990539551,
+          "wall_ms": 0.9501389693468809
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 0.27263000011444094,
+          "wall_ms": 0.28394502587616444
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 0.9027879714965821,
+          "wall_ms": 0.9149339981377125
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.25513401031494143,
+          "wall_ms": 0.26633800007402897
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 0.31417999267578123,
+          "wall_ms": 0.32557202503085136
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 0.8942760467529297,
+          "wall_ms": 0.9054890368133783
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 0.2718679904937744,
+          "wall_ms": 0.2827380318194628
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 0.31401400566101073,
+          "wall_ms": 0.32507600262761116
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.24258201122283934,
+          "wall_ms": 0.25485302321612835
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 0.3145220041275024,
+          "wall_ms": 0.32647703774273396
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.24289400577545167,
+          "wall_ms": 0.2543279901146889
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 0.8907859802246094,
+          "wall_ms": 0.902083981782198
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 0.27087600231170655,
+          "wall_ms": 0.2814719919115305
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.24870800971984863,
+          "wall_ms": 0.2629030030220747
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 0.31447999477386473,
+          "wall_ms": 0.32542902044951916
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 0.2541759967803955,
+          "wall_ms": 0.2655510324984789
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 0.8889340400695801,
+          "wall_ms": 0.9022700134664774
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 0.27238199710845945,
+          "wall_ms": 0.2831410150974989
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 0.31462199687957765,
+          "wall_ms": 0.32519102096557617
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 0.887537956237793,
+          "wall_ms": 0.9000400081276894
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.2518280029296875,
+          "wall_ms": 0.26290398091077805
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 0.886814022064209,
+          "wall_ms": 0.8990989997982979
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 0.32210800647735593,
+          "wall_ms": 0.3338450100272894
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 0.2565419912338257,
+          "wall_ms": 0.26811198331415653
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.24683799743652343,
+          "wall_ms": 0.2590090036392212
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 0.26451199054718016,
+          "wall_ms": 0.2761409617960453
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 0.8858039855957032,
+          "wall_ms": 0.8987999986857176
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 0.32184998989105223,
+          "wall_ms": 0.3334650304168463
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.24184000492095947,
+          "wall_ms": 0.25366898626089096
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 0.8898600101470948,
+          "wall_ms": 0.9021769976243377
+        },
+        "pr_default": {
+          "event_ms": 0.26769399642944336,
+          "wall_ms": 0.2788064768537879
+        },
+        "block_1": {
+          "event_ms": 0.31450099945068355,
+          "wall_ms": 0.32602453138679266
+        },
+        "block_4": {
+          "event_ms": 0.2451259970664978,
+          "wall_ms": 0.257067009806633
+        }
+      }
+    },
+    {
+      "T": 32768,
+      "checks_vs_legacy": {
+        "legacy": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "pr_default": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_1": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ],
+        "block_4": [
+          {
+            "tensor": "q",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "k",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "v",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "g",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          },
+          {
+            "tensor": "beta",
+            "pass": true,
+            "bit_equal": true,
+            "max_abs": 0.0
+          }
+        ]
+      },
+      "samples": [
+        {
+          "round": 0,
+          "variant": "pr_default",
+          "event_ms": 1.0474740028381349,
+          "wall_ms": 1.0710509959608316
+        },
+        {
+          "round": 0,
+          "variant": "block_1",
+          "event_ms": 1.2164939880371093,
+          "wall_ms": 1.2302710209041834
+        },
+        {
+          "round": 0,
+          "variant": "legacy",
+          "event_ms": 2.363676071166992,
+          "wall_ms": 2.377179032191634
+        },
+        {
+          "round": 0,
+          "variant": "block_4",
+          "event_ms": 0.9583660125732422,
+          "wall_ms": 0.9729000274091959
+        },
+        {
+          "round": 1,
+          "variant": "legacy",
+          "event_ms": 2.3610260009765627,
+          "wall_ms": 2.3753310088068247
+        },
+        {
+          "round": 1,
+          "variant": "block_4",
+          "event_ms": 0.9583860397338867,
+          "wall_ms": 0.9711770340800285
+        },
+        {
+          "round": 1,
+          "variant": "pr_default",
+          "event_ms": 1.0530920028686523,
+          "wall_ms": 1.0661350097507238
+        },
+        {
+          "round": 1,
+          "variant": "block_1",
+          "event_ms": 1.215921974182129,
+          "wall_ms": 1.2282980140298605
+        },
+        {
+          "round": 2,
+          "variant": "legacy",
+          "event_ms": 2.3586660385131837,
+          "wall_ms": 2.3715720046311617
+        },
+        {
+          "round": 2,
+          "variant": "block_4",
+          "event_ms": 0.961001968383789,
+          "wall_ms": 0.974379014223814
+        },
+        {
+          "round": 2,
+          "variant": "pr_default",
+          "event_ms": 1.0562020301818849,
+          "wall_ms": 1.0697970166802406
+        },
+        {
+          "round": 2,
+          "variant": "block_1",
+          "event_ms": 1.2149880409240723,
+          "wall_ms": 1.2274229899048805
+        },
+        {
+          "round": 3,
+          "variant": "block_4",
+          "event_ms": 0.9575799942016602,
+          "wall_ms": 0.9710200130939484
+        },
+        {
+          "round": 3,
+          "variant": "legacy",
+          "event_ms": 2.3612220764160154,
+          "wall_ms": 2.374288998544216
+        },
+        {
+          "round": 3,
+          "variant": "pr_default",
+          "event_ms": 1.0538700103759766,
+          "wall_ms": 1.0670450050383806
+        },
+        {
+          "round": 3,
+          "variant": "block_1",
+          "event_ms": 1.2156740188598634,
+          "wall_ms": 1.2282120063900948
+        },
+        {
+          "round": 4,
+          "variant": "pr_default",
+          "event_ms": 1.0534680366516114,
+          "wall_ms": 1.0662190150469542
+        },
+        {
+          "round": 4,
+          "variant": "block_1",
+          "event_ms": 1.2161979675292969,
+          "wall_ms": 1.2291749939322472
+        },
+        {
+          "round": 4,
+          "variant": "legacy",
+          "event_ms": 2.3602020263671877,
+          "wall_ms": 2.3732480127364397
+        },
+        {
+          "round": 4,
+          "variant": "block_4",
+          "event_ms": 0.9603500366210938,
+          "wall_ms": 0.9724909905344248
+        },
+        {
+          "round": 5,
+          "variant": "block_4",
+          "event_ms": 0.9612839698791504,
+          "wall_ms": 0.9733899962157011
+        },
+        {
+          "round": 5,
+          "variant": "block_1",
+          "event_ms": 1.2161680221557618,
+          "wall_ms": 1.2290569953620434
+        },
+        {
+          "round": 5,
+          "variant": "pr_default",
+          "event_ms": 1.0568260192871093,
+          "wall_ms": 1.0691270232200623
+        },
+        {
+          "round": 5,
+          "variant": "legacy",
+          "event_ms": 2.358958053588867,
+          "wall_ms": 2.3719320073723793
+        },
+        {
+          "round": 6,
+          "variant": "legacy",
+          "event_ms": 2.3585140228271486,
+          "wall_ms": 2.3718370124697685
+        },
+        {
+          "round": 6,
+          "variant": "block_1",
+          "event_ms": 1.2175060272216798,
+          "wall_ms": 1.230139983817935
+        },
+        {
+          "round": 6,
+          "variant": "block_4",
+          "event_ms": 0.9580780029296875,
+          "wall_ms": 0.9715000167489052
+        },
+        {
+          "round": 6,
+          "variant": "pr_default",
+          "event_ms": 1.0542920112609864,
+          "wall_ms": 1.0668879840523005
+        },
+        {
+          "round": 7,
+          "variant": "block_4",
+          "event_ms": 0.9596819877624512,
+          "wall_ms": 0.9726990014314651
+        },
+        {
+          "round": 7,
+          "variant": "block_1",
+          "event_ms": 1.2155420303344726,
+          "wall_ms": 1.228326978161931
+        },
+        {
+          "round": 7,
+          "variant": "pr_default",
+          "event_ms": 1.0526000022888184,
+          "wall_ms": 1.0650340002030134
+        },
+        {
+          "round": 7,
+          "variant": "legacy",
+          "event_ms": 2.3602359771728514,
+          "wall_ms": 2.3733689915388823
+        }
+      ],
+      "medians": {
+        "legacy": {
+          "event_ms": 2.3602190017700195,
+          "wall_ms": 2.373308502137661
+        },
+        "pr_default": {
+          "event_ms": 1.053669023513794,
+          "wall_ms": 1.0669664945453405
+        },
+        "block_1": {
+          "event_ms": 1.2160449981689454,
+          "wall_ms": 1.2286919867619872
+        },
+        "block_4": {
+          "event_ms": 0.959034013748169,
+          "wall_ms": 0.972594995982945
+        }
+      }
+    }
+  ],
+  "profile_dir": "/root/vllm_project/results/gdn_dispatch_20261015/profile",
+  "status": "complete"
+}

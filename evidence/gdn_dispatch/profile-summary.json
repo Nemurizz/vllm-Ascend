@@ -1,0 +1,24 @@
+{
+  "T": 2048,
+  "calls_per_variant": 3,
+  "grouping": "sequential record_function groups, synchronized between variants; 21 legacy + 9 fused tasks verified",
+  "variants": {
+    "legacy": {
+      "tasks": 21,
+      "kernel_sum_us": 305.167
+    },
+    "pr_default": {
+      "tasks": 3,
+      "kernel_sum_us": 104.923
+    },
+    "block_1": {
+      "tasks": 3,
+      "kernel_sum_us": 142.043
+    },
+    "block_4": {
+      "tasks": 3,
+      "kernel_sum_us": 116.32299999999998
+    }
+  },
+  "msprof_export_rc": 0
+}
