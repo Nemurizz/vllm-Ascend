@@ -7,7 +7,7 @@
 完成一个实机 Bug 修复复现和一个有明确适用区间的性能复现。**不作为原创 GDN 算法或“社区没有想到”的优化。**
 
 1. **等长 WY 索引 Bug：** 未修改的 0.26 kernel 在 `cu_seqlens=None` 时不能编译；批次索引和转置后 gate/beta 的批次偏移也有错误。按社区 [#14333](https://github.com/vllm-project/vllm-ascend/pull/14333) 回移后，独立矩阵参考的 24 个 shape/dtype 用例通过。实际 Qwen3.5 模型走 packed 路径，所以不能将此 Bug 修复说成模型吞吐收益来源。
-2. **GDN 布局优化：** 复现 [#16538](https://github.com/vllm-project/vllm-ascend/pull/16538) 及重叠的 [#16524](https://github.com/vllm-project/vllm-ascend/pull/16524)，由 Triton WY 直接产生 AscendC 消费的 head-first `w/u`，并跳过不会返回的 `h/v_new` 布局转换。32K 单层流水线 event 测量跨度从 22.058 ms 降至 19.693 ms，耗时降低 10.73%（速率提升 12.01%）。8K 模型 prefill 的多组独立环境内 A/B 吞吐收益约 **3.3%–4.0%**。
+2. **GDN 布局优化：** 复现 [#16538](https://github.com/vllm-project/vllm-ascend/pull/16538) 及重叠的 [#16524](https://github.com/vllm-project/vllm-ascend/pull/16524)，由 Triton WY 直接产生 AscendC 消费的 head-first `w/u`，并跳过不会返回的 `h/v_new` 布局转换。32K 单层流水线 event 测量跨度从 22.058 ms 降至 19.693 ms，耗时降低 10.73%（速率提升 12.01%）。8K 模型 prefill 的多组独立环境内 A/B 吞吐收益约 **3.2%–4.0%**。
 3. **适用范围有限：** 2K 短请求没有稳定收益，其中一轮固定 batch 对照回退 4.66%；长 decode 没有稳定收益。没有将补丁替换为默认生产实现。默认异步图模式的生成结果存在基线自身波动，不能据此声称已修复图模式精度问题。
 
 代码：修复 `71d87b70a81e4d6ab492907936cf34dead2f4f6c`；性能 `140d8dfe4a59930f3f41d05574e198419e0f4807`。补丁、增量 bundle、原始结果与恢复命令见 [复现说明](../docs/gdn_operator_reproduction.md)。

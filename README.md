@@ -4,7 +4,7 @@
 
 ## 当前固定证据
 
-- 2026-10-15 算子阶段：新增 [GDN 报告 10](reports/10_gdn_operator_optimization.md) 与 [复现/迁移说明](docs/gdn_operator_reproduction.md)。已独立复现社区 WY 索引修复和 GDN 布局优化；8K prefill 在匹配 0.26 栈约有 3.3%–4.0% 的吞吐收益，短输入/长 decode 未获稳定收益。默认异步 graph 的生成波动另做 stock 控制保留，不宣传为已修复。两个源码 commit、补丁与 Git bundle 分开归档。
+- 2026-10-15 算子阶段：新增 [GDN 报告 10](reports/10_gdn_operator_optimization.md) 与 [复现/迁移说明](docs/gdn_operator_reproduction.md)。已独立复现社区 WY 索引修复和 GDN 布局优化；8K prefill 在匹配 0.26 栈约有 3.2%–4.0% 的吞吐收益，短输入/长 decode 未获稳定收益。默认异步 graph 的生成波动另做 stock 控制保留，不宣传为已修复。两个源码 commit、补丁与 Git bundle 分开归档。
 
 - 2026-10-15：原 0.22.1 环境没有 #16637 的动态配置特性；当前 Qwen3 的 4 MiB mask 没有 #15920 的原始平方增长路径。另建 0.26/CANN9.1 环境完成四组 A/B、交错验证和 32K/98K profile；两个历史候选都不作为已验证修复。见 [`报告 09`](reports/09_current_environment_and_026_ab.md) 和 [`0.26 恢复说明`](docs/stack026_reproduction.md)。
 
