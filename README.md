@@ -1,6 +1,12 @@
 # vLLM-Ascend 910B 推理优化调查仓库
 
-这个仓库保存 910B 单卡 vLLM-Ascend 项目的源码调查、可复现实验脚本、基线结果、Profiler 摘要和迁移配置。当前内容对应第一阶段和 ACLGraph/Runtime 后续调查；还没有把任何未经验证的上游修改当作最终优化方案。
+这个仓库保存 910B 单卡 vLLM-Ascend 项目的源码调查、可复现实验脚本、基线结果、Profiler 摘要和迁移配置。已完成兼容性调查、Graph/Runtime 探索、GDN 社区方案回移与布局验证，并做了融合 prepare 的组件筛选；各项结果均注明适用范围和未完成部分。
+
+## 从这里开始阅读
+
+**[完整技术复盘：背景、技术栈、原理与问题解决全过程](docs/technical_walkthrough.md)**。从选题和真实源码调用链讲起，解释 WY 索引 Bug、布局搬运、prepare 融合与长度分区，串起社区核查、最小复现、修改、数学参考、NPU profiler、模型 A/B、失败止损和换实例恢复。
+
+按结果或复现目标查找资料，可看 [文档导航](docs/README.md)。当前已经验证的模型收益来自 GDN 布局复现；prepare/tiling 仍是组件筛选，两者的模型级组合尚未验证。
 
 ## 当前固定证据
 
@@ -10,8 +16,8 @@
 
 - 2026-10-15：原 0.22.1 环境没有 #16637 的动态配置特性；当前 Qwen3 的 4 MiB mask 没有 #15920 的原始平方增长路径。另建 0.26/CANN9.1 环境完成四组 A/B、交错验证和 32K/98K profile；两个历史候选都不作为已验证修复。见 [`报告 09`](reports/09_current_environment_and_026_ab.md) 和 [`0.26 恢复说明`](docs/stack026_reproduction.md)。
 
-- 远端验证栈：Python 3.11.15、CANN 9.0.0、torch 2.10.0+cpu、torch-npu 2.10.0、vLLM 0.22.1、vLLM-Ascend 0.22.1rc1、Triton Ascend 3.2.1。
-- 模型：Qwen3-8B，revision `b968826d9c46dd6066d109eabc6255188de91218`。权重不进入 Git，需要在新实例重新下载。
+- 保留的初始 0.22 基线栈：Python 3.11.15、CANN 9.0.0、torch 2.10.0+cpu、torch-npu 2.10.0、vLLM 0.22.1、vLLM-Ascend 0.22.1rc1、Triton Ascend 3.2.1。GDN 实验使用独立 0.26/CANN 9.1 栈，详见技术复盘的版本表。
+- 初始基线模型：Qwen3-8B，revision `b968826d9c46dd6066d109eabc6255188de91218`；GDN 阶段使用 Qwen3.5-4B。权重不进入 Git，需要在新实例重新下载。
 - ACLGraph off-stride 现象在旧栈上已复现，但对应上游 Issue #16049 已由 PR #16970 合并修复；仓库中的 patch 仅用于旧版本回归验证。
 - 5 请求 graph bucket A/B 观察到 `5 -> 8` padding，但增加精确 bucket 后 E2E P50 只改善约 0.63%，低于项目门槛。
 - 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
