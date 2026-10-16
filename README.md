@@ -1,78 +1,101 @@
-# vLLM-Ascend 910B 推理优化调查仓库
+# Ascend 910B2 单卡推理优化：GDN 问题定位与性能验证
 
-这个仓库保存 910B 单卡 vLLM-Ascend 项目的源码调查、可复现实验脚本、基线结果、Profiler 摘要和迁移配置。已完成兼容性调查、Graph/Runtime 探索、GDN 社区方案回移与布局验证，并做了融合 prepare 的组件筛选；各项结果均注明适用范围和未完成部分。
+在 **Ascend 910B2 64GB + vLLM / vLLM-Ascend** 上，从源码和社区问题出发，完成最小复现、补丁移植、正确性回归、NPU profiling 与模型 A/B。本仓库保存研究代码、原始结果和恢复资料。
 
-## 从这里开始阅读
+**已验证的主要结果：Qwen3.5-4B 的 8K prefill 吞吐提升约 3.2%–4.0%；32K 单层 GDN 流水线耗时降低 10.73%；另复现并修复 WY 等长路径的编译/索引错误。** 收益限于下述环境与负载，短请求和长 decode 的回退同样保留。
 
-**[完整技术复盘：背景、技术栈、原理与问题解决全过程](docs/technical_walkthrough.md)**。从选题和真实源码调用链讲起，解释 WY 索引 Bug、布局搬运、prepare 融合与长度分区，串起社区核查、最小复现、修改、数学参考、NPU profiler、模型 A/B、失败止损和换实例恢复。
+> 完整研究内容位于 [`research/gdn-prepare-shapes`](https://github.com/Nemurizz/vllm-Ascend/tree/research/gdn-prepare-shapes)。默认 `main` 的 README 同步展示结果；复现实验请克隆研究分支。实验与社区核查截至 **2026-10-15**。
 
-按结果或复现目标查找资料，可看 [文档导航](docs/README.md)。当前已经验证的模型收益来自 GDN 布局复现；prepare/tiling 仍是组件筛选，两者的模型级组合尚未验证。
+## 问题背景
 
-**旧实例销毁后继续：** 阅读 [新空实例续做手册](docs/resume_on_new_instance.md) 和 [固定版本清单](configs/resume026-manifest.json)。代码/主要结果在本分支；额外原始采集已存本地 `D:\AI_Inference_Project\vllm_ascend_preservation_20261015`，见 [持久化审计](evidence/preservation_20261015/summary.json)。模型和 SDK 按固定版本重新下载，无需保留旧实例。
+项目最初以 Qwen3-8B 调查动态 batch、AclGraph padding 和 Runtime 开销。实测中，精确 graph bucket 的 E2E P50 只改善约 0.63%；PA workspace cache 已有社区实现；去除 replay 前同步的尝试发生超时，因此没有继续扩大这些改动。过程与负向结果保留在[阶段报告](https://github.com/Nemurizz/vllm-Ascend/tree/research/gdn-prepare-shapes/reports)。
 
-## 当前固定证据
+随后针对 Qwen3.5-4B 的 GDN（Gated DeltaNet）路径，定位到三类可独立验证的问题：
 
-- 2026-10-15 分区执行：新增 [GDN 报告 11](reports/11_gdn_length_specialization.md) 与 [prepare 恢复说明](docs/gdn_prepare_reproduction.md)。复现未合并的 #17604 并完成长度/tiling/graph 组件筛选；长输入 eager 的 BLOCK_T=4 相对 PR 默认局部耗时低约 6%–9%，尚无这项组合的整模型收益。另查明最新主线已合并 #18723、改变 QKV 输入布局，不能将 0.26 的节省宣称为最新主线仍有相同问题。
+| 问题 | 源码/实测现象 | 处理方式 |
+| --- | --- | --- |
+| WY 等长路径正确性 | `cu_seqlens=None` 时触发 Triton 编译错误，且批次/head 地址偏移有误；24 个 shape/dtype 对照中 6 个等长用例失败 | 将等长索引修复独立提交，保留失败用例和 CPU 数学参考 |
+| GDN 布局搬运冗余 | WY 产生的 w/u 需要转换为 AscendC 消费的 head-first 布局；部分不会返回的 h/v_new 仍执行转换 | WY 直接输出目标布局，按返回契约跳过无用转换；保留 PCP guard |
+| prepare 发射与 tiling | 旧准备链分别完成 QKV 拆分、归一化和 gating；融合后不同 T、eager/graph 的最优配置仍有差别 | 复现融合 prepare，筛选有限个 BLOCK_T 配置并单独测试 graph 输入更新 |
 
-- 2026-10-15 算子阶段：新增 [GDN 报告 10](reports/10_gdn_operator_optimization.md) 与 [复现/迁移说明](docs/gdn_operator_reproduction.md)。已独立复现社区 WY 索引修复和 GDN 布局优化；8K prefill 在匹配 0.26 栈约有 3.2%–4.0% 的吞吐收益，短输入/长 decode 未获稳定收益。默认异步 graph 的生成波动另做 stock 控制保留，不宣传为已修复。两个源码 commit、补丁与 Git bundle 分开归档。
+上述修复/融合主要来自社区 [#14333](https://github.com/vllm-project/vllm-ascend/pull/14333)、[#16538](https://github.com/vllm-project/vllm-ascend/pull/16538)、[#16524](https://github.com/vllm-project/vllm-ascend/pull/16524)、[#17604](https://github.com/vllm-project/vllm-ascend/pull/17604)。本项目的工作是匹配旧栈移植、组合兼容、独立验证、消融与归档；没有将社区方案称为原创算法。
 
-- 2026-10-15：原 0.22.1 环境没有 #16637 的动态配置特性；当前 Qwen3 的 4 MiB mask 没有 #15920 的原始平方增长路径。另建 0.26/CANN9.1 环境完成四组 A/B、交错验证和 32K/98K profile；两个历史候选都不作为已验证修复。见 [`报告 09`](reports/09_current_environment_and_026_ab.md) 和 [`0.26 恢复说明`](docs/stack026_reproduction.md)。
+## 验证结果
 
-- 保留的初始 0.22 基线栈：Python 3.11.15、CANN 9.0.0、torch 2.10.0+cpu、torch-npu 2.10.0、vLLM 0.22.1、vLLM-Ascend 0.22.1rc1、Triton Ascend 3.2.1。GDN 实验使用独立 0.26/CANN 9.1 栈，详见技术复盘的版本表。
-- 初始基线模型：Qwen3-8B，revision `b968826d9c46dd6066d109eabc6255188de91218`；GDN 阶段使用 Qwen3.5-4B。权重不进入 Git，需要在新实例重新下载。
-- ACLGraph off-stride 现象在旧栈上已复现，但对应上游 Issue #16049 已由 PR #16970 合并修复；仓库中的 patch 仅用于旧版本回归验证。
-- 5 请求 graph bucket A/B 观察到 `5 -> 8` padding，但增加精确 bucket 后 E2E P50 只改善约 0.63%，低于项目门槛。
-- 既有 msprof 轨迹中 `aclrtSynchronizeStreamWithTimeout` 累计约 544 ms，下一步应先做 marker 控制实验，再决定是否碰 replay 同步屏障。
-- PA workspace cache 已确认不是社区空白：对应上游 [PR #15579](https://github.com/vllm-project/vllm-ascend/pull/15579) 已合并；本仓库的 0.22.1rc1 patch 只保留为 910B2 回移和独立复现实验证据。
-- Issue #16637 的候选 padding 改动保存在 vLLM `f9de447` 和 vLLM-Ascend `b7a7f5e`。2026-10-15 发现官方 V1 动态 SD 配置强制 PIECEWISE，候选 scheduler patch 不能单独恢复 FULL；CPU 测试仅证明所写 padding 期望，不能称为完成端到端 Bug 修复。
-- Issue #15920 的历史 profile shape 策略实验分别保存在 vLLM `b9f0001` 和 vLLM-Ascend `dad2ab9`。2026-10-15 复核发现 profile 跳过 attention，不能将这两个提交称为原始 OOM 的已验证修复；详见报告 07 的更正。
+### 1. 模型吞吐：8K prefill 达到 3% 目标，也保留回退点
 
-## 目录
+模型为 **Qwen3.5-4B BF16，单卡 TP=PCP=1，纯文本，无量化/MTP**。每个配置内预热后按 `A B B A B A A B` 交错测量，每臂四次；下表为相同负载下 token/s 中位数之比，正值表示吞吐提升。A 为未修改 stock，B 为 GDN 布局优化。
 
-- `reports/`：阶段报告和止损结论。
-- `scripts/`：环境检查、模型下载、benchmark、Graph 和 scheduler 探针。
-- `workloads/`：固定请求 workload。
-- `configs/`：新实例的路径和版本模板，不包含凭据。
-- `evidence/`：小型原始结果、Profiler API 摘要、关键数据库和源码快照。
-- `patches/`：旧 v0.22.1 配置回移 patch 和源码摘录。
-- `docs/`：迁移、恢复和实验运行说明。
-- `code/`：两个 upstream checkout 的增量 Git bundle、完整 commit SHA 和校验值。
+| 输入 token / 并发 / 每请求输出 token | Eager / 默认异步 | FULL_DECODE_ONLY / 默认异步 | FULL_DECODE_ONLY / 固定批次同步 |
+| --- | ---: | ---: | ---: |
+| 2K / 1 / 1 | +1.83% | +2.81% | **−4.66%** |
+| **8K / 1 / 1** | **+3.99%** | **+3.56%** | **+3.32%** |
+| 32K / 1 / 1 | +2.85% | +3.11% | +2.93% |
+| **8K / 4 / 1** | **+3.21%** | **+3.46%** | **+3.43%** |
+| 2K / 4 / 128 | +0.34% | **−2.35%** | **−0.76%** |
 
-## 新实例恢复
+输出 1 token 的负载用于 prefill/首 token 研究，不代表一般 decode 吞吐。固定批次组仅在自身配置内做 A/B；其 8K、并发 1/4 的 TTFT 分别降低 **3.23% / 3.35%**。Graph 配置为 `FULL_DECODE_ONLY`，不能把这些结果解释为 prefill 命中完整大图的收益。每臂四次是有限样本，未完成 P99/SLA 或长期稳定性验收。
 
-1. 克隆仓库并切换到目标提交：
+数据：[模型 A/B 原始汇总](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/evidence/gdn_operator/summary.json) · [报告 10：配置、全部结果与限制](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/reports/10_gdn_operator_optimization.md)
 
-   ```bash
-   git clone https://github.com/Nemurizz/vllm-Ascend.git
-   cd vllm-Ascend
-   git fetch --all --tags
-   git checkout research/runtime-atb
-   ```
+### 2. 为什么有效：减少布局复制，数学计算基本不变
 
-2. 复制配置模板：
+32K、BF16、H=32/Hg=16、Dk=Dv=128 的单层 GDN 完整流水线，NPU event span 从 **22.058 ms → 19.693 ms，耗时降低 10.73%**。六轮交错测量，每轮三次，排除首次编译；event span 包含 host 发射间隙，区别于纯设备 kernel duration。
 
-   ```bash
-   cp configs/remote.env.example configs/remote.env
-   ${EDITOR:-vi} configs/remote.env
-   source configs/remote.env
-   ```
+`torch_npu.profiler` 与 `msprof` 原生导出提供了对应证据：
 
-3. 在新容器中准备 CANN、torch-npu 和 Python 环境，然后执行：
+| 32K 流水线设备指标（三次调用合计） | Stock | 布局优化 |
+| --- | ---: | ---: |
+| kernel task 数 | 72 | 60 |
+| transpose 数 | 36 | 24 |
+| transpose 累计耗时 | 10.055 ms | 3.110 ms |
+| WY kernel 累计耗时 | 17.132 ms | 17.157 ms |
 
-   ```bash
-   bash scripts/check_stack.sh
-   bash scripts/download_model.sh
-   ```
+每次 GDN 调用减少四次 transpose，WY 计算耗时基本不变。独立的 8K 模型 profile 中，24 个 GDN 层共少 **96 次 transpose（528 → 432）**，验证改动确实进入模型路径。Profiler 运行与吞吐 A/B 分开，不将带采集扰动的时间算作吞吐样本。
 
-4. 运行基线或 Graph 实验前，先检查 `MODEL_DIR`、`PROJECT_ROOT`、`RESULTS_ROOT` 和 `VLLM_ENV_ROOT`。模型权重、pip 缓存、Profiler 大文件都放在配置指定的数据盘/系统盘目录，不写入 Git。
+证据：[设备采集摘要](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/evidence/gdn_operator/profile-summary.json) · [流水线消融](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/evidence/gdn_operator/gdn-pipeline.json)
 
-完整恢复步骤见 [`docs/recovery.md`](docs/recovery.md)。
+### 3. 正确性与 prepare 筛选
 
-源码提交可以用 `python scripts/restore_sources.py --destination "$HOME/vllm_project/src/issue_checkouts" --issue 16637` 恢复。2026-10-14 又归档了 55 个原始 benchmark/日志文件，以及 Runtime Graph/Eager 两套完整的 `trace_view.json` 和 CSV 导出，见 `evidence/migration_20261014/`。用 `python scripts/restore_evidence.py --destination "$HOME/vllm_project/recovered_20261014"` 恢复小型记录；加 `--include-profiler` 恢复时间线。压缩归档约 158 MiB，全部解压约 2.2 GiB。
+- **WY Bug：** stock 为 18/24 用例通过、6 个等长失败；修复及 head-first 版本均为 **24/24 通过**。独立恢复源码后的 NPU pytest 另有 **12 个参数化用例通过**。模型走 packed 路径，因此这个等长 Bug 修复不是模型提速的来源。
+- **GDN 数值/返回契约：** 对照独立 CPU FP32 递推参考，输出和最终 state 检查通过；大 shape 消融逐元素一致，`SUPPRESS_LEVEL=0/3` 返回契约通过。单卡验证不代表 PCP 多卡已验收。
+- **生成检查：** eager 和固定批次 graph 各 88 个请求，A/B token 一致。默认异步 graph 观察到输出分叉，未修改 stock 的独立对照也生成相同分叉输出；原因尚未确定，保留为限制。
+- **融合 prepare：** 2K profile 的每次调用设备任务 **7 → 1**。三次独立进程中，`BLOCK_T=4` 相对 PR 默认配置，8K eager 组件耗时降低 **6.24%–8.43%**，32K 降低 **8.98%–9.45%**；46 组 CPU 参考检查通过，graph 原地更新输入后重放检查通过。
+- **尚未完成：** prepare 与布局优化的四臂整模型组合实验、生产分派阈值、所有长度收益验证。**prepare 的局部百分比不能与模型收益相加。** T=1 的 graph prepare 未获得稳定 3% 收益，8K 的 eager/graph 最优 tiling 也不同。
 
-研究分支中的提交顺序保留了可审计的独立变更：`f65b351` 对应 #16637 报告，`21e2283` 对应 #15920 报告。两个源码 checkout 的实现分支和固定提交记录在 `evidence/issue_16637_regression.json`、`evidence/issue_15920_regression.json` 以及 `evidence/source_pins.json`；vLLM 主仓库的改动通过 `patches/` 迁移，不把两个上游仓库混成一个 Git 历史。
+详见 [正确性原始记录](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/evidence/gdn_operator/wy-layout-correctness.json)、[报告 11：prepare 与长度分区](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/reports/11_gdn_length_specialization.md)。这些结果未被替换为默认生产实现，也未证明优于最新主线；核查时主线已合并的 #18723 改变了输入布局，需要重新适配与建立基线。
 
-## 安全边界
+## 实验环境与技术栈
 
-仓库不保存 GitHub token、SSH 密码、私钥、远端登录地址或带凭据的 manifest。远端实验结果中的绝对路径是历史证据；新实例使用 `configs/remote.env` 覆盖这些路径。本次关键 Profiler 时间线已经压缩归档并完成凭据扫描；后续大文件可放在外部对象存储或按需重新采集。
+| 层次 | GDN 阶段的固定配置 |
+| --- | --- |
+| 硬件 / 系统 | 单张 Ascend 910B2 64GB，aarch64 / openEuler |
+| 模型 | Qwen3.5-4B，BF16，纯文本；权重逐文件 revision/SHA256 固定 |
+| 引擎 | vLLM 0.26.0 `568afb3`；vLLM-Ascend 0.26.0rc1 `f2f74a1` |
+| 算子与运行时 | CANN / 910B ops / ATB 9.1.0；Triton Ascend 3.2.2；复用现有 AscendC H/O kernel |
+| Python 栈 | Python 3.11.15；torch 2.10.0+cpu；torch-npu 2.10.0.post4；Transformers 5.14.1；NumPy 1.26.4 |
+| 性能与回归工具 | NPU events、torch_npu.profiler、msprof、CPU 数学参考、pytest、交错 A/B 与消融、Git bundle/SHA256 恢复校验 |
 
+技术涉及 Triton 指针/布局与 launch grid、AscendC 接口对接、vLLM worker RPC 与固定批次控制、eager/NPUGraph、CPU/NPU 时间线和数据持久化。没有重写 ATB 或完整 Attention/GDN 算子。早期 Qwen3-8B / 0.22 / CANN 9.0 的实验独立保存，不混入上述结果。
+
+固定版本和完整 SHA 见[恢复 manifest](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/configs/resume026-manifest.json)。已验证的是离线文本引擎；原环境存在 pip metadata 约束冲突，完整空镜像一键安装及 API 前端/多模态尚未验收。
+
+## 代码、复盘与新实例恢复
+
+| 需要查看的内容 | 入口 |
+| --- | --- |
+| 从发现问题到验证结果的完整过程 | [技术复盘：背景、原理、调用链、实施和止损](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/docs/technical_walkthrough.md) |
+| WY Bug 与布局修改、独立提交/补丁/源码 bundle | [布局复现说明](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/docs/gdn_operator_reproduction.md) · [代码索引](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/code/README.md) |
+| 融合 prepare、tiling 与 graph 实验 | [prepare 复现说明](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/docs/gdn_prepare_reproduction.md) |
+| 空实例安装、国内源、模型下载、校验与续做 | [新实例续做手册](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/docs/resume_on_new_instance.md) |
+| 所有阶段报告、脚本与历史失败实验 | [文档导航](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/docs/README.md) |
+
+```bash
+git clone --branch research/gdn-prepare-shapes https://github.com/Nemurizz/vllm-Ascend.git
+cd vllm-Ascend
+# 按 docs/resume_on_new_instance.md 验收环境、下载固定版本依赖和模型，再恢复实验。
+```
+
+代码、主要结果、配置和选定 profiler 导出已保存在 Git。额外原始 PROF/FRAMEWORK 采集位于本地 `D:\AI_Inference_Project\vllm_ascend_preservation_20261015`，3360 个归档成员已完成哈希验收，见[持久化审计](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/evidence/preservation_20261015/summary.json)。模型重新下载到数据盘，缓存、结果和采集放系统盘；正常新实验无需先恢复本地历史大包。
+
+继续点：先验证新实例与已有基线，再评估 baseline / 仅布局 / 仅 prepare / 组合四臂模型 A/B。#16637/#15920 的历史候选未被确认为已验证修复，不默认启用，原因见[报告 09](https://github.com/Nemurizz/vllm-Ascend/blob/research/gdn-prepare-shapes/reports/09_current_environment_and_026_ab.md)。
